@@ -1,0 +1,310 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Brand Colors */
+  --brand-red: #C1272D;
+  --brand-teal: #48B2A9;
+  --brand-gold: #E8AB36;
+  --brand-grey: #7E8083;
+  --brand-dark: #1A1A1A;
+  --brand-bg: #EBF3F5;
+
+  /* Playful accent palette */
+  --brand-peach: #FDDCB5;
+  --brand-mint: #C8F0EC;
+  --brand-lavender: #E8E0F0;
+
+  --font-size: 16px;
+  --background: #EBF3F5;
+  --foreground: #1A1A1A;
+  
+  --card: #ffffff;
+  --card-foreground: #1A1A1A;
+  
+  --popover: #ffffff;
+  --popover-foreground: #1A1A1A;
+  
+  --primary: #C1272D;
+  --primary-foreground: #ffffff;
+  
+  --secondary: #48B2A9;
+  --secondary-foreground: #ffffff;
+  
+  --muted: #EBF3F5;
+  --muted-foreground: #7E8083;
+  
+  --accent: #E8AB36;
+  --accent-foreground: #1A1A1A;
+  
+  --destructive: #C1272D;
+  --destructive-foreground: #ffffff;
+  
+  --border: rgba(26, 26, 26, 0.08);
+  --input: transparent;
+  --input-background: #ffffff;
+  --switch-background: #cbced4;
+  
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  
+  --ring: #C1272D;
+  
+  /* Chart colors mapped to brand */
+  --chart-1: #C1272D;
+  --chart-2: #48B2A9;
+  --chart-3: #E8AB36;
+  --chart-4: #1A1A1A;
+  --chart-5: #7E8083;
+  
+  --radius: 2rem; /* 32px to match design */
+  
+  --sidebar: #EBF3F5;
+  --sidebar-foreground: #1A1A1A;
+  --sidebar-primary: #C1272D;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #E8AB36;
+  --sidebar-accent-foreground: #1A1A1A;
+  --sidebar-border: rgba(26, 26, 26, 0.1);
+  --sidebar-ring: #C1272D;
+}
+
+.dark {
+  --background: #1A1A1A;
+  --foreground: #EBF3F5;
+  --card: #2C2C2C;
+  --card-foreground: #EBF3F5;
+  --popover: #2C2C2C;
+  --popover-foreground: #EBF3F5;
+  --primary: #C1272D;
+  --primary-foreground: #ffffff;
+  --secondary: #48B2A9;
+  --secondary-foreground: #ffffff;
+  --muted: #2C2C2C;
+  --muted-foreground: #7E8083;
+  --accent: #E8AB36;
+  --accent-foreground: #1A1A1A;
+  --destructive: #C1272D;
+  --destructive-foreground: #ffffff;
+  --border: #404040;
+  --input: #2C2C2C;
+  --ring: #C1272D;
+}
+
+@theme inline {
+  --font-sans: "Nunito", sans-serif;
+  --font-serif: "Fraunces", serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Premium playful animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+  --animate-bounce-soft: bounce-soft 2s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+  --animate-spin-slow: spin 12s linear infinite;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    font-size: var(--font-size);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  ::selection {
+    background: #E8AB36;
+    color: #1A1A1A;
+  }
+
+  h1 {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.15;
+  }
+
+  h3 {
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}
+
+/* Playful keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Premium utility classes */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-dark {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.shadow-playful {
+  box-shadow: 0 4px 14px -2px rgba(72, 178, 169, 0.15),
+              0 12px 40px -4px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-playful-hover {
+  box-shadow: 0 8px 30px -4px rgba(72, 178, 169, 0.25),
+              0 20px 60px -8px rgba(0, 0, 0, 0.12);
+}
+
+.shadow-warm {
+  box-shadow: 0 4px 14px -2px rgba(232, 171, 54, 0.2),
+              0 12px 40px -4px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-premium {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04),
+              0 4px 12px rgba(0,0,0,0.06),
+              0 24px 60px -12px rgba(0,0,0,0.1);
+}
+
+.gradient-text-teal {
+  background: linear-gradient(135deg, #48B2A9, #2D8A82);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-warm {
+  background: linear-gradient(135deg, #E8AB36, #C1272D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.playful-card {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease;
+}
+
+.playful-card:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+.playful-btn {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease,
+              background-color 0.3s ease,
+              color 0.3s ease;
+}
+
+.playful-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.playful-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Noise texture overlay */
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
