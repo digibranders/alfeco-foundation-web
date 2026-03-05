@@ -6,8 +6,8 @@ import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 import CountUp from 'react-countup';
 
 const HERO_IMG = "https://images.unsplash.com/photo-1591503049013-993ae5cf7e7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
-const FEEDING_IMG = "https://images.unsplash.com/photo-1683633273537-a24b72f21cf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
-const KITCHEN_IMG = "https://images.unsplash.com/photo-1588075592765-2feb7de1f86d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
+const FEEDING_IMG = "/IMG_3891.jpg";
+const KITCHEN_IMG = "/IMG_3902.jpg";
 const PARCELS_IMG = "https://images.unsplash.com/photo-1595589538352-f3b77350b84a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
 
 const CAROUSEL_IMAGES = [HERO_IMG, FEEDING_IMG, KITCHEN_IMG];
@@ -25,7 +25,7 @@ export function FoodSecurity() {
 
         {/* ── Food Security Hero ── */}
         <FadeIn className="text-center mb-12">
-          
+
           <h1 className="text-5xl md:text-7xl font-semibold text-white mb-2">
             Food Security
           </h1>
@@ -257,7 +257,7 @@ export function FoodSecurity() {
 
         {/* ── CTA ── */}
         <FadeIn>
-          
+
         </FadeIn>
 
       </div>

@@ -4,9 +4,8 @@ import { Link } from 'react-router';
 import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 import CountUp from 'react-countup';
-import heroImg from '@/assets/3d394769d76301d440d309ddfb97ecf17f64a5e0.png';
 
-const BLOCKS_IMG = "https://images.unsplash.com/photo-1768844871840-26f6ed6a8e39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
+const BLOCKS_IMG = "/bursary.png";
 const AWARD_IMG = "https://images.unsplash.com/photo-1746122097999-31518d837ca4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
 
 export function BursaryProgramme() {
