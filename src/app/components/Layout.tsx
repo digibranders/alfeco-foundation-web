@@ -59,7 +59,7 @@ export function Layout() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-[#EBF3F5] text-[#1A1A1A]">
+    <div className="min-h-screen flex flex-col font-sans bg-[#EBF3F5] text-[#1A1A1A] w-full overflow-x-hidden">
       {/* Header - Premium Glass */}
       <header className={clsx(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
@@ -199,80 +199,113 @@ export function Layout() {
         </div>
       </header>
 
-      {/* Mobile Nav - Outside header to avoid clipping */}
+      {/* Mobile Nav - Premium Full-Screen Overlay */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className={clsx(
-              "md:hidden bg-white fixed inset-0 z-[60] overflow-y-auto",
-              scrolled ? "top-20" : "top-24"
-            )}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="md:hidden fixed inset-0 z-[100] bg-[#EBF3F5] flex flex-col h-[100dvh] overflow-hidden"
           >
-            <nav className="flex flex-col p-8 pb-24 gap-5 items-center text-center">
-              {navLinks.filter(link => link.name !== 'Our Pillars').map((link, i) => (
+            {/* Menu Header */}
+            <div className="flex items-center justify-between px-6 h-24 border-b border-[#1A1A1A]/5">
+              <Link to="/" onClick={() => setIsMenuOpen(false)}>
+                <img src={logoImg} alt="Alfeco Foundation" className="h-10 w-auto object-contain" />
+              </Link>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="w-12 h-12 flex items-center justify-center rounded-xl border border-[#1A1A1A]/10 text-[#1A1A1A] hover:bg-white transition-colors"
+                aria-label="Close menu"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Menu Links */}
+            <div className="flex-grow flex flex-col items-center justify-center text-center px-8 py-4 overflow-hidden">
+              <div className="flex flex-col gap-4 mb-8">
+                {navLinks.filter(link => link.name !== 'Our Pillars' && link.name !== 'Home').map((link, i) => (
+                  <motion.div
+                    key={link.name}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.04 }}
+                  >
+                    <Link
+                      to={link.path}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="text-2xl sm:text-[28px] font-bold text-[#1A1A1A] hover:text-[#C1272D] transition-colors tracking-tight"
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
+                ))}
+                
                 <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.06, type: "spring", stiffness: 300, damping: 25 }}
+                  transition={{ delay: 0.2 }}
                 >
                   <Link
-                    to={link.path}
+                    to="/get-involved"
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-2xl font-bold text-[#1A1A1A] hover:text-[#C1272D] transition-colors"
+                    className="text-2xl sm:text-[28px] font-bold text-[#1A1A1A] hover:text-[#C1272D] transition-colors tracking-tight"
                   >
-                    {link.name}
+                    Get Involved
                   </Link>
                 </motion.div>
-              ))}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35, type: "spring", stiffness: 300, damping: 25 }}
-              >
-                <Link
-                  to="/get-involved"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-2xl font-bold text-[#1A1A1A] hover:text-[#C1272D] transition-colors"
-                >
-                  Get Involved
-                </Link>
-              </motion.div>
-
-              {/* Mobile Pillars Sub-links */}
-              <div className="w-full border-t border-[#1A1A1A]/10 pt-6 mt-2">
-                <p className="text-xs font-bold uppercase tracking-widest text-[#7E8083] mb-4">Our Pillars</p>
-                {pillarsSubmenu.map((subItem) => (
-                  <React.Fragment key={subItem.name}>
-                    <Link
-                      to={subItem.path}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block text-lg font-bold text-[#1A1A1A] hover:text-[#C1272D] py-2 transition-colors"
-                    >
-                      {subItem.name}
-                    </Link>
-                    {'subItems' in subItem && subItem.subItems?.map((nested) => (
-                      <Link
-                        key={nested.name}
-                        to={nested.path}
-                        onClick={() => setIsMenuOpen(false)}
-                        className="block text-sm font-bold text-[#7E8083] hover:text-[#C1272D] py-1.5 pl-4 transition-colors"
-                      >
-                        {nested.name}
-                      </Link>
-                    ))}
-                  </React.Fragment>
-                ))}
               </div>
 
-              <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="mt-8 px-10 py-4 bg-[#C1272D] text-white text-sm font-bold uppercase tracking-widest rounded-full playful-btn">
-                Donate
-              </Link>
-            </nav>
+              {/* Pillars Section */}
+              <div className="w-full max-w-sm space-y-4 pt-6 border-t border-[#1A1A1A]/5">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#7E8083] opacity-60">Our Pillars</p>
+                <div className="grid grid-cols-1 gap-4">
+                  {pillarsSubmenu.map((subItem, i) => (
+                    <motion.div
+                      key={subItem.name}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.3 + (i * 0.04) }}
+                      className="space-y-1"
+                    >
+                      <Link
+                        to={subItem.path}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="block text-lg font-bold text-[#1A1A1A] hover:text-[#C1272D] transition-colors leading-tight"
+                      >
+                        {subItem.name}
+                      </Link>
+                      {'subItems' in subItem && (
+                        <div className="flex flex-wrap justify-center gap-x-4 gap-y-1">
+                          {subItem.subItems?.map((nested) => (
+                            <Link
+                              key={nested.name}
+                              to={nested.path}
+                              onClick={() => setIsMenuOpen(false)}
+                              className="text-[11px] font-medium text-[#7E8083] hover:text-[#C1272D] transition-colors"
+                            >
+                              {nested.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Bottom Action */}
+              <div className="mt-8 w-full max-w-xs">
+                <Link
+                  to="/contact"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block w-full py-4 bg-[#C1272D] text-white text-xs font-bold uppercase tracking-widest rounded-full shadow-lg shadow-[#C1272D]/20 active:scale-95 transition-all text-center"
+                >
+                  Donate
+                </Link>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

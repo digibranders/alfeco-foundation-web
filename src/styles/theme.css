@@ -148,10 +148,13 @@
   html {
     font-size: var(--font-size);
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   ::selection {
