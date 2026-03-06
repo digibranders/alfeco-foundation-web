@@ -24,6 +24,17 @@ export function Layout() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
@@ -195,10 +206,13 @@ export function Layout() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="md:hidden bg-white/95 backdrop-blur-xl fixed inset-0 top-20 z-40 overflow-y-auto"
+              className={clsx(
+                "md:hidden bg-white/95 backdrop-blur-xl fixed inset-0 z-40 overflow-y-auto",
+                scrolled ? "top-20" : "top-24"
+              )}
             >
-              <nav className="flex flex-col p-8 gap-5 items-center text-center">
-                {navLinks.map((link, i) => (
+              <nav className="flex flex-col p-8 pb-24 gap-5 items-center text-center">
+                {navLinks.filter(link => link.name !== 'Our Pillars').map((link, i) => (
                   <motion.div
                     key={link.name}
                     initial={{ opacity: 0, y: 20 }}
