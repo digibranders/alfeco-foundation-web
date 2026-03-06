@@ -197,85 +197,85 @@ export function Layout() {
             </button>
           </div>
         </div>
+      </header>
 
-        {/* Mobile Nav */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className={clsx(
-                "md:hidden bg-white/95 backdrop-blur-xl fixed inset-0 z-40 overflow-y-auto",
-                scrolled ? "top-20" : "top-24"
-              )}
-            >
-              <nav className="flex flex-col p-8 pb-24 gap-5 items-center text-center">
-                {navLinks.filter(link => link.name !== 'Our Pillars').map((link, i) => (
-                  <motion.div
-                    key={link.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.06, type: "spring", stiffness: 300, damping: 25 }}
-                  >
-                    <Link
-                      to={link.path}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="text-2xl font-bold text-[#1A1A1A] hover:text-[#C1272D] transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                ))}
+      {/* Mobile Nav - Outside header to avoid clipping */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className={clsx(
+              "md:hidden bg-white fixed inset-0 z-[60] overflow-y-auto",
+              scrolled ? "top-20" : "top-24"
+            )}
+          >
+            <nav className="flex flex-col p-8 pb-24 gap-5 items-center text-center">
+              {navLinks.filter(link => link.name !== 'Our Pillars').map((link, i) => (
                 <motion.div
+                  key={link.name}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.35, type: "spring", stiffness: 300, damping: 25 }}
+                  transition={{ delay: i * 0.06, type: "spring", stiffness: 300, damping: 25 }}
                 >
                   <Link
-                    to="/get-involved"
+                    to={link.path}
                     onClick={() => setIsMenuOpen(false)}
                     className="text-2xl font-bold text-[#1A1A1A] hover:text-[#C1272D] transition-colors"
                   >
-                    Get Involved
+                    {link.name}
                   </Link>
                 </motion.div>
-
-                {/* Mobile Pillars Sub-links */}
-                <div className="w-full border-t border-[#1A1A1A]/10 pt-6 mt-2">
-                  <p className="text-xs font-bold uppercase tracking-widest text-[#7E8083] mb-4">Our Pillars</p>
-                  {pillarsSubmenu.map((subItem) => (
-                    <React.Fragment key={subItem.name}>
-                      <Link
-                        to={subItem.path}
-                        onClick={() => setIsMenuOpen(false)}
-                        className="block text-lg font-bold text-[#1A1A1A] hover:text-[#C1272D] py-2 transition-colors"
-                      >
-                        {subItem.name}
-                      </Link>
-                      {'subItems' in subItem && subItem.subItems?.map((nested) => (
-                        <Link
-                          key={nested.name}
-                          to={nested.path}
-                          onClick={() => setIsMenuOpen(false)}
-                          className="block text-sm font-bold text-[#7E8083] hover:text-[#C1272D] py-1.5 pl-4 transition-colors"
-                        >
-                          {nested.name}
-                        </Link>
-                      ))}
-                    </React.Fragment>
-                  ))}
-                </div>
-
-                <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="mt-8 px-10 py-4 bg-[#C1272D] text-white text-sm font-bold uppercase tracking-widest rounded-full playful-btn">
-                  Donate
+              ))}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35, type: "spring", stiffness: 300, damping: 25 }}
+              >
+                <Link
+                  to="/get-involved"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-2xl font-bold text-[#1A1A1A] hover:text-[#C1272D] transition-colors"
+                >
+                  Get Involved
                 </Link>
-              </nav>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </header>
+              </motion.div>
+
+              {/* Mobile Pillars Sub-links */}
+              <div className="w-full border-t border-[#1A1A1A]/10 pt-6 mt-2">
+                <p className="text-xs font-bold uppercase tracking-widest text-[#7E8083] mb-4">Our Pillars</p>
+                {pillarsSubmenu.map((subItem) => (
+                  <React.Fragment key={subItem.name}>
+                    <Link
+                      to={subItem.path}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="block text-lg font-bold text-[#1A1A1A] hover:text-[#C1272D] py-2 transition-colors"
+                    >
+                      {subItem.name}
+                    </Link>
+                    {'subItems' in subItem && subItem.subItems?.map((nested) => (
+                      <Link
+                        key={nested.name}
+                        to={nested.path}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="block text-sm font-bold text-[#7E8083] hover:text-[#C1272D] py-1.5 pl-4 transition-colors"
+                      >
+                        {nested.name}
+                      </Link>
+                    ))}
+                  </React.Fragment>
+                ))}
+              </div>
+
+              <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="mt-8 px-10 py-4 bg-[#C1272D] text-white text-sm font-bold uppercase tracking-widest rounded-full playful-btn">
+                Donate
+              </Link>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Main Content */}
       <main className="flex-grow pt-24">
