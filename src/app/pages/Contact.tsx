@@ -87,12 +87,29 @@ function FloatingStar({ className, delay = 0 }: { className: string; delay?: num
 export function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-    setFormData({ name: '', email: '', message: '' });
+    setSubmitting(true);
+    setError('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error('Failed to submit');
+      setSubmitted(true);
+      setFormData({ name: '', email: '', message: '' });
+    } catch {
+      setError('Something went wrong. Please try again or contact us directly.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -233,6 +250,12 @@ export function Contact() {
                     <a href="#" className="underline hover:text-[#E8AB36] transition-colors">Privacy Statement</a>.
                   </p>
 
+                  {error && (
+                    <div className="bg-[#C1272D]/10 text-[#C1272D] px-5 py-3 rounded-2xl text-sm font-medium">
+                      {error}
+                    </div>
+                  )}
+
                   <div>
                     {submitted ? (
                       <motion.div
@@ -245,9 +268,10 @@ export function Contact() {
                     ) : (
                       <button
                         type="submit"
-                        className="playful-btn inline-flex items-center gap-2 bg-[#C1272D] text-white font-bold py-4 px-10 rounded-full uppercase tracking-widest text-sm hover:shadow-lg"
+                        disabled={submitting}
+                        className="playful-btn inline-flex items-center gap-2 bg-[#C1272D] text-white font-bold py-4 px-10 rounded-full uppercase tracking-widest text-sm hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        <Send className="w-4 h-4" /> Submit
+                        <Send className="w-4 h-4" /> {submitting ? 'Sending...' : 'Submit'}
                       </button>
                     )}
                   </div>

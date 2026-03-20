@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>New Volunteer Application — Alfeco Foundation</title>
+  <title>New Contact Form Message — Alfeco Foundation</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet" />
 </head>
 <body style="margin: 0; padding: 0; background-color: #EBF3F5; font-family: 'Nunito', Arial, sans-serif; color: #1A1A1A;">
@@ -24,23 +24,22 @@
           <tr>
             <td style="background-color: #ffffff; padding: 44px 32px 40px;">
 
-              <!-- Greeting -->
               <h2 style="font-family: 'Fraunces', Georgia, serif; color: #1A1A1A; margin: 0 0 16px; font-size: 26px; font-weight: 700; line-height: 1.2;">
-                New Volunteer Application
+                New Contact Form Message
               </h2>
               <p style="color: #7E8083; line-height: 1.7; font-size: 16px; margin: 0 0 28px; font-weight: 500;">
-                A new volunteer application has been submitted via the website. Here are the details:
+                A new message has been submitted via the contact form on the website. Here are the details:
               </p>
 
-              <!-- Application Summary Card -->
+              <!-- Message Details Card -->
               <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #EBF3F5; border-radius: 24px; margin-bottom: 28px;">
                 <tr>
                   <td style="padding: 28px;">
-                    <h3 style="font-family: 'Fraunces', Georgia, serif; color: #48B2A9; margin: 0 0 20px; font-size: 18px; font-weight: 700;">Applicant Details</h3>
+                    <h3 style="font-family: 'Fraunces', Georgia, serif; color: #48B2A9; margin: 0 0 20px; font-size: 18px; font-weight: 700;">Message Details</h3>
                     <table width="100%" cellpadding="0" cellspacing="0">
                       <tr>
                         <td style="padding: 10px 0; color: #7E8083; font-size: 13px; font-weight: 700; width: 120px; vertical-align: top; text-transform: uppercase; letter-spacing: 0.5px;">Name</td>
-                        <td style="padding: 10px 0; color: #1A1A1A; font-size: 15px; font-weight: 600;">{{ params.FULL_NAME }}</td>
+                        <td style="padding: 10px 0; color: #1A1A1A; font-size: 15px; font-weight: 600;">{{ params.NAME }}</td>
                       </tr>
                       <tr>
                         <td colspan="2" style="border-bottom: 1px solid rgba(72,178,169,0.15);"></td>
@@ -53,45 +52,14 @@
                         <td colspan="2" style="border-bottom: 1px solid rgba(72,178,169,0.15);"></td>
                       </tr>
                       <tr>
-                        <td style="padding: 10px 0; color: #7E8083; font-size: 13px; font-weight: 700; vertical-align: top; text-transform: uppercase; letter-spacing: 0.5px;">Phone</td>
-                        <td style="padding: 10px 0; color: #1A1A1A; font-size: 15px; font-weight: 600;">{{ params.PHONE }}</td>
-                      </tr>
-                      <tr>
-                        <td colspan="2" style="border-bottom: 1px solid rgba(72,178,169,0.15);"></td>
-                      </tr>
-                      <tr>
-                        <td style="padding: 10px 0; color: #7E8083; font-size: 13px; font-weight: 700; vertical-align: top; text-transform: uppercase; letter-spacing: 0.5px;">Area</td>
-                        <td style="padding: 10px 0; color: #1A1A1A; font-size: 15px; font-weight: 600;">{{ params.AREA }}</td>
-                      </tr>
-                      <tr>
-                        <td colspan="2" style="border-bottom: 1px solid rgba(72,178,169,0.15);"></td>
-                      </tr>
-                      <tr>
-                        <td style="padding: 10px 0; color: #7E8083; font-size: 13px; font-weight: 700; vertical-align: top; text-transform: uppercase; letter-spacing: 0.5px;">Interests</td>
-                        <td style="padding: 10px 0; color: #1A1A1A; font-size: 15px; font-weight: 600;">{{ params.INTERESTS }}</td>
-                      </tr>
-                      <tr>
-                        <td colspan="2" style="border-bottom: 1px solid rgba(72,178,169,0.15);"></td>
-                      </tr>
-                      <tr>
-                        <td style="padding: 10px 0; color: #7E8083; font-size: 13px; font-weight: 700; vertical-align: top; text-transform: uppercase; letter-spacing: 0.5px;">Availability</td>
-                        <td style="padding: 10px 0; color: #1A1A1A; font-size: 15px; font-weight: 600;">{{ params.AVAILABILITY }}</td>
-                      </tr>
-                      {% if params.MESSAGE != '' %}
-                      <tr>
-                        <td colspan="2" style="border-bottom: 1px solid rgba(72,178,169,0.15);"></td>
-                      </tr>
-                      <tr>
                         <td style="padding: 10px 0; color: #7E8083; font-size: 13px; font-weight: 700; vertical-align: top; text-transform: uppercase; letter-spacing: 0.5px;">Message</td>
                         <td style="padding: 10px 0; color: #1A1A1A; font-size: 15px; font-weight: 600;">{{ params.MESSAGE }}</td>
                       </tr>
-                      {% endif %}
                     </table>
                   </td>
                 </tr>
               </table>
 
-              <!-- Note -->
               <p style="color: #7E8083; line-height: 1.7; font-size: 14px; margin: 0; font-weight: 500; font-style: italic;">
                 This is an automated notification from the Alfeco Foundation website.
               </p>

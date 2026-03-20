@@ -3,64 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thank You for Your Partnership Inquiry</title>
+  <title>Thank You for Your Partnership Inquiry — Alfeco Foundation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet" />
 </head>
-<body style="margin: 0; padding: 0; background-color: #EBF3F5; font-family: Arial, sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #EBF3F5; padding: 40px 0;">
+<body style="margin: 0; padding: 0; background-color: #EBF3F5; font-family: 'Nunito', Arial, sans-serif; color: #1A1A1A;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #EBF3F5; padding: 40px 16px;">
     <tr>
       <td align="center">
-        <table width="600" cellpadding="0" cellspacing="0" style="max-width: 600px; width: 100%; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
+        <table width="600" cellpadding="0" cellspacing="0" style="max-width: 600px; width: 100%; border-radius: 32px; overflow: hidden; box-shadow: 0 4px 14px -2px rgba(232,171,54,0.2), 0 12px 40px -4px rgba(0,0,0,0.06);">
 
           <!-- Header -->
           <tr>
-            <td style="background-color: #E8AB36; padding: 40px 30px; text-align: center;">
-              <h1 style="color: #1A1A1A; margin: 0; font-size: 28px; font-weight: 700; letter-spacing: 1px;">Alfeco Foundation</h1>
-              <p style="color: rgba(26,26,26,0.6); margin: 8px 0 0; font-size: 14px;">Corporate Partnerships</p>
+            <td style="background: linear-gradient(135deg, #E8AB36, #D4942A); padding: 48px 32px; text-align: center;">
+              <h1 style="font-family: 'Fraunces', Georgia, serif; color: #1A1A1A; margin: 0; font-size: 28px; font-weight: 700; letter-spacing: 0.5px;">Alfeco Foundation</h1>
+              <p style="font-family: 'Nunito', Arial, sans-serif; color: rgba(26,26,26,0.5); margin: 10px 0 0; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Corporate Partnerships</p>
             </td>
           </tr>
 
           <!-- Body -->
           <tr>
-            <td style="background-color: #ffffff; padding: 40px 30px;">
-              <h2 style="color: #1A1A1A; margin: 0 0 16px; font-size: 24px;">Thank you, {{ params.CONTACT_PERSON }}!</h2>
-              <p style="color: #555555; line-height: 1.7; font-size: 16px; margin: 0 0 24px;">
-                We've received your corporate partnership inquiry from <strong>{{ params.COMPANY_NAME }}</strong>. Our partnerships team will review your submission and respond within <strong>2-3 business days</strong>.
+            <td style="background-color: #ffffff; padding: 44px 32px 40px;">
+
+              <!-- Greeting -->
+              <h2 style="font-family: 'Fraunces', Georgia, serif; color: #1A1A1A; margin: 0 0 16px; font-size: 26px; font-weight: 700; line-height: 1.2;">
+                Thank you, {{ params.CONTACT_PERSON }}!
+              </h2>
+              <p style="color: #7E8083; line-height: 1.7; font-size: 16px; margin: 0 0 28px; font-weight: 500;">
+                We've received your corporate partnership inquiry from <strong style="color: #1A1A1A;">{{ params.COMPANY_NAME }}</strong>. Our partnerships team will review your submission and respond within <strong style="color: #1A1A1A;">2–3 business days</strong>.
               </p>
 
-              <!-- Inquiry Summary -->
-              <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #FDF8EF; border-radius: 12px; border: 1px solid #F0E0C0; margin-bottom: 24px;">
+              <!-- Inquiry Summary Card -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #EBF3F5; border-radius: 24px; margin-bottom: 28px;">
                 <tr>
-                  <td style="padding: 24px;">
-                    <h3 style="color: #E8AB36; margin: 0 0 16px; font-size: 18px;">Inquiry Summary</h3>
+                  <td style="padding: 28px;">
+                    <h3 style="font-family: 'Fraunces', Georgia, serif; color: #E8AB36; margin: 0 0 20px; font-size: 18px; font-weight: 700;">Inquiry Summary</h3>
                     <table width="100%" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td style="padding: 8px 0; color: #888; font-size: 14px; width: 140px; vertical-align: top;">Company</td>
-                        <td style="padding: 8px 0; color: #1A1A1A; font-size: 14px; font-weight: 600;">{{ params.COMPANY_NAME }}</td>
+                        <td style="padding: 10px 0; color: #7E8083; font-size: 13px; font-weight: 700; width: 140px; vertical-align: top; text-transform: uppercase; letter-spacing: 0.5px;">Company</td>
+                        <td style="padding: 10px 0; color: #1A1A1A; font-size: 15px; font-weight: 600;">{{ params.COMPANY_NAME }}</td>
                       </tr>
                       <tr>
-                        <td style="padding: 8px 0; color: #888; font-size: 14px; vertical-align: top;">Contact Person</td>
-                        <td style="padding: 8px 0; color: #1A1A1A; font-size: 14px; font-weight: 600;">{{ params.CONTACT_PERSON }}</td>
+                        <td colspan="2" style="border-bottom: 1px solid rgba(232,171,54,0.2);"></td>
                       </tr>
                       <tr>
-                        <td style="padding: 8px 0; color: #888; font-size: 14px; vertical-align: top;">Email</td>
-                        <td style="padding: 8px 0; color: #1A1A1A; font-size: 14px; font-weight: 600;">{{ params.EMAIL }}</td>
+                        <td style="padding: 10px 0; color: #7E8083; font-size: 13px; font-weight: 700; vertical-align: top; text-transform: uppercase; letter-spacing: 0.5px;">Contact Person</td>
+                        <td style="padding: 10px 0; color: #1A1A1A; font-size: 15px; font-weight: 600;">{{ params.CONTACT_PERSON }}</td>
                       </tr>
                       <tr>
-                        <td style="padding: 8px 0; color: #888; font-size: 14px; vertical-align: top;">Phone</td>
-                        <td style="padding: 8px 0; color: #1A1A1A; font-size: 14px; font-weight: 600;">{{ params.PHONE }}</td>
+                        <td colspan="2" style="border-bottom: 1px solid rgba(232,171,54,0.2);"></td>
                       </tr>
                       <tr>
-                        <td style="padding: 8px 0; color: #888; font-size: 14px; vertical-align: top;">Industry</td>
-                        <td style="padding: 8px 0; color: #1A1A1A; font-size: 14px; font-weight: 600;">{{ params.INDUSTRY }}</td>
+                        <td style="padding: 10px 0; color: #7E8083; font-size: 13px; font-weight: 700; vertical-align: top; text-transform: uppercase; letter-spacing: 0.5px;">Email</td>
+                        <td style="padding: 10px 0; color: #1A1A1A; font-size: 15px; font-weight: 600;">{{ params.EMAIL }}</td>
                       </tr>
                       <tr>
-                        <td style="padding: 8px 0; color: #888; font-size: 14px; vertical-align: top;">Partnership Type</td>
-                        <td style="padding: 8px 0; color: #1A1A1A; font-size: 14px; font-weight: 600;">{{ params.PARTNERSHIP_TYPE }}</td>
+                        <td colspan="2" style="border-bottom: 1px solid rgba(232,171,54,0.2);"></td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 10px 0; color: #7E8083; font-size: 13px; font-weight: 700; vertical-align: top; text-transform: uppercase; letter-spacing: 0.5px;">Phone</td>
+                        <td style="padding: 10px 0; color: #1A1A1A; font-size: 15px; font-weight: 600;">{{ params.PHONE }}</td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" style="border-bottom: 1px solid rgba(232,171,54,0.2);"></td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 10px 0; color: #7E8083; font-size: 13px; font-weight: 700; vertical-align: top; text-transform: uppercase; letter-spacing: 0.5px;">Industry</td>
+                        <td style="padding: 10px 0; color: #1A1A1A; font-size: 15px; font-weight: 600;">{{ params.INDUSTRY }}</td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" style="border-bottom: 1px solid rgba(232,171,54,0.2);"></td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 10px 0; color: #7E8083; font-size: 13px; font-weight: 700; vertical-align: top; text-transform: uppercase; letter-spacing: 0.5px;">Partnership Type</td>
+                        <td style="padding: 10px 0; color: #1A1A1A; font-size: 15px; font-weight: 600;">{{ params.PARTNERSHIP_TYPE }}</td>
                       </tr>
                       {% if params.MESSAGE != '' %}
                       <tr>
-                        <td style="padding: 8px 0; color: #888; font-size: 14px; vertical-align: top;">Message</td>
-                        <td style="padding: 8px 0; color: #1A1A1A; font-size: 14px; font-weight: 600;">{{ params.MESSAGE }}</td>
+                        <td colspan="2" style="border-bottom: 1px solid rgba(232,171,54,0.2);"></td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 10px 0; color: #7E8083; font-size: 13px; font-weight: 700; vertical-align: top; text-transform: uppercase; letter-spacing: 0.5px;">Message</td>
+                        <td style="padding: 10px 0; color: #1A1A1A; font-size: 15px; font-weight: 600;">{{ params.MESSAGE }}</td>
                       </tr>
                       {% endif %}
                     </table>
@@ -68,19 +91,25 @@
                 </tr>
               </table>
 
-              <p style="color: #555555; line-height: 1.7; font-size: 15px; margin: 0;">
+              <!-- Contact Info -->
+              <p style="color: #7E8083; line-height: 1.7; font-size: 15px; margin: 0; font-weight: 500;">
                 If you have any urgent queries, please contact us at
-                <a href="mailto:info@alfecofoundation.com" style="color: #E8AB36; text-decoration: none; font-weight: 600;">info@alfecofoundation.com</a>
-                or call us at <strong>011-908 9440</strong>.
+                <a href="mailto:info@alfecofoundation.com" style="color: #E8AB36; text-decoration: none; font-weight: 700;">info@alfecofoundation.com</a>
+                or call us at <span style="color: #1A1A1A; font-weight: 700;">011-908 9440</span>.
               </p>
             </td>
           </tr>
 
+          <!-- Accent Bar -->
+          <tr>
+            <td style="background: linear-gradient(90deg, #E8AB36, #C1272D, #48B2A9); height: 4px; font-size: 0; line-height: 0;">&nbsp;</td>
+          </tr>
+
           <!-- Footer -->
           <tr>
-            <td style="background-color: #1A1A1A; padding: 24px 30px; text-align: center;">
-              <p style="color: #999999; margin: 0; font-size: 12px;">Alfeco Foundation | 29 Autumn Street, Edenburg, Sandton, 2128</p>
-              <p style="color: #666666; margin: 8px 0 0; font-size: 11px;">This is an automated confirmation. Please do not reply to this email.</p>
+            <td style="background-color: #1A1A1A; padding: 28px 32px; text-align: center;">
+              <p style="font-family: 'Nunito', Arial, sans-serif; color: rgba(255,255,255,0.5); margin: 0; font-size: 12px; font-weight: 600;">Alfeco Foundation | 29 Autumn Street, Edenburg, Sandton, 2128</p>
+              <p style="font-family: 'Nunito', Arial, sans-serif; color: rgba(255,255,255,0.3); margin: 10px 0 0; font-size: 11px; font-weight: 500;">Empowering communities through compassion, collaboration, and practical solutions.</p>
             </td>
           </tr>
 

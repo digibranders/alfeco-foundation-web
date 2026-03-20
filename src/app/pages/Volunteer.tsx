@@ -19,6 +19,8 @@ const AVAILABILITY_OPTIONS = [
   'Flexible',
 ];
 
+const inputClass = "w-full bg-[#EBF3F5] border-2 border-transparent rounded-2xl focus:ring-0 focus:border-[#48B2A9] outline-none py-3.5 px-5 text-[#1A1A1A] placeholder:text-gray-400 transition-all text-[15px]";
+
 export function Volunteer() {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -70,18 +72,18 @@ export function Volunteer() {
   if (submitted) {
     return (
       <div className="min-h-screen bg-[#EBF3F5] pt-12 pb-24 font-sans text-[#1A1A1A]">
-        <div className="max-w-3xl mx-auto px-6 md:px-12 text-center py-24">
+        <div className="max-w-2xl mx-auto px-6 md:px-12 text-center py-24">
           <FadeIn>
-            <div className="bg-white rounded-[40px] p-12 md:p-16 shadow-playful">
-              <div className="w-20 h-20 rounded-full bg-[#48B2A9]/10 flex items-center justify-center mx-auto mb-8">
-                <CheckCircle2 className="w-10 h-10 text-[#48B2A9]" />
+            <div className="bg-white rounded-[40px] p-10 md:p-14 shadow-playful">
+              <div className="w-16 h-16 rounded-full bg-[#48B2A9]/10 flex items-center justify-center mx-auto mb-6">
+                <CheckCircle2 className="w-8 h-8 text-[#48B2A9]" />
               </div>
-              <h2 className="text-4xl md:text-5xl font-semibold mb-6">Thank You!</h2>
-              <p className="text-xl text-gray-500 mb-8">
-                Your volunteer application has been received. We've sent a confirmation email to <strong>{formData.email}</strong>. Our team will be in touch shortly.
+              <h2 className="text-3xl md:text-4xl font-semibold mb-4">Thank You!</h2>
+              <p className="text-gray-500 mb-8">
+                Your volunteer application has been received. We've sent a confirmation email to <strong className="text-[#1A1A1A]">{formData.email}</strong>. Our team will be in touch shortly.
               </p>
-              <Link to="/get-involved" className="playful-btn inline-flex items-center gap-2 bg-[#48B2A9] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-[#1A1A1A]">
-                <ArrowLeft className="w-5 h-5" /> Back to Get Involved
+              <Link to="/get-involved" className="playful-btn inline-flex items-center gap-2 bg-[#48B2A9] text-white font-bold py-3.5 px-8 rounded-full uppercase tracking-widest text-sm hover:bg-[#1A1A1A]">
+                <ArrowLeft className="w-4 h-4" /> Back to Get Involved
               </Link>
             </div>
           </FadeIn>
@@ -92,30 +94,30 @@ export function Volunteer() {
 
   return (
     <div className="min-h-screen bg-[#EBF3F5] pt-12 pb-24 font-sans text-[#1A1A1A]">
-      <div className="max-w-4xl mx-auto px-6 md:px-12">
+      <div className="max-w-3xl mx-auto px-6 md:px-12">
 
         {/* Back link */}
         <FadeIn>
-          <Link to="/get-involved" className="inline-flex items-center gap-2 text-[#48B2A9] font-bold mb-8 hover:underline">
+          <Link to="/get-involved" className="inline-flex items-center gap-2 text-[#48B2A9] font-bold text-sm mb-6 hover:underline">
             <ArrowLeft className="w-4 h-4" /> Back to Get Involved
           </Link>
         </FadeIn>
 
         {/* Header */}
-        <FadeIn className="mb-12 text-center">
-          <h1 className="text-5xl md:text-7xl font-semibold text-[#1A1A1A] mb-6">Volunteer With Us</h1>
-          <p className="text-xl text-gray-500 font-medium max-w-2xl mx-auto">
+        <FadeIn className="mb-10 text-center">
+          <h1 className="text-4xl md:text-5xl font-semibold text-[#1A1A1A] mb-4">Volunteer With Us</h1>
+          <p className="text-gray-500 font-medium max-w-xl mx-auto">
             Lend your time, skills, and passion to our community programmes. Fill out the form below and we'll match you with opportunities that align with your interests.
           </p>
         </FadeIn>
 
         {/* Form */}
         <FadeIn delay={0.1}>
-          <form onSubmit={handleSubmit} className="bg-white rounded-[40px] p-8 md:p-12 shadow-playful space-y-8">
+          <form onSubmit={handleSubmit} className="bg-white rounded-[40px] p-8 md:p-10 shadow-playful space-y-5 border-2 border-[#48B2A9]/15">
 
             {/* Full Name */}
             <div>
-              <label htmlFor="fullName" className="block text-sm font-bold uppercase tracking-widest text-[#1A1A1A] mb-2">
+              <label htmlFor="fullName" className="block text-xs font-bold uppercase tracking-widest text-[#1A1A1A] mb-1.5">
                 Full Name <span className="text-[#C1272D]">*</span>
               </label>
               <input
@@ -125,15 +127,15 @@ export function Volunteer() {
                 required
                 value={formData.fullName}
                 onChange={handleChange}
-                className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#48B2A9] focus:outline-none transition-colors text-lg"
+                className={inputClass}
                 placeholder="Enter your full name"
               />
             </div>
 
             {/* Email & Phone */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label htmlFor="email" className="block text-sm font-bold uppercase tracking-widest text-[#1A1A1A] mb-2">
+                <label htmlFor="email" className="block text-xs font-bold uppercase tracking-widest text-[#1A1A1A] mb-1.5">
                   Email <span className="text-[#C1272D]">*</span>
                 </label>
                 <input
@@ -143,12 +145,12 @@ export function Volunteer() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#48B2A9] focus:outline-none transition-colors text-lg"
+                  className={inputClass}
                   placeholder="your@email.com"
                 />
               </div>
               <div>
-                <label htmlFor="phone" className="block text-sm font-bold uppercase tracking-widest text-[#1A1A1A] mb-2">
+                <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-widest text-[#1A1A1A] mb-1.5">
                   Phone Number <span className="text-[#C1272D]">*</span>
                 </label>
                 <input
@@ -158,7 +160,7 @@ export function Volunteer() {
                   required
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#48B2A9] focus:outline-none transition-colors text-lg"
+                  className={inputClass}
                   placeholder="+27 XXX XXX XXXX"
                 />
               </div>
@@ -166,7 +168,7 @@ export function Volunteer() {
 
             {/* Area / Location */}
             <div>
-              <label htmlFor="area" className="block text-sm font-bold uppercase tracking-widest text-[#1A1A1A] mb-2">
+              <label htmlFor="area" className="block text-xs font-bold uppercase tracking-widest text-[#1A1A1A] mb-1.5">
                 Area / Location <span className="text-[#C1272D]">*</span>
               </label>
               <input
@@ -176,29 +178,29 @@ export function Volunteer() {
                 required
                 value={formData.area}
                 onChange={handleChange}
-                className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#48B2A9] focus:outline-none transition-colors text-lg"
+                className={inputClass}
                 placeholder="e.g. Sandton, Johannesburg"
               />
             </div>
 
             {/* Interests */}
             <div>
-              <label className="block text-sm font-bold uppercase tracking-widest text-[#1A1A1A] mb-4">
+              <label className="block text-xs font-bold uppercase tracking-widest text-[#1A1A1A] mb-3">
                 Interests <span className="text-[#C1272D]">*</span>
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {INTEREST_OPTIONS.map(interest => (
                   <button
                     key={interest}
                     type="button"
                     onClick={() => handleInterestToggle(interest)}
-                    className={`flex items-center gap-3 px-5 py-3 rounded-2xl border-2 text-left transition-all font-medium ${
+                    className={`flex items-center gap-2.5 px-4 py-2.5 rounded-xl border-2 text-left transition-all text-sm font-medium ${
                       formData.interests.includes(interest)
                         ? 'border-[#48B2A9] bg-[#48B2A9]/10 text-[#48B2A9]'
-                        : 'border-gray-200 text-gray-500 hover:border-[#48B2A9]/50'
+                        : 'border-transparent bg-[#EBF3F5] text-gray-500 hover:border-[#48B2A9]/30'
                     }`}
                   >
-                    <CheckCircle2 className={`w-5 h-5 shrink-0 ${formData.interests.includes(interest) ? 'text-[#48B2A9]' : 'text-gray-300'}`} />
+                    <CheckCircle2 className={`w-4 h-4 shrink-0 ${formData.interests.includes(interest) ? 'text-[#48B2A9]' : 'text-gray-300'}`} />
                     {interest}
                   </button>
                 ))}
@@ -207,7 +209,7 @@ export function Volunteer() {
 
             {/* Availability */}
             <div>
-              <label htmlFor="availability" className="block text-sm font-bold uppercase tracking-widest text-[#1A1A1A] mb-2">
+              <label htmlFor="availability" className="block text-xs font-bold uppercase tracking-widest text-[#1A1A1A] mb-1.5">
                 Availability <span className="text-[#C1272D]">*</span>
               </label>
               <select
@@ -216,7 +218,7 @@ export function Volunteer() {
                 required
                 value={formData.availability}
                 onChange={handleChange}
-                className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#48B2A9] focus:outline-none transition-colors text-lg bg-white"
+                className={`${inputClass} bg-[#EBF3F5]`}
               >
                 <option value="">Select your availability</option>
                 {AVAILABILITY_OPTIONS.map(opt => (
@@ -227,22 +229,22 @@ export function Volunteer() {
 
             {/* Optional Message */}
             <div>
-              <label htmlFor="message" className="block text-sm font-bold uppercase tracking-widest text-[#1A1A1A] mb-2">
-                Message <span className="text-gray-400">(Optional)</span>
+              <label htmlFor="message" className="block text-xs font-bold uppercase tracking-widest text-[#1A1A1A] mb-1.5">
+                Message <span className="text-gray-400 normal-case tracking-normal">(Optional)</span>
               </label>
               <textarea
                 id="message"
                 name="message"
-                rows={4}
+                rows={3}
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#48B2A9] focus:outline-none transition-colors text-lg resize-none"
+                className={`${inputClass} resize-none`}
                 placeholder="Tell us anything else you'd like us to know..."
               />
             </div>
 
             {error && (
-              <div className="bg-[#C1272D]/10 text-[#C1272D] px-6 py-4 rounded-2xl font-medium">
+              <div className="bg-[#C1272D]/10 text-[#C1272D] px-5 py-3 rounded-2xl text-sm font-medium">
                 {error}
               </div>
             )}
@@ -251,11 +253,11 @@ export function Volunteer() {
             <button
               type="submit"
               disabled={submitting}
-              className="playful-btn w-full inline-flex items-center justify-center gap-3 bg-[#48B2A9] text-white font-bold py-5 px-8 rounded-full uppercase tracking-widest hover:bg-[#1A1A1A] disabled:opacity-50 disabled:cursor-not-allowed text-lg"
+              className="playful-btn w-full inline-flex items-center justify-center gap-2 bg-[#48B2A9] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest text-sm hover:bg-[#1A1A1A] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {submitting ? 'Submitting...' : (
                 <>
-                  <Send className="w-5 h-5" /> Submit Application
+                  <Send className="w-4 h-4" /> Submit Application
                 </>
               )}
             </button>

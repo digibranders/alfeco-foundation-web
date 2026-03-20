@@ -4,33 +4,17 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 // Brevo Template IDs — replace these with your actual template IDs
 // from the Brevo dashboard (Campaigns → Templates)
 // -----------------------------------------------------------------
-const PARTNERSHIP_CONFIRMATION_TEMPLATE_ID = 48; // alfeco-partnership-confirmation
-const PARTNERSHIP_NOTIFICATION_TEMPLATE_ID = 49; // alfeco-partnership-notification
+const CONTACT_CONFIRMATION_TEMPLATE_ID = 0; // Confirmation email sent to the sender
+const CONTACT_NOTIFICATION_TEMPLATE_ID = 0; // Notification email sent to Alfeco Foundation
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const contentType = req.headers['content-type'] || '';
+  const { name, email, message } = req.body;
 
-  let companyName: string, contactPerson: string, email: string, phone: string;
-  let industry: string, partnershipType: string, message: string;
-
-  if (contentType.includes('application/json')) {
-    ({ companyName, contactPerson, email, phone, industry, partnershipType, message } = req.body);
-  } else {
-    // Handle multipart/form-data — Vercel parses the body fields
-    companyName = req.body?.companyName;
-    contactPerson = req.body?.contactPerson;
-    email = req.body?.email;
-    phone = req.body?.phone;
-    industry = req.body?.industry;
-    partnershipType = req.body?.partnershipType;
-    message = req.body?.message;
-  }
-
-  if (!companyName || !contactPerson || !email || !phone || !industry || !partnershipType) {
+  if (!name || !email || !message) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
@@ -39,19 +23,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(500).json({ error: 'Email service not configured' });
   }
 
-  // Shared template params — use {{ params.COMPANY_NAME }} etc. in your Brevo templates
+  // Template params — use {{ params.NAME }} etc. in your Brevo templates
   const templateParams = {
-    COMPANY_NAME: companyName,
-    CONTACT_PERSON: contactPerson,
+    NAME: name,
     EMAIL: email,
-    PHONE: phone,
-    INDUSTRY: industry,
-    PARTNERSHIP_TYPE: partnershipType,
-    MESSAGE: message || '',
+    MESSAGE: message,
   };
 
   try {
-    // 1. Send confirmation email to the partner
+    // 1. Send confirmation email to the sender
     await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: {
@@ -60,8 +40,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         'content-type': 'application/json',
       },
       body: JSON.stringify({
-        to: [{ email, name: contactPerson }],
-        templateId: PARTNERSHIP_CONFIRMATION_TEMPLATE_ID,
+        to: [{ email, name }],
+        templateId: CONTACT_CONFIRMATION_TEMPLATE_ID,
         params: templateParams,
       }),
     });
@@ -76,7 +56,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       },
       body: JSON.stringify({
         to: [{ email: 'info@alfecofoundation.com', name: 'Alfeco Foundation' }],
-        templateId: PARTNERSHIP_NOTIFICATION_TEMPLATE_ID,
+        templateId: CONTACT_NOTIFICATION_TEMPLATE_ID,
         params: templateParams,
       }),
     });
