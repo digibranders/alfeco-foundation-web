@@ -377,13 +377,13 @@ export function Home() {
                </p>
                <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
                   <Link
-                     to="/contact"
+                     to="/donate"
                      className="playful-btn inline-block bg-white text-[#C1272D] font-bold py-5 px-14 uppercase tracking-widest rounded-full min-w-[200px] hover:shadow-2xl"
                   >
                      Donate Now
                   </Link>
                   <Link
-                     to="/get-involved"
+                     to="/volunteer"
                      className="playful-btn inline-block bg-transparent text-white font-bold py-5 px-14 uppercase tracking-widest border-2 border-white min-w-[200px] rounded-full hover:bg-white hover:text-[#C1272D]"
                   >
                      Volunteer

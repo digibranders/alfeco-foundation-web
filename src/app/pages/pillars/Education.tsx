@@ -54,7 +54,7 @@ export function Education() {
               Education is the cornerstone of empowerment. At the Alfeco Foundation, we believe that every individual deserves access to quality education and the tools to develop their potential — regardless of background or circumstance.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact" className="playful-btn inline-flex items-center gap-2 bg-[#1A1A1A] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-[#C1272D]">
+              <Link to="/get-involved" className="playful-btn inline-flex items-center gap-2 bg-[#1A1A1A] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-[#C1272D]">
                 Get Involved <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
