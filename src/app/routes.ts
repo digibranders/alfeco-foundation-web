@@ -8,6 +8,7 @@ import { Contact } from './pages/Contact';
 import { GetInvolved } from './pages/GetInvolved';
 import { Volunteer } from './pages/Volunteer';
 import { Partnerships } from './pages/Partnerships';
+import { Donate } from './pages/Donate';
 import { Education } from './pages/pillars/Education';
 import { FoodSecurity } from './pages/pillars/FoodSecurity';
 import { Conservation } from './pages/pillars/Conservation';
@@ -37,6 +38,7 @@ export const router = createBrowserRouter([
       { path: 'get-involved', Component: GetInvolved },
       { path: 'volunteer', Component: Volunteer },
       { path: 'partnerships', Component: Partnerships },
+      { path: 'donate', Component: Donate },
       { path: 'contact', Component: Contact },
       { path: '*', Component: NotFound },
     ],

@@ -74,7 +74,7 @@ export function GetInvolved() {
                     </li>
                   ))}
                 </ul>
-                <Link to="/contact" className="playful-btn inline-flex items-center gap-2 bg-[#C1272D] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-[#1A1A1A] self-start">
+                <Link to="/donate" className="playful-btn inline-flex items-center gap-2 bg-[#C1272D] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-[#1A1A1A] self-start">
                   Donate Now <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
