@@ -47,7 +47,7 @@ export function GetInvolved() {
                     </li>
                   ))}
                 </ul>
-                <Link to="/contact" className="playful-btn inline-flex items-center gap-2 bg-[#1A1A1A] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-[#48B2A9] self-start">
+                <Link to="/volunteer" className="playful-btn inline-flex items-center gap-2 bg-[#1A1A1A] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-[#48B2A9] self-start">
                   Sign Up <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
@@ -101,7 +101,7 @@ export function GetInvolved() {
                     </li>
                   ))}
                 </ul>
-                <Link to="/contact" className="playful-btn inline-flex items-center gap-2 bg-[#E8AB36] text-[#1A1A1A] font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-white self-start">
+                <Link to="/partnerships" className="playful-btn inline-flex items-center gap-2 bg-[#E8AB36] text-[#1A1A1A] font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-white self-start">
                   Partner With Us <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>

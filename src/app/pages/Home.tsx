@@ -117,15 +117,13 @@ export function Home() {
                         </p>
 
                         <div className="bg-[#EBF3F5] p-8 rounded-[32px] my-8 border-l-4 border-[#48B2A9] shadow-playful">
-                           <p className="font-bold text-[#1A1A1A] mb-4">We focus our efforts on strengthening lives and unlocking potential across six key pillars:</p>
+                           <p className="font-bold text-[#1A1A1A] mb-4">We focus our efforts on strengthening lives and unlocking potential across four key pillars:</p>
                            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                               {[
                                  "Education and Development",
                                  "Food Security",
                                  "Women and Youth Empowerment",
-                                 "Alfeco Aid",
-                                 "Conservation and Environment",
-                                 "Social Support for Vulnerable Populations"
+                                 "Conservation and Environment"
                               ].map((item, i) => (
                                  <li key={i} className="flex items-start gap-2 text-sm font-bold text-[#48B2A9]">
                                     <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" /> <span>{item}</span>
@@ -262,10 +260,11 @@ export function Home() {
          <section className="py-24 px-6 md:px-12 bg-[#EBF3F5] relative overflow-hidden">
             <div className="max-w-7xl mx-auto">
                {/* Section label */}
-               <FadeIn className="text-left mb-4">
+               <FadeIn className="text-left mb-12">
                   <span className="inline-block bg-[#48B2A9]/10 text-[#48B2A9] px-5 py-2 rounded-full text-sm tracking-wide mb-4">
                      Our Purpose &amp; Promise
                   </span>
+                  <h2 className="text-5xl md:text-7xl font-semibold text-[#1A1A1A] leading-tight">Our Purpose and Promise</h2>
                </FadeIn>
 
                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

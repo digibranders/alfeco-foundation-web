@@ -1,7 +1,6 @@
 import React from 'react';
 import { FadeIn } from '../components/FadeIn';
-import { Sparkles, Quote } from 'lucide-react';
-import ceoImg from '@/assets/fb1477ac1c47d260e84b1c16f23321e8f8d95997.png';
+import { Sparkles } from 'lucide-react';
 
 export function About() {
     return (
@@ -35,7 +34,7 @@ export function About() {
                         </FadeIn>
                         <FadeIn delay={0.2}>
                             <p>
-                                Our activities are focused on strengthening lives and fostering dreams in the following areas: Education and Development, Food Security, Women and Youth, Alfeco Aid, Conservation and Environment and social support for vulnerable populations including women and youth. Every initiative is a representation of our steadfast commitment to changing the world and igniting the flames of hope in people's hearts who have always aspired for a better tomorrow.
+                                Our activities are focused on strengthening lives and fostering dreams in the following areas: Education and Development, Food Security, Women and Youth Empowerment, and Conservation and Environment. Every initiative is a representation of our steadfast commitment to changing the world and igniting the flames of hope in people's hearts who have always aspired for a better tomorrow.
                             </p>
                         </FadeIn>
                         <FadeIn delay={0.3}>
@@ -58,45 +57,6 @@ export function About() {
                     </div>
                 </div>
 
-                {/* Section 2: Founder's Story */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-                    {/* Left: Image + Quote */}
-                    <div className="lg:col-span-5 sticky top-28">
-                        <FadeIn>
-
-                        </FadeIn>
-                        <FadeIn delay={0.4}>
-
-                        </FadeIn>
-                    </div>
-
-                    {/* Right: Bio Content */}
-                    <div className="lg:col-span-12 pt-2 max-w-4xl mx-auto">
-                        <FadeIn>
-                            <h2 className="text-3xl md:text-5xl font-semibold text-[#1A1A1A] mb-8 leading-tight">
-                                Our Founder
-                            </h2>
-                        </FadeIn>
-
-                        <div className="space-y-6 text-lg text-gray-500 leading-relaxed">
-                            <FadeIn delay={0.1}>
-                                <p>
-                                    Sachin Ahuja, born in a small town near Jaipur, Rajasthan, began his journey as a scrap metals trader, laying the groundwork for what would become the Alfeco Group. After earning a Bachelor of Commerce from the University of Delhi and a Master's Degree in International Business from the Delhi School of Economics, he moved to Johannesburg, South Africa, where he established a conglomerate specializing in metals beneficiation in the steel, aluminum and copper sectors. Under his leadership, the group grew significantly, employing over 2,000 individuals and making Veer Steel the second-largest steel manufacturer in the country.
-                                </p>
-                            </FadeIn>
-                            <FadeIn delay={0.2}>
-                                <p>
-                                    Mr. Ahuja's vision transcended financial achievement he is committed to environmental stewardship. His green transition strategy aims for a 25% reduction in carbon emissions by 2030 and strives for Net Zero by 2050 through Veer Energy, a subsidiary focused on renewable energy and battery storage.
-                                </p>
-                            </FadeIn>
-                            <FadeIn delay={0.3}>
-                                <p>
-                                    To further his impact, Mr. Ahuja founded the Alfeco Foundation, which addresses key issues such as education, food security, and women and youth empowerment. Through this initiative, he promotes sustainable development and community upliftment in South Africa.
-                                </p>
-                            </FadeIn>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>
