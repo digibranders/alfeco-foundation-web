@@ -332,7 +332,7 @@ export function Layout() {
                   <Mail className="w-3.5 h-3.5 text-[#48B2A9]" />
                   <span className="text-xs font-bold uppercase tracking-widest text-[#48B2A9]">Get in Touch</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 leading-tight">Lets make a lasting difference together<br /></h2>
+                <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 leading-tight">Let's make a lasting difference together!<br /></h2>
                 <p className="text-white/50 text-lg max-w-lg mb-8">
                   Whether you want to partner, volunteer, or simply learn more about our work — we'd love to hear from you.
                 </p>

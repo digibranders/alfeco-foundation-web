@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Volunteer Application</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f4f4; font-family: Arial, sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 40px 0;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" style="max-width: 600px; width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+
+          <!-- Header -->
+          <tr>
+            <td style="background-color: #1A1A1A; padding: 30px; text-align: center;">
+              <h1 style="color: #48B2A9; margin: 0; font-size: 22px; font-weight: 700;">New Volunteer Application</h1>
+              <p style="color: rgba(255,255,255,0.5); margin: 6px 0 0; font-size: 13px;">Submitted via alfecofoundation.com</p>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="background-color: #ffffff; padding: 30px;">
+              <p style="color: #555; font-size: 15px; margin: 0 0 20px;">A new volunteer application has been submitted. Details below:</p>
+
+              <table width="100%" cellpadding="0" cellspacing="0" style="border: 1px solid #e8e8e8; border-radius: 8px; overflow: hidden;">
+                <tr style="background-color: #f9f9f9;">
+                  <td style="padding: 12px 16px; color: #888; font-size: 13px; font-weight: 600; width: 140px; border-bottom: 1px solid #e8e8e8;">Full Name</td>
+                  <td style="padding: 12px 16px; color: #1A1A1A; font-size: 14px; border-bottom: 1px solid #e8e8e8;">{{ params.FULL_NAME }}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 16px; color: #888; font-size: 13px; font-weight: 600; border-bottom: 1px solid #e8e8e8;">Email</td>
+                  <td style="padding: 12px 16px; color: #1A1A1A; font-size: 14px; border-bottom: 1px solid #e8e8e8;">
+                    <a href="mailto:{{ params.EMAIL }}" style="color: #48B2A9; text-decoration: none;">{{ params.EMAIL }}</a>
+                  </td>
+                </tr>
+                <tr style="background-color: #f9f9f9;">
+                  <td style="padding: 12px 16px; color: #888; font-size: 13px; font-weight: 600; border-bottom: 1px solid #e8e8e8;">Phone</td>
+                  <td style="padding: 12px 16px; color: #1A1A1A; font-size: 14px; border-bottom: 1px solid #e8e8e8;">{{ params.PHONE }}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 16px; color: #888; font-size: 13px; font-weight: 600; border-bottom: 1px solid #e8e8e8;">Area / Location</td>
+                  <td style="padding: 12px 16px; color: #1A1A1A; font-size: 14px; border-bottom: 1px solid #e8e8e8;">{{ params.AREA }}</td>
+                </tr>
+                <tr style="background-color: #f9f9f9;">
+                  <td style="padding: 12px 16px; color: #888; font-size: 13px; font-weight: 600; border-bottom: 1px solid #e8e8e8;">Interests</td>
+                  <td style="padding: 12px 16px; color: #1A1A1A; font-size: 14px; border-bottom: 1px solid #e8e8e8;">{{ params.INTERESTS }}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 16px; color: #888; font-size: 13px; font-weight: 600; border-bottom: 1px solid #e8e8e8;">Availability</td>
+                  <td style="padding: 12px 16px; color: #1A1A1A; font-size: 14px; border-bottom: 1px solid #e8e8e8;">{{ params.AVAILABILITY }}</td>
+                </tr>
+                {% if params.MESSAGE != '' %}
+                <tr style="background-color: #f9f9f9;">
+                  <td style="padding: 12px 16px; color: #888; font-size: 13px; font-weight: 600;">Message</td>
+                  <td style="padding: 12px 16px; color: #1A1A1A; font-size: 14px;">{{ params.MESSAGE }}</td>
+                </tr>
+                {% endif %}
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color: #f4f4f4; padding: 16px 30px; text-align: center;">
+              <p style="color: #aaa; margin: 0; font-size: 11px;">This is an automated notification from the Alfeco Foundation website.</p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

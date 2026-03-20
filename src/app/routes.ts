@@ -6,14 +6,16 @@ import { Pillars } from './pages/Pillars';
 import { News } from './pages/News';
 import { Contact } from './pages/Contact';
 import { GetInvolved } from './pages/GetInvolved';
+import { Volunteer } from './pages/Volunteer';
+import { Partnerships } from './pages/Partnerships';
 import { Education } from './pages/pillars/Education';
 import { FoodSecurity } from './pages/pillars/FoodSecurity';
-import { WomenYouth } from './pages/pillars/WomenYouth';
 import { Conservation } from './pages/pillars/Conservation';
 import { BursaryProgramme } from './pages/pillars/BursaryProgramme';
 import { SkillsDevelopment } from './pages/pillars/SkillsDevelopment';
 import { ReviveThrive } from './pages/pillars/ReviveThrive';
 import { NotFound } from './pages/NotFound';
+import { WomenYouth } from './pages/pillars/WomenYouth';
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +35,8 @@ export const router = createBrowserRouter([
       { path: 'news', Component: News },
       { path: 'news/:id', Component: News },
       { path: 'get-involved', Component: GetInvolved },
+      { path: 'volunteer', Component: Volunteer },
+      { path: 'partnerships', Component: Partnerships },
       { path: 'contact', Component: Contact },
       { path: '*', Component: NotFound },
     ],

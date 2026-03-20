@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You for Volunteering</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #EBF3F5; font-family: Arial, sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #EBF3F5; padding: 40px 0;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" style="max-width: 600px; width: 100%; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
+
+          <!-- Header -->
+          <tr>
+            <td style="background-color: #48B2A9; padding: 40px 30px; text-align: center;">
+              <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 700; letter-spacing: 1px;">Alfeco Foundation</h1>
+              <p style="color: rgba(255,255,255,0.8); margin: 8px 0 0; font-size: 14px;">Empowering Communities, Transforming Lives</p>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="background-color: #ffffff; padding: 40px 30px;">
+              <h2 style="color: #1A1A1A; margin: 0 0 16px; font-size: 24px;">Thank you, {{ params.FULL_NAME }}!</h2>
+              <p style="color: #555555; line-height: 1.7; font-size: 16px; margin: 0 0 24px;">
+                We've received your volunteer application and we're thrilled that you'd like to join our mission. Our team will review your details and get in touch with you shortly to discuss how you can best contribute.
+              </p>
+
+              <!-- Application Summary -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #F8FAFB; border-radius: 12px; border: 1px solid #E0E7EA; margin-bottom: 24px;">
+                <tr>
+                  <td style="padding: 24px;">
+                    <h3 style="color: #48B2A9; margin: 0 0 16px; font-size: 18px;">Your Application Summary</h3>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="padding: 8px 0; color: #888; font-size: 14px; width: 120px; vertical-align: top;">Name</td>
+                        <td style="padding: 8px 0; color: #1A1A1A; font-size: 14px; font-weight: 600;">{{ params.FULL_NAME }}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 0; color: #888; font-size: 14px; vertical-align: top;">Email</td>
+                        <td style="padding: 8px 0; color: #1A1A1A; font-size: 14px; font-weight: 600;">{{ params.EMAIL }}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 0; color: #888; font-size: 14px; vertical-align: top;">Phone</td>
+                        <td style="padding: 8px 0; color: #1A1A1A; font-size: 14px; font-weight: 600;">{{ params.PHONE }}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 0; color: #888; font-size: 14px; vertical-align: top;">Area</td>
+                        <td style="padding: 8px 0; color: #1A1A1A; font-size: 14px; font-weight: 600;">{{ params.AREA }}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 0; color: #888; font-size: 14px; vertical-align: top;">Interests</td>
+                        <td style="padding: 8px 0; color: #1A1A1A; font-size: 14px; font-weight: 600;">{{ params.INTERESTS }}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 0; color: #888; font-size: 14px; vertical-align: top;">Availability</td>
+                        <td style="padding: 8px 0; color: #1A1A1A; font-size: 14px; font-weight: 600;">{{ params.AVAILABILITY }}</td>
+                      </tr>
+                      {% if params.MESSAGE != '' %}
+                      <tr>
+                        <td style="padding: 8px 0; color: #888; font-size: 14px; vertical-align: top;">Message</td>
+                        <td style="padding: 8px 0; color: #1A1A1A; font-size: 14px; font-weight: 600;">{{ params.MESSAGE }}</td>
+                      </tr>
+                      {% endif %}
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="color: #555555; line-height: 1.7; font-size: 15px; margin: 0;">
+                If you have any questions, don't hesitate to contact us at
+                <a href="mailto:info@alfecofoundation.com" style="color: #48B2A9; text-decoration: none; font-weight: 600;">info@alfecofoundation.com</a>
+                or call us at <strong>011-908 9440</strong>.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color: #1A1A1A; padding: 24px 30px; text-align: center;">
+              <p style="color: #999999; margin: 0; font-size: 12px;">Alfeco Foundation | 29 Autumn Street, Edenburg, Sandton, 2128</p>
+              <p style="color: #666666; margin: 8px 0 0; font-size: 11px;">This is an automated confirmation. Please do not reply to this email.</p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
