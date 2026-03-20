@@ -4,8 +4,8 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 // Brevo Template IDs — replace these with your actual template IDs
 // from the Brevo dashboard (Campaigns → Templates)
 // -----------------------------------------------------------------
-const PARTNERSHIP_CONFIRMATION_TEMPLATE_ID = 0; // Confirmation email sent to the partner
-const PARTNERSHIP_NOTIFICATION_TEMPLATE_ID = 0; // Notification email sent to Alfeco Foundation
+const PARTNERSHIP_CONFIRMATION_TEMPLATE_ID = 48; // alfeco-partnership-confirmation
+const PARTNERSHIP_NOTIFICATION_TEMPLATE_ID = 49; // alfeco-partnership-notification
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
