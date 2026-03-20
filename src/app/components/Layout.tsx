@@ -40,7 +40,6 @@ export function Layout() {
     { name: 'About Us', path: '/about' },
     { name: 'Our Pillars', path: '/pillars' },
     { name: 'News & Events', path: '/news' },
-    { name: 'Contact Us', path: '/contact' },
   ];
 
   const pillarsSubmenu = [
@@ -184,7 +183,7 @@ export function Layout() {
               <Link
                 to="/contact"
                 className="playful-btn px-6 py-2.5 bg-[#1A1A1A] text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#C1272D] hover:shadow-lg"
-              >Get Involved</Link>
+              >Let's Connect</Link>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -300,9 +299,9 @@ export function Layout() {
                 <Link
                   to="/contact"
                   onClick={() => setIsMenuOpen(false)}
-                  className="block w-full py-4 bg-[#C1272D] text-white text-xs font-bold uppercase tracking-widest rounded-full shadow-lg shadow-[#C1272D]/20 active:scale-95 transition-all text-center"
+                  className="block w-full py-4 bg-[#1A1A1A] text-white text-xs font-bold uppercase tracking-widest rounded-full shadow-lg shadow-[#1A1A1A]/20 active:scale-95 transition-all text-center"
                 >
-                  Donate
+                  Let's Connect
                 </Link>
               </div>
             </div>
