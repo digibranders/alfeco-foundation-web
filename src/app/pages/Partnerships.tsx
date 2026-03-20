@@ -36,6 +36,8 @@ const PARTNERSHIP_TYPES = [
   'Other',
 ];
 
+const inputClass = "w-full bg-[#EBF3F5] border-2 border-transparent rounded-2xl focus:ring-0 focus:border-[#E8AB36] outline-none py-3.5 px-5 text-[#1A1A1A] placeholder:text-gray-400 transition-all text-[15px]";
+
 export function Partnerships() {
   const [formData, setFormData] = useState({
     companyName: '',
@@ -98,18 +100,18 @@ export function Partnerships() {
   if (submitted) {
     return (
       <div className="min-h-screen bg-[#EBF3F5] pt-12 pb-24 font-sans text-[#1A1A1A]">
-        <div className="max-w-3xl mx-auto px-6 md:px-12 text-center py-24">
+        <div className="max-w-2xl mx-auto px-6 md:px-12 text-center py-24">
           <FadeIn>
-            <div className="bg-white rounded-[40px] p-12 md:p-16 shadow-playful">
-              <div className="w-20 h-20 rounded-full bg-[#E8AB36]/10 flex items-center justify-center mx-auto mb-8">
-                <CheckCircle2 className="w-10 h-10 text-[#E8AB36]" />
+            <div className="bg-white rounded-[40px] p-10 md:p-14 shadow-playful">
+              <div className="w-16 h-16 rounded-full bg-[#E8AB36]/10 flex items-center justify-center mx-auto mb-6">
+                <CheckCircle2 className="w-8 h-8 text-[#E8AB36]" />
               </div>
-              <h2 className="text-4xl md:text-5xl font-semibold mb-6">Thank You!</h2>
-              <p className="text-xl text-gray-500 mb-8">
-                Your partnership inquiry has been received. We've sent a confirmation email to <strong>{formData.email}</strong>. Our partnerships team will review your inquiry and respond within 2-3 business days.
+              <h2 className="text-3xl md:text-4xl font-semibold mb-4">Thank You!</h2>
+              <p className="text-gray-500 mb-8">
+                Your partnership inquiry has been received. We've sent a confirmation email to <strong className="text-[#1A1A1A]">{formData.email}</strong>. Our partnerships team will review your inquiry and respond within 2–3 business days.
               </p>
-              <Link to="/get-involved" className="playful-btn inline-flex items-center gap-2 bg-[#E8AB36] text-[#1A1A1A] font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-[#1A1A1A] hover:text-white">
-                <ArrowLeft className="w-5 h-5" /> Back to Get Involved
+              <Link to="/get-involved" className="playful-btn inline-flex items-center gap-2 bg-[#E8AB36] text-[#1A1A1A] font-bold py-3.5 px-8 rounded-full uppercase tracking-widest text-sm hover:bg-[#1A1A1A] hover:text-white">
+                <ArrowLeft className="w-4 h-4" /> Back to Get Involved
               </Link>
             </div>
           </FadeIn>
@@ -120,39 +122,39 @@ export function Partnerships() {
 
   return (
     <div className="min-h-screen bg-[#EBF3F5] pt-12 pb-24 font-sans text-[#1A1A1A]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-5xl mx-auto px-6 md:px-12">
 
         {/* Back link */}
         <FadeIn>
-          <Link to="/get-involved" className="inline-flex items-center gap-2 text-[#E8AB36] font-bold mb-8 hover:underline">
+          <Link to="/get-involved" className="inline-flex items-center gap-2 text-[#E8AB36] font-bold text-sm mb-6 hover:underline">
             <ArrowLeft className="w-4 h-4" /> Back to Get Involved
           </Link>
         </FadeIn>
 
         {/* Header */}
-        <FadeIn className="mb-16 text-center">
-          <h1 className="text-5xl md:text-7xl font-semibold text-[#1A1A1A] mb-6">Corporate Partnerships</h1>
-          <p className="text-xl md:text-2xl text-gray-500 font-medium max-w-3xl mx-auto">
+        <FadeIn className="mb-12 text-center">
+          <h1 className="text-4xl md:text-5xl font-semibold text-[#1A1A1A] mb-4">Corporate Partnerships</h1>
+          <p className="text-gray-500 font-medium max-w-2xl mx-auto">
             Partner with us to create measurable social impact while aligning with your ESG and CSI objectives.
           </p>
         </FadeIn>
 
         {/* Partnership Opportunities */}
-        <FadeIn className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#1A1A1A] mb-10 text-center">Partnership Opportunities</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <FadeIn className="mb-16">
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#1A1A1A] mb-8 text-center">Partnership Opportunities</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {PARTNERSHIP_OPPORTUNITIES.map((opp, i) => (
               <FadeIn key={opp.title} delay={0.1 * (i + 1)}>
-                <div className="bg-white rounded-[32px] p-8 h-full flex gap-5 playful-card shadow-playful hover:shadow-playful-hover">
+                <div className="bg-white rounded-[28px] p-6 h-full flex gap-4 playful-card shadow-playful hover:shadow-playful-hover">
                   <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0"
+                    className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
                     style={{ backgroundColor: `${opp.color}15` }}
                   >
-                    <opp.icon className="w-7 h-7" style={{ color: opp.color }} />
+                    <opp.icon className="w-6 h-6" style={{ color: opp.color }} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-[#1A1A1A] mb-2">{opp.title}</h3>
-                    <p className="text-gray-500">{opp.description}</p>
+                    <h3 className="text-lg font-semibold text-[#1A1A1A] mb-1">{opp.title}</h3>
+                    <p className="text-gray-500 text-sm">{opp.description}</p>
                   </div>
                 </div>
               </FadeIn>
@@ -162,48 +164,48 @@ export function Partnerships() {
 
         {/* Corporate Inquiry Form */}
         <FadeIn delay={0.2}>
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-semibold text-[#1A1A1A] mb-10 text-center">Corporate Inquiry Form</h2>
-            <form onSubmit={handleSubmit} className="bg-white rounded-[40px] p-8 md:p-12 shadow-playful space-y-8">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#1A1A1A] mb-8 text-center">Corporate Inquiry Form</h2>
+            <form onSubmit={handleSubmit} className="bg-white rounded-[40px] p-8 md:p-10 shadow-playful space-y-5 border-2 border-[#E8AB36]/15">
 
-              {/* Company Name */}
-              <div>
-                <label htmlFor="companyName" className="block text-sm font-bold uppercase tracking-widest text-[#1A1A1A] mb-2">
-                  Company Name <span className="text-[#C1272D]">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="companyName"
-                  name="companyName"
-                  required
-                  value={formData.companyName}
-                  onChange={handleChange}
-                  className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#E8AB36] focus:outline-none transition-colors text-lg"
-                  placeholder="Your company name"
-                />
-              </div>
-
-              {/* Contact Person */}
-              <div>
-                <label htmlFor="contactPerson" className="block text-sm font-bold uppercase tracking-widest text-[#1A1A1A] mb-2">
-                  Contact Person <span className="text-[#C1272D]">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="contactPerson"
-                  name="contactPerson"
-                  required
-                  value={formData.contactPerson}
-                  onChange={handleChange}
-                  className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#E8AB36] focus:outline-none transition-colors text-lg"
-                  placeholder="Full name of contact person"
-                />
+              {/* Company Name & Contact Person */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="companyName" className="block text-xs font-bold uppercase tracking-widest text-[#1A1A1A] mb-1.5">
+                    Company Name <span className="text-[#C1272D]">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="companyName"
+                    name="companyName"
+                    required
+                    value={formData.companyName}
+                    onChange={handleChange}
+                    className={inputClass}
+                    placeholder="Your company name"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="contactPerson" className="block text-xs font-bold uppercase tracking-widest text-[#1A1A1A] mb-1.5">
+                    Contact Person <span className="text-[#C1272D]">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="contactPerson"
+                    name="contactPerson"
+                    required
+                    value={formData.contactPerson}
+                    onChange={handleChange}
+                    className={inputClass}
+                    placeholder="Full name"
+                  />
+                </div>
               </div>
 
               {/* Email & Phone */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-bold uppercase tracking-widest text-[#1A1A1A] mb-2">
+                  <label htmlFor="email" className="block text-xs font-bold uppercase tracking-widest text-[#1A1A1A] mb-1.5">
                     Email <span className="text-[#C1272D]">*</span>
                   </label>
                   <input
@@ -213,12 +215,12 @@ export function Partnerships() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#E8AB36] focus:outline-none transition-colors text-lg"
+                    className={inputClass}
                     placeholder="email@company.com"
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-bold uppercase tracking-widest text-[#1A1A1A] mb-2">
+                  <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-widest text-[#1A1A1A] mb-1.5">
                     Phone <span className="text-[#C1272D]">*</span>
                   </label>
                   <input
@@ -228,86 +230,86 @@ export function Partnerships() {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#E8AB36] focus:outline-none transition-colors text-lg"
+                    className={inputClass}
                     placeholder="+27 XXX XXX XXXX"
                   />
                 </div>
               </div>
 
-              {/* Industry */}
-              <div>
-                <label htmlFor="industry" className="block text-sm font-bold uppercase tracking-widest text-[#1A1A1A] mb-2">
-                  Industry <span className="text-[#C1272D]">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="industry"
-                  name="industry"
-                  required
-                  value={formData.industry}
-                  onChange={handleChange}
-                  className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#E8AB36] focus:outline-none transition-colors text-lg"
-                  placeholder="e.g. Mining, Financial Services, Technology"
-                />
-              </div>
-
-              {/* Type of Partnership */}
-              <div>
-                <label htmlFor="partnershipType" className="block text-sm font-bold uppercase tracking-widest text-[#1A1A1A] mb-2">
-                  Type of Partnership <span className="text-[#C1272D]">*</span>
-                </label>
-                <select
-                  id="partnershipType"
-                  name="partnershipType"
-                  required
-                  value={formData.partnershipType}
-                  onChange={handleChange}
-                  className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#E8AB36] focus:outline-none transition-colors text-lg bg-white"
-                >
-                  <option value="">Select partnership type</option>
-                  {PARTNERSHIP_TYPES.map(type => (
-                    <option key={type} value={type}>{type}</option>
-                  ))}
-                </select>
+              {/* Industry & Partnership Type */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="industry" className="block text-xs font-bold uppercase tracking-widest text-[#1A1A1A] mb-1.5">
+                    Industry <span className="text-[#C1272D]">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="industry"
+                    name="industry"
+                    required
+                    value={formData.industry}
+                    onChange={handleChange}
+                    className={inputClass}
+                    placeholder="e.g. Mining, Technology"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="partnershipType" className="block text-xs font-bold uppercase tracking-widest text-[#1A1A1A] mb-1.5">
+                    Type of Partnership <span className="text-[#C1272D]">*</span>
+                  </label>
+                  <select
+                    id="partnershipType"
+                    name="partnershipType"
+                    required
+                    value={formData.partnershipType}
+                    onChange={handleChange}
+                    className={`${inputClass} bg-[#EBF3F5]`}
+                  >
+                    <option value="">Select type</option>
+                    {PARTNERSHIP_TYPES.map(type => (
+                      <option key={type} value={type}>{type}</option>
+                    ))}
+                  </select>
+                </div>
               </div>
 
               {/* Message */}
               <div>
-                <label htmlFor="message" className="block text-sm font-bold uppercase tracking-widest text-[#1A1A1A] mb-2">
-                  Message <span className="text-gray-400">(Optional)</span>
+                <label htmlFor="message" className="block text-xs font-bold uppercase tracking-widest text-[#1A1A1A] mb-1.5">
+                  Message <span className="text-gray-400 normal-case tracking-normal">(Optional)</span>
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  rows={4}
+                  rows={3}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#E8AB36] focus:outline-none transition-colors text-lg resize-none"
+                  className={`${inputClass} resize-none`}
                   placeholder="Tell us about your partnership vision or any proposals..."
                 />
               </div>
 
               {/* File Upload */}
               <div>
-                <label className="block text-sm font-bold uppercase tracking-widest text-[#1A1A1A] mb-2">
-                  Upload Document <span className="text-gray-400">(Optional — company profile or proposal, max 10MB)</span>
+                <label className="block text-xs font-bold uppercase tracking-widest text-[#1A1A1A] mb-1.5">
+                  Upload Document <span className="text-gray-400 normal-case tracking-normal">(Optional — max 10MB)</span>
                 </label>
                 {file ? (
-                  <div className="flex items-center gap-3 px-6 py-4 rounded-2xl border-2 border-[#E8AB36] bg-[#E8AB36]/5">
-                    <Upload className="w-5 h-5 text-[#E8AB36] shrink-0" />
-                    <span className="text-[#1A1A1A] font-medium truncate flex-grow">{file.name}</span>
+                  <div className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-[#E8AB36]/10 border-2 border-[#E8AB36]/30">
+                    <Upload className="w-4 h-4 text-[#E8AB36] shrink-0" />
+                    <span className="text-[#1A1A1A] text-sm font-medium truncate flex-grow">{file.name}</span>
                     <button
                       type="button"
                       onClick={() => setFile(null)}
                       className="text-gray-400 hover:text-[#C1272D] shrink-0"
                     >
-                      <X className="w-5 h-5" />
+                      <X className="w-4 h-4" />
                     </button>
                   </div>
                 ) : (
-                  <label className="flex items-center justify-center gap-3 px-6 py-8 rounded-2xl border-2 border-dashed border-gray-300 cursor-pointer hover:border-[#E8AB36] transition-colors">
-                    <Upload className="w-6 h-6 text-gray-400" />
-                    <span className="text-gray-500 font-medium">Click to upload a file (PDF, DOC, DOCX)</span>
+                  <label className="flex items-center justify-center gap-2 px-5 py-5 rounded-2xl border-2 border-dashed border-gray-300 cursor-pointer hover:border-[#E8AB36] transition-colors bg-[#EBF3F5]">
+                    <Upload className="w-5 h-5 text-gray-400" />
+                    <span className="text-gray-400 text-sm font-medium">Click to upload (PDF, DOC, DOCX)</span>
                     <input
                       type="file"
                       onChange={handleFileChange}
@@ -319,7 +321,7 @@ export function Partnerships() {
               </div>
 
               {error && (
-                <div className="bg-[#C1272D]/10 text-[#C1272D] px-6 py-4 rounded-2xl font-medium">
+                <div className="bg-[#C1272D]/10 text-[#C1272D] px-5 py-3 rounded-2xl text-sm font-medium">
                   {error}
                 </div>
               )}
@@ -328,11 +330,11 @@ export function Partnerships() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="playful-btn w-full inline-flex items-center justify-center gap-3 bg-[#E8AB36] text-[#1A1A1A] font-bold py-5 px-8 rounded-full uppercase tracking-widest hover:bg-[#1A1A1A] hover:text-white disabled:opacity-50 disabled:cursor-not-allowed text-lg"
+                className="playful-btn w-full inline-flex items-center justify-center gap-2 bg-[#E8AB36] text-[#1A1A1A] font-bold py-4 px-8 rounded-full uppercase tracking-widest text-sm hover:bg-[#1A1A1A] hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {submitting ? 'Submitting...' : (
                   <>
-                    <Send className="w-5 h-5" /> Submit Inquiry
+                    <Send className="w-4 h-4" /> Submit Inquiry
                   </>
                 )}
               </button>
