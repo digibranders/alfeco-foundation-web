@@ -96,13 +96,6 @@ export function Volunteer() {
     <div className="min-h-screen bg-[#EBF3F5] pt-12 pb-24 font-sans text-[#1A1A1A]">
       <div className="max-w-3xl mx-auto px-6 md:px-12">
 
-        {/* Back link */}
-        <FadeIn>
-          <Link to="/get-involved" className="inline-flex items-center gap-2 text-[#48B2A9] font-bold text-sm mb-6 hover:underline">
-            <ArrowLeft className="w-4 h-4" /> Back to Get Involved
-          </Link>
-        </FadeIn>
-
         {/* Header */}
         <FadeIn className="mb-10 text-center">
           <h1 className="text-4xl md:text-5xl font-semibold text-[#1A1A1A] mb-4">Volunteer With Us</h1>

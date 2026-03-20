@@ -75,17 +75,19 @@ export function Partnerships() {
     setError('');
 
     try {
-      const payload = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        payload.append(key, value);
-      });
+      let fileData: { name: string; content: string } | undefined;
       if (file) {
-        payload.append('file', file);
+        const buffer = await file.arrayBuffer();
+        const base64 = btoa(
+          new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), '')
+        );
+        fileData = { name: file.name, content: base64 };
       }
 
       const res = await fetch('/api/partnerships', {
         method: 'POST',
-        body: payload,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, file: fileData }),
       });
 
       if (!res.ok) throw new Error('Failed to submit');
@@ -123,13 +125,6 @@ export function Partnerships() {
   return (
     <div className="min-h-screen bg-[#EBF3F5] pt-12 pb-24 font-sans text-[#1A1A1A]">
       <div className="max-w-5xl mx-auto px-6 md:px-12">
-
-        {/* Back link */}
-        <FadeIn>
-          <Link to="/get-involved" className="inline-flex items-center gap-2 text-[#E8AB36] font-bold text-sm mb-6 hover:underline">
-            <ArrowLeft className="w-4 h-4" /> Back to Get Involved
-          </Link>
-        </FadeIn>
 
         {/* Header */}
         <FadeIn className="mb-12 text-center">

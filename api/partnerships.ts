@@ -7,28 +7,20 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 const PARTNERSHIP_CONFIRMATION_TEMPLATE_ID = 48; // alfeco-partnership-confirmation
 const PARTNERSHIP_NOTIFICATION_TEMPLATE_ID = 49; // alfeco-partnership-notification
 
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '12mb',
+    },
+  },
+};
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const contentType = req.headers['content-type'] || '';
-
-  let companyName: string, contactPerson: string, email: string, phone: string;
-  let industry: string, partnershipType: string, message: string;
-
-  if (contentType.includes('application/json')) {
-    ({ companyName, contactPerson, email, phone, industry, partnershipType, message } = req.body);
-  } else {
-    // Handle multipart/form-data — Vercel parses the body fields
-    companyName = req.body?.companyName;
-    contactPerson = req.body?.contactPerson;
-    email = req.body?.email;
-    phone = req.body?.phone;
-    industry = req.body?.industry;
-    partnershipType = req.body?.partnershipType;
-    message = req.body?.message;
-  }
+  const { companyName, contactPerson, email, phone, industry, partnershipType, message, file } = req.body;
 
   if (!companyName || !contactPerson || !email || !phone || !industry || !partnershipType) {
     return res.status(400).json({ error: 'Missing required fields' });
@@ -66,7 +58,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }),
     });
 
-    // 2. Send notification email to Alfeco Foundation
+    // 2. Send notification email to Alfeco Foundation (with file attachment if provided)
+    const notificationPayload: Record<string, unknown> = {
+      to: [{ email: 'info@alfecofoundation.com', name: 'Alfeco Foundation' }],
+      templateId: PARTNERSHIP_NOTIFICATION_TEMPLATE_ID,
+      params: templateParams,
+    };
+
+    if (file && file.content && file.name) {
+      notificationPayload.attachment = [
+        { content: file.content, name: file.name },
+      ];
+    }
+
     await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: {
@@ -74,11 +78,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         'api-key': apiKey,
         'content-type': 'application/json',
       },
-      body: JSON.stringify({
-        to: [{ email: 'info@alfecofoundation.com', name: 'Alfeco Foundation' }],
-        templateId: PARTNERSHIP_NOTIFICATION_TEMPLATE_ID,
-        params: templateParams,
-      }),
+      body: JSON.stringify(notificationPayload),
     });
 
     return res.status(200).json({ success: true });
