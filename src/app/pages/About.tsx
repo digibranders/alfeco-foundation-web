@@ -16,7 +16,7 @@ export function About() {
                         About Us
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-500 font-medium max-w-3xl mx-auto">
-                        Building a legacy of compassion, empowerment, and sustainable change.
+                        Creating a lasting legacy through compassion, empowerment and sustainable impact!
                     </p>
                 </FadeIn>
 
