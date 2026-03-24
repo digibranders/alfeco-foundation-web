@@ -1,7 +1,9 @@
+'use client';
+
 import React, { useState } from 'react';
 import { FadeIn } from '../components/FadeIn';
 import { CheckCircle2, Send, ArrowLeft, GraduationCap, Calendar, Package, Handshake, Upload, X } from 'lucide-react';
-import { Link } from 'react-router';
+import Link from 'next/link';
 
 const PARTNERSHIP_OPPORTUNITIES = [
   {
@@ -112,7 +114,7 @@ export function Partnerships() {
               <p className="text-gray-500 mb-8">
                 Your partnership inquiry has been received. We've sent a confirmation email to <strong className="text-[#1A1A1A]">{formData.email}</strong>. Our partnerships team will review your inquiry and respond within 2–3 business days.
               </p>
-              <Link to="/get-involved" className="playful-btn inline-flex items-center gap-2 bg-[#E8AB36] text-[#1A1A1A] font-bold py-3.5 px-8 rounded-full uppercase tracking-widest text-sm hover:bg-[#1A1A1A] hover:text-white">
+              <Link href="/get-involved" className="playful-btn inline-flex items-center gap-2 bg-[#E8AB36] text-[#1A1A1A] font-bold py-3.5 px-8 rounded-full uppercase tracking-widest text-sm hover:bg-[#1A1A1A] hover:text-white">
                 <ArrowLeft className="w-4 h-4" /> Back to Get Involved
               </Link>
             </div>

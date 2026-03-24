@@ -1,14 +1,17 @@
-import { Link } from 'react-router';
+'use client';
+
+import Link from 'next/link';
 import { motion, useScroll, useSpring } from 'motion/react';
 import { ArrowRight, CheckCircle2, Heart, Users, Leaf, Lightbulb, User, HandCoins, HeartHandshake, Sparkles, Star, Shield, Zap } from 'lucide-react';
 import CountUp from 'react-countup';
 import { FadeIn } from '../components/FadeIn';
-import heroImg1 from '@/assets/e9300193c6cacaea5cc9163dc1289973ae9da137.png';
-import heroImg2 from '@/assets/f17b7f96385e07b96e374bd076e5ccd13575afee.png';
-import heroImg3 from '@/assets/408aa5f31cf50eebe38f4e008262fda66f92ee76.png';
-import heroImg4 from '@/assets/fb74a2370b6303d5216daaeafd0a09438baeaeff.png';
 
-const HERO_IMAGES = [heroImg1, heroImg2, heroImg3, heroImg4];
+const HERO_IMAGES = [
+  '/assets/hero-1.png',
+  '/assets/hero-2.png',
+  '/assets/hero-3.png',
+  '/assets/hero-4.png',
+];
 
 const ProgressBar = () => {
    const { scrollYProgress } = useScroll();
@@ -50,13 +53,13 @@ export function Home() {
 
                   <div className="flex flex-wrap gap-4 mt-8">
                      <Link
-                        to="/get-involved"
+                        href="/get-involved"
                         className="playful-btn inline-flex items-center gap-2 bg-[#C1272D] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest text-sm hover:shadow-lg"
                      >
                         Get Involved <ArrowRight className="w-5 h-5" />
                      </Link>
                      <Link
-                        to="/about"
+                        href="/about"
                         className="playful-btn inline-flex items-center gap-2 bg-white text-[#1A1A1A] font-bold py-4 px-8 rounded-full uppercase tracking-widest text-sm border-2 border-[#1A1A1A]/10 hover:border-[#48B2A9] hover:text-[#48B2A9]"
                      >
                         Our Story
@@ -373,13 +376,13 @@ export function Home() {
                </p>
                <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
                   <Link
-                     to="/donate"
+                     href="/donate"
                      className="playful-btn inline-block bg-white text-[#C1272D] font-bold py-5 px-14 uppercase tracking-widest rounded-full min-w-[200px] hover:shadow-2xl"
                   >
                      Donate Now
                   </Link>
                   <Link
-                     to="/volunteer"
+                     href="/volunteer"
                      className="playful-btn inline-block bg-transparent text-white font-bold py-5 px-14 uppercase tracking-widest border-2 border-white min-w-[200px] rounded-full hover:bg-white hover:text-[#C1272D]"
                   >
                      Volunteer

@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import { Link } from 'react-router';
+import Link from 'next/link';
 import { motion } from 'motion/react';
 
 export function NotFound() {
@@ -21,7 +23,7 @@ export function NotFound() {
                     The page you're looking for doesn't exist or has been moved.
                 </p>
                 <Link
-                    to="/"
+                    href="/"
                     className="inline-flex items-center gap-2 bg-[#C1272D] text-white font-bold py-4 px-10 rounded-full uppercase tracking-widest text-sm hover:shadow-lg transition-all"
                 >
                     Back to Home

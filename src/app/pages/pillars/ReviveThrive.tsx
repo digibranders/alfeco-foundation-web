@@ -1,6 +1,8 @@
+'use client';
+
 import React from 'react';
 import { Download, Heart, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router';
+import Link from 'next/link';
 import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 
@@ -16,9 +18,9 @@ export function ReviveThrive() {
         {/* Breadcrumb */}
         <FadeIn>
           <div className="flex items-center gap-2 text-sm text-white/70 mb-8">
-            <Link to="/pillars" className="hover:text-white transition-colors">Our Pillars</Link>
+            <Link href="/pillars" className="hover:text-white transition-colors">Our Pillars</Link>
             <span>/</span>
-            <Link to="/pillars/education" className="hover:text-white transition-colors">Education & Development</Link>
+            <Link href="/pillars/education" className="hover:text-white transition-colors">Education & Development</Link>
             <span>/</span>
             <span className="text-white font-bold">Revive & Thrive</span>
           </div>

@@ -1,6 +1,8 @@
+'use client';
+
 import React from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import { Link } from 'react-router';
+import Link from 'next/link';
 import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 

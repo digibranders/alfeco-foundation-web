@@ -1,9 +1,9 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, ChevronDown, Calendar, Filter, ChevronLeft, ChevronRight, Instagram, Linkedin, Sparkles } from 'lucide-react';
-import { Link } from 'react-router';
+import Link from 'next/link';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import { FadeIn } from '../components/FadeIn';
 import { NEWS_ITEMS } from '../data/news';
 
@@ -78,7 +78,7 @@ export function News() {
              {filteredNews.map((item, idx) => (
                 <FadeIn key={item.id} delay={idx * 0.08} scale>
                    <Link 
-                      to={`/news/${item.id}`}
+                      href={`/news/${item.id}`}
                       className="group bg-white rounded-[40px] overflow-hidden h-full flex flex-col playful-card shadow-playful hover:shadow-playful-hover block"
                    >
                       <div className="relative aspect-[4/3] overflow-hidden">
