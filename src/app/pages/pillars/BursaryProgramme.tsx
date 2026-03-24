@@ -1,6 +1,8 @@
+'use client';
+
 import React from 'react';
 import { ArrowRight, GraduationCap, CheckCircle2, Download, FileText, Calendar, ClipboardCheck, Sparkles } from 'lucide-react';
-import { Link } from 'react-router';
+import Link from 'next/link';
 import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 import CountUp from 'react-countup';
@@ -16,9 +18,9 @@ export function BursaryProgramme() {
         {/* Breadcrumb */}
         <FadeIn>
           <div className="flex items-center gap-2 text-sm text-[#7E8083] mb-8">
-            <Link to="/pillars" className="hover:text-[#C1272D] transition-colors">Our Pillars</Link>
+            <Link href="/pillars" className="hover:text-[#C1272D] transition-colors">Our Pillars</Link>
             <span>/</span>
-            <Link to="/pillars/education" className="hover:text-[#C1272D] transition-colors">Education & Development</Link>
+            <Link href="/pillars/education" className="hover:text-[#C1272D] transition-colors">Education & Development</Link>
             <span>/</span>
             <span className="text-[#C1272D] font-bold">Bursary Programme</span>
           </div>

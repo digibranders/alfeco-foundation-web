@@ -1,8 +1,11 @@
-import { Link } from 'react-router';
+'use client';
+
+import Link from 'next/link';
 import { Download, Wrench, ArrowRight } from 'lucide-react';
 import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
-import skillsHeroImg from '@/assets/74379a136379fd395055b75b23c0dcf067846112.png';
+
+const skillsHeroImg = '/assets/skills-hero.png';
 
 const VALVE_IMG = "https://images.unsplash.com/photo-1738918922725-d70c666ddccb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
 const WELDING_IMG = "https://images.unsplash.com/photo-1673201159941-68fcdbbb4fa1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
@@ -16,9 +19,9 @@ export function SkillsDevelopment() {
         {/* Breadcrumb */}
         <FadeIn>
           <div className="flex items-center gap-2 text-sm text-white/70 mb-8">
-            <Link to="/pillars" className="hover:text-white transition-colors">Our Pillars</Link>
+            <Link href="/pillars" className="hover:text-white transition-colors">Our Pillars</Link>
             <span>/</span>
-            <Link to="/pillars/education" className="hover:text-white transition-colors">Education & Development</Link>
+            <Link href="/pillars/education" className="hover:text-white transition-colors">Education & Development</Link>
             <span>/</span>
             <span className="text-white font-bold">Skills Development</span>
           </div>

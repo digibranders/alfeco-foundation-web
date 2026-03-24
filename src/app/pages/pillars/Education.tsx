@@ -1,4 +1,6 @@
-import { Link } from 'react-router';
+'use client';
+
+import Link from 'next/link';
 import { ArrowRight, BookOpen, GraduationCap, Wrench, Heart, CheckCircle2, Sparkles } from 'lucide-react';
 import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
@@ -54,7 +56,7 @@ export function Education() {
               Education is the cornerstone of empowerment. At the Alfeco Foundation, we believe that every individual deserves access to quality education and the tools to develop their potential — regardless of background or circumstance.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/get-involved" className="playful-btn inline-flex items-center gap-2 bg-[#1A1A1A] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-[#C1272D]">
+              <Link href="/get-involved" className="playful-btn inline-flex items-center gap-2 bg-[#1A1A1A] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-[#C1272D]">
                 Get Involved <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
@@ -112,7 +114,7 @@ export function Education() {
             return (
               <FadeIn key={idx} delay={idx * 0.15} scale>
                 <Link
-                  to={prog.path}
+                  href={prog.path}
                   className="group bg-white rounded-[40px] overflow-hidden h-full flex flex-col playful-card shadow-playful hover:shadow-playful-hover block"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">

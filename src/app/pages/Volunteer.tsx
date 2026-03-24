@@ -1,7 +1,9 @@
+'use client';
+
 import React, { useState } from 'react';
 import { FadeIn } from '../components/FadeIn';
 import { CheckCircle2, Send, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router';
+import Link from 'next/link';
 
 const INTEREST_OPTIONS = [
   'Community outreach programmes',
@@ -82,7 +84,7 @@ export function Volunteer() {
               <p className="text-gray-500 mb-8">
                 Your volunteer application has been received. We've sent a confirmation email to <strong className="text-[#1A1A1A]">{formData.email}</strong>. Our team will be in touch shortly.
               </p>
-              <Link to="/get-involved" className="playful-btn inline-flex items-center gap-2 bg-[#48B2A9] text-white font-bold py-3.5 px-8 rounded-full uppercase tracking-widest text-sm hover:bg-[#1A1A1A]">
+              <Link href="/get-involved" className="playful-btn inline-flex items-center gap-2 bg-[#48B2A9] text-white font-bold py-3.5 px-8 rounded-full uppercase tracking-widest text-sm hover:bg-[#1A1A1A]">
                 <ArrowLeft className="w-4 h-4" /> Back to Get Involved
               </Link>
             </div>

@@ -1,7 +1,10 @@
+'use client';
+
 import React, { useState } from 'react';
 import { FadeIn } from '../components/FadeIn';
 import { CheckCircle2, ArrowLeft, Heart, CreditCard, Building2, QrCode, Smartphone } from 'lucide-react';
-import { Link, useSearchParams } from 'react-router';
+import Link from 'next/link'
+import { useSearchParams } from 'next/navigation';
 
 const SUGGESTED_AMOUNTS = [100, 500, 1000];
 
@@ -15,7 +18,7 @@ const PAYMENT_METHODS = [
 const inputClass = "w-full bg-[#EBF3F5] border-2 border-transparent rounded-2xl focus:ring-0 focus:border-[#C1272D] outline-none py-3.5 px-5 text-[#1A1A1A] placeholder:text-gray-400 transition-all text-[15px]";
 
 export function Donate() {
-  const [searchParams] = useSearchParams();
+  const searchParams = useSearchParams();
   const isSuccess = searchParams.get('success') === 'true';
 
   const [formData, setFormData] = useState({
@@ -100,7 +103,7 @@ export function Donate() {
               <p className="text-sm text-gray-400 mb-8">
                 A <strong className="text-[#1A1A1A]">Section 18A tax certificate</strong> will be issued and sent to your email address.
               </p>
-              <Link to="/get-involved" className="playful-btn inline-flex items-center gap-2 bg-[#C1272D] text-white font-bold py-3.5 px-8 rounded-full uppercase tracking-widest text-sm hover:bg-[#1A1A1A]">
+              <Link href="/get-involved" className="playful-btn inline-flex items-center gap-2 bg-[#C1272D] text-white font-bold py-3.5 px-8 rounded-full uppercase tracking-widest text-sm hover:bg-[#1A1A1A]">
                 <ArrowLeft className="w-4 h-4" /> Back to Get Involved
               </Link>
             </div>

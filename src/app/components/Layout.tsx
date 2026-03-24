@@ -1,22 +1,18 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, Outlet } from 'react-router';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ChevronDown, ChevronRight, Heart } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import clsx from 'clsx';
-import logoImg from "@/assets/64d35df419fe6ccaee5f446044cb9e637f6e862c.png";
 
-function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-}
+const logoImg = '/assets/logo.png';
 
-export function Layout() {
+export function SiteLayout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -73,7 +69,7 @@ export function Layout() {
             !scrolled && "border-b border-[#1A1A1A]/5"
           )}>
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
+            <Link href="/" className="flex items-center gap-3 group">
               <motion.img
                 src={logoImg}
                 alt="Alfeco Foundation"
@@ -92,10 +88,10 @@ export function Layout() {
                       {/* Pillars Dropdown */}
                       <div className="relative group">
                         <Link
-                          to={link.path}
+                          href={link.path}
                           className={clsx(
                             "text-[13px] font-bold tracking-wide uppercase transition-all hover:text-[#C1272D] flex items-center gap-1 py-2",
-                            location.pathname.startsWith('/pillars') ? "text-[#C1272D]" : "text-[#1A1A1A]"
+                            pathname.startsWith('/pillars') ? "text-[#C1272D]" : "text-[#1A1A1A]"
                           )}
                         >
                           {link.name}
@@ -120,7 +116,7 @@ export function Layout() {
                                         {subItem.subItems?.map((nestedItem) => (
                                           <Link
                                             key={nestedItem.name}
-                                            to={nestedItem.path}
+                                            href={nestedItem.path}
                                             className="block px-4 py-3 text-sm font-bold text-white hover:bg-white/15 rounded-2xl transition-all"
                                           >
                                             {nestedItem.name}
@@ -135,7 +131,7 @@ export function Layout() {
                               return (
                                 <Link
                                   key={subItem.name}
-                                  to={subItem.path}
+                                  href={subItem.path}
                                   className="block px-4 py-3 text-sm font-bold text-[#1A1A1A] hover:bg-[#EBF3F5] hover:text-[#C1272D] rounded-2xl transition-all"
                                 >
                                   {subItem.name}
@@ -148,10 +144,10 @@ export function Layout() {
 
                       {/* Get Involved Link */}
                       <Link
-                        to="/get-involved"
+                        href="/get-involved"
                         className={clsx(
                           "text-[13px] font-bold tracking-wide uppercase transition-all hover:text-[#C1272D] py-2",
-                          location.pathname === '/get-involved' ? "text-[#C1272D]" : "text-[#1A1A1A]"
+                          pathname === '/get-involved' ? "text-[#C1272D]" : "text-[#1A1A1A]"
                         )}
                       >
                         Get Involved
@@ -163,14 +159,14 @@ export function Layout() {
                 return (
                   <Link
                     key={link.name}
-                    to={link.path}
+                    href={link.path}
                     className={clsx(
                       "text-[13px] font-bold tracking-wide uppercase transition-all hover:text-[#C1272D] py-2 relative",
-                      location.pathname === link.path ? "text-[#C1272D]" : "text-[#1A1A1A]"
+                      pathname === link.path ? "text-[#C1272D]" : "text-[#1A1A1A]"
                     )}
                   >
                     {link.name}
-                    {location.pathname === link.path && (
+                    {pathname === link.path && (
                       <motion.div
                         layoutId="nav-indicator"
                         className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-[#C1272D] rounded-full"
@@ -181,9 +177,9 @@ export function Layout() {
                 );
               })}
               <Link
-                to="/contact"
+                href="/contact"
                 className="playful-btn px-6 py-2.5 bg-[#1A1A1A] text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#C1272D] hover:shadow-lg"
-              >Let's Connect</Link>
+              >Let&apos;s Connect</Link>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -209,7 +205,7 @@ export function Layout() {
           >
             {/* Menu Header */}
             <div className="flex items-center justify-between px-6 h-24 border-b border-[#1A1A1A]/5">
-              <Link to="/" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/" onClick={() => setIsMenuOpen(false)}>
                 <img src={logoImg} alt="Alfeco Foundation" className="h-10 w-auto object-contain" />
               </Link>
               <button
@@ -232,7 +228,7 @@ export function Layout() {
                     transition={{ delay: i * 0.04 }}
                   >
                     <Link
-                      to={link.path}
+                      href={link.path}
                       onClick={() => setIsMenuOpen(false)}
                       className="text-2xl sm:text-[28px] font-bold text-[#1A1A1A] hover:text-[#C1272D] transition-colors tracking-tight"
                     >
@@ -240,14 +236,14 @@ export function Layout() {
                     </Link>
                   </motion.div>
                 ))}
-                
+
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
                   <Link
-                    to="/get-involved"
+                    href="/get-involved"
                     onClick={() => setIsMenuOpen(false)}
                     className="text-2xl sm:text-[28px] font-bold text-[#1A1A1A] hover:text-[#C1272D] transition-colors tracking-tight"
                   >
@@ -269,7 +265,7 @@ export function Layout() {
                       className="space-y-1"
                     >
                       <Link
-                        to={subItem.path}
+                        href={subItem.path}
                         onClick={() => setIsMenuOpen(false)}
                         className="block text-lg font-bold text-[#1A1A1A] hover:text-[#C1272D] transition-colors leading-tight"
                       >
@@ -280,7 +276,7 @@ export function Layout() {
                           {subItem.subItems?.map((nested) => (
                             <Link
                               key={nested.name}
-                              to={nested.path}
+                              href={nested.path}
                               onClick={() => setIsMenuOpen(false)}
                               className="text-[11px] font-medium text-[#7E8083] hover:text-[#C1272D] transition-colors"
                             >
@@ -297,11 +293,11 @@ export function Layout() {
               {/* Bottom Action */}
               <div className="mt-8 w-full max-w-xs">
                 <Link
-                  to="/contact"
+                  href="/contact"
                   onClick={() => setIsMenuOpen(false)}
                   className="block w-full py-4 bg-[#1A1A1A] text-white text-xs font-bold uppercase tracking-widest rounded-full shadow-lg shadow-[#1A1A1A]/20 active:scale-95 transition-all text-center"
                 >
-                  Let's Connect
+                  Let&apos;s Connect
                 </Link>
               </div>
             </div>
@@ -311,8 +307,7 @@ export function Layout() {
 
       {/* Main Content */}
       <main className="flex-grow pt-24">
-        <ScrollToTop />
-        <Outlet />
+        {children}
       </main>
 
       {/* Get in Touch + Footer */}
@@ -331,19 +326,19 @@ export function Layout() {
                   <Mail className="w-3.5 h-3.5 text-[#48B2A9]" />
                   <span className="text-xs font-bold uppercase tracking-widest text-[#48B2A9]">Get in Touch</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 leading-tight">Let's make a lasting difference together!<br /></h2>
+                <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 leading-tight">Let&apos;s make a lasting difference together!<br /></h2>
                 <p className="text-white/50 text-lg max-w-lg mb-8">
-                  Whether you want to partner, volunteer, or simply learn more about our work — we'd love to hear from you.
+                  Whether you want to partner, volunteer, or simply learn more about our work — we&apos;d love to hear from you.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    to="/contact"
+                    href="/contact"
                     className="playful-btn inline-flex items-center justify-center gap-2 bg-[#C1272D] text-white font-bold py-4 px-10 rounded-full uppercase tracking-widest text-sm hover:shadow-lg"
                   >
                     <Mail className="w-4 h-4" /> Contact Us
                   </Link>
                   <Link
-                    to="/get-involved"
+                    href="/get-involved"
                     className="playful-btn inline-flex items-center justify-center gap-2 bg-white/10 text-white font-bold py-4 px-10 rounded-full uppercase tracking-widest text-sm hover:bg-white/20 border border-white/10"
                   >
                     <Heart className="w-4 h-4" /> Get Involved
@@ -432,7 +427,7 @@ export function Layout() {
                     { name: 'Get Involved', path: '/get-involved' },
                     { name: 'Contact Us', path: '/contact' },
                   ] as { name: string; path: string }[]).map(({ name, path }) => (
-                    <Link key={name} to={path} className="text-white/50 hover:text-[#E8AB36] transition-colors font-medium text-sm">
+                    <Link key={name} href={path} className="text-white/50 hover:text-[#E8AB36] transition-colors font-medium text-sm">
                       {name}
                     </Link>
                   ))}
@@ -466,8 +461,8 @@ export function Layout() {
                 Made with <Heart className="w-3 h-3 text-[#C1272D] fill-[#C1272D]" /> &copy; {new Date().getFullYear()} Alfeco Foundation
               </p>
               <div className="flex gap-6">
-                <Link to="/privacy" className="hover:text-white/70 transition-colors">Privacy</Link>
-                <Link to="/terms" className="hover:text-white/70 transition-colors">Terms</Link>
+                <Link href="/privacy" className="hover:text-white/70 transition-colors">Privacy</Link>
+                <Link href="/terms" className="hover:text-white/70 transition-colors">Terms</Link>
               </div>
             </div>
           </div>

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Facebook, Twitter, Youtube, Instagram, Send, MessageCircle, Clock, Sparkles, Heart, ArrowRight, Star } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';

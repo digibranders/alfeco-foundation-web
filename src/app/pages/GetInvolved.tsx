@@ -1,6 +1,8 @@
+'use client';
+
 import React from 'react';
 import { ArrowRight, Heart, Users, HandCoins, CheckCircle2, Sparkles } from 'lucide-react';
-import { Link } from 'react-router';
+import Link from 'next/link';
 import { FadeIn } from '../components/FadeIn';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 
@@ -47,7 +49,7 @@ export function GetInvolved() {
                     </li>
                   ))}
                 </ul>
-                <Link to="/volunteer" className="playful-btn inline-flex items-center gap-2 bg-[#1A1A1A] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-[#48B2A9] self-start">
+                <Link href="/volunteer" className="playful-btn inline-flex items-center gap-2 bg-[#1A1A1A] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-[#48B2A9] self-start">
                   Sign Up <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
@@ -74,7 +76,7 @@ export function GetInvolved() {
                     </li>
                   ))}
                 </ul>
-                <Link to="/donate" className="playful-btn inline-flex items-center gap-2 bg-[#C1272D] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-[#1A1A1A] self-start">
+                <Link href="/donate" className="playful-btn inline-flex items-center gap-2 bg-[#C1272D] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-[#1A1A1A] self-start">
                   Donate Now <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
@@ -101,7 +103,7 @@ export function GetInvolved() {
                     </li>
                   ))}
                 </ul>
-                <Link to="/partnerships" className="playful-btn inline-flex items-center gap-2 bg-[#E8AB36] text-[#1A1A1A] font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-white self-start">
+                <Link href="/partnerships" className="playful-btn inline-flex items-center gap-2 bg-[#E8AB36] text-[#1A1A1A] font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-white self-start">
                   Partner With Us <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>

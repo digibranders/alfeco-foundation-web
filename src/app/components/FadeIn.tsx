@@ -1,8 +1,10 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'motion/react';
 
 interface FadeInProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   delay?: number;
   direction?: 'up' | 'down' | 'left' | 'right' | 'none';
