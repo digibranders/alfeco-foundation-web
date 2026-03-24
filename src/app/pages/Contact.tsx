@@ -201,7 +201,7 @@ export function Contact() {
                 style={{ border: 0 }}
                 loading="lazy"
                 allowFullScreen
-                src="https://www.openstreetmap.org/export/embed.html?bbox=28.0486%2C-26.0558%2C28.0686%2C-26.0358&layer=mapnik&marker=-26.0458%2C28.0586"
+                src="https://maps.google.com/maps?q=Alfeco+Holdings,+29+Autumn+Street,+Edenburg,+Sandton,+2128,+South+Africa&t=&z=17&ie=UTF8&iwloc=&output=embed"
               />
               <a
                 href="https://www.google.com/maps/search/?api=1&query=29+Autumn+Street+Edenburg+Sandton+2128+South+Africa"
