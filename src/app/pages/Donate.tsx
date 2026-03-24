@@ -118,7 +118,7 @@ export function Donate() {
         <FadeIn className="mb-10 text-center">
           <h1 className="text-4xl md:text-5xl font-semibold text-[#1A1A1A] mb-4">Make a Donation</h1>
           <p className="text-gray-500 font-medium max-w-xl mx-auto">
-            Your financial contribution fuels our programmes and creates lasting impact. Every rand counts.
+            Together, we can make a difference. Your financial contribution helps us deliver impactful programmes and build a better future - one rand at a time
           </p>
         </FadeIn>
 
@@ -153,11 +153,10 @@ export function Donate() {
                     key={amount}
                     type="button"
                     onClick={() => handleAmountSelect(amount)}
-                    className={`py-3.5 rounded-2xl font-bold text-lg transition-all border-2 ${
-                      formData.amount === String(amount)
+                    className={`py-3.5 rounded-2xl font-bold text-lg transition-all border-2 ${formData.amount === String(amount)
                         ? 'border-[#C1272D] bg-[#C1272D]/10 text-[#C1272D]'
                         : 'border-transparent bg-[#EBF3F5] text-[#1A1A1A] hover:border-[#C1272D]/30'
-                    }`}
+                      }`}
                   >
                     R{amount.toLocaleString()}
                   </button>

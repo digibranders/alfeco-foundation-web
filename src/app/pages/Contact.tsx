@@ -189,6 +189,34 @@ export function Contact() {
         </div>
       </div>
 
+      {/* ── Google Maps Embed ── */}
+      <div className="relative bg-[#EBF3F5] pb-12 px-6 md:px-12">
+        <div className="max-w-6xl mx-auto">
+          <FadeIn>
+            <div className="relative overflow-hidden rounded-[32px] shadow-lg" style={{ height: '450px' }}>
+              <iframe
+                title="Alfeco Foundation Location"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+                src="https://maps.google.com/maps?q=Alfeco+Holdings,+29+Autumn+Street,+Edenburg,+Sandton,+2128,+South+Africa&t=&z=17&ie=UTF8&iwloc=&output=embed"
+              />
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=29+Autumn+Street+Edenburg+Sandton+2128+South+Africa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 flex items-center gap-2 bg-white text-gray-800 text-sm font-medium px-4 py-2 rounded-full shadow-lg hover:shadow-xl hover:bg-gray-50 transition-all duration-200"
+              >
+                <MapPin className="w-4 h-4 text-[#C1272D]" />
+                Open in Google Maps
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+
       {/* ── Form + Image Section ── */}
       <div id="contact-form" className="relative py-24 px-6 md:px-12 overflow-hidden" style={{ background: 'linear-gradient(180deg, #EBF3F5 0%, #ffffff 30%, #EBF3F5 100%)' }}>
         {/* Colorful decorative blobs */}

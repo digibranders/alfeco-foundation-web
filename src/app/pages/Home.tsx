@@ -169,17 +169,16 @@ export function Home() {
                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                   {/* Inclusivity */}
                   <FadeIn delay={0.1} className="h-full">
-                     <div className="h-full bg-white rounded-[40px] p-8 md:p-10 flex flex-col justify-between relative overflow-hidden group min-h-[400px] playful-card shadow-playful hover:shadow-playful-hover">
-                        <div className="relative z-10">
-                           <div className="flex justify-between items-start mb-8">
-                              <div className="w-14 h-14 rounded-2xl bg-[#48B2A9]/10 flex items-center justify-center group-hover:bg-[#48B2A9] group-hover:text-white transition-all duration-500">
-                                 <Users className="w-7 h-7 text-[#48B2A9] group-hover:text-white transition-colors" />
-                              </div>
-                              <ArrowRight className="w-8 h-8 text-[#1A1A1A]/20 -rotate-45 group-hover:rotate-0 group-hover:text-[#48B2A9] transition-all duration-300" />
+                     <div className="h-full bg-white rounded-[40px] flex flex-col justify-end relative overflow-hidden group min-h-[400px] playful-card shadow-playful hover:shadow-playful-hover">
+                        <img src="https://images.unsplash.com/photo-1630068846062-3ffe78aa5049?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwY29tbXVuaXR5JTIwaGFuZHMlMjB0b2dldGhlciUyMGluY2x1c2l2aXR5fGVufDF8fHx8MTc3MjcwNTI2MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Inclusivity" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
+                        <div className="relative z-10 p-8 md:p-10">
+                           <div className="flex justify-between items-start mb-6">
+                              <ArrowRight className="w-8 h-8 text-white/30 -rotate-45 group-hover:rotate-0 group-hover:text-[#48B2A9] transition-all duration-300" />
                            </div>
-                           <h3 className="text-4xl font-semibold text-[#1A1A1A] mb-6">Inclusivity</h3>
-                           <p className="text-gray-500 leading-relaxed text-lg font-medium">
-                              Every voice matters. Every dream deserves a chance.
+                           <h3 className="text-4xl font-semibold text-white mb-4">Inclusivity</h3>
+                           <p className="text-white/80 leading-relaxed text-lg">
+                              Every voice matters. Every dream deserves a chance. We build environments where diversity is not just welcomed, but celebrated as our greatest strength.
                            </p>
                         </div>
                      </div>
@@ -188,16 +187,17 @@ export function Home() {
                   <div className="lg:col-span-2 flex flex-col gap-6">
                      {/* Integrity */}
                      <FadeIn delay={0.2}>
-                        <div className="bg-[#E8AB36] rounded-[40px] p-8 md:p-10 flex flex-col justify-between relative overflow-hidden group min-h-[240px] playful-card shadow-warm">
-                           <div className="flex justify-between items-start w-full relative z-10 mb-4">
-                              <div className="w-12 h-12 rounded-2xl bg-[#1A1A1A]/10 flex items-center justify-center">
-                                 <Shield className="w-6 h-6 text-[#1A1A1A]" />
+                        <div className="rounded-[40px] flex flex-col justify-end relative overflow-hidden group min-h-[240px] playful-card shadow-warm">
+                           <img src="https://images.unsplash.com/photo-1696861270495-7f35c35c3273?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYW5kc2hha2UlMjB0cnVzdCUyMGludGVncml0eSUyMGJ1c2luZXNzfGVufDF8fHx8MTc3MjcwNTI2Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Integrity" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                           <div className="absolute inset-0 bg-gradient-to-r from-[#E8AB36]/90 via-[#E8AB36]/70 to-transparent" />
+                           <div className="relative z-10 p-8 md:p-10">
+                              <div className="flex justify-between items-start w-full mb-4">
+                                 <ArrowRight className="w-8 h-8 text-[#1A1A1A]/30 -rotate-45 group-hover:rotate-0 transition-all duration-300" />
                               </div>
-                              <ArrowRight className="w-8 h-8 text-[#1A1A1A]/30 -rotate-45 group-hover:rotate-0 transition-all duration-300" />
-                           </div>
-                           <div className="relative z-10 max-w-lg">
-                              <h3 className="text-3xl md:text-4xl font-semibold text-[#1A1A1A] mb-4">Integrity</h3>
-                              <p className="text-[#1A1A1A]/70 text-lg font-bold">Doing right, even when unseen.</p>
+                              <div className="max-w-lg">
+                                 <h3 className="text-3xl md:text-4xl font-semibold text-[#1A1A1A] mb-4">Integrity</h3>
+                                 <p className="text-[#1A1A1A]/70 text-lg font-bold">Doing right, even when unseen. Building trust through transparency.</p>
+                              </div>
                            </div>
                         </div>
                      </FadeIn>
@@ -205,49 +205,48 @@ export function Home() {
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Innovation */}
                         <FadeIn delay={0.3}>
-                           <div className="bg-white rounded-[40px] p-8 flex flex-col justify-between h-full group relative overflow-hidden min-h-[240px] playful-card shadow-playful hover:shadow-playful-hover">
-                              <div className="relative z-10">
+                           <div className="rounded-[40px] flex flex-col justify-end h-full group relative overflow-hidden min-h-[240px] playful-card shadow-playful hover:shadow-playful-hover">
+                              <img src="https://images.unsplash.com/photo-1770632067760-70ac2cb9ec3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGlubm92YXRpb24lMjBsaWdodGJ1bGIlMjB0ZWNobm9sb2d5fGVufDF8fHx8MTc3MjcwNTI2Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Innovation" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
+                              <div className="relative z-10 p-8">
                                  <div className="flex justify-between items-start mb-4">
-                                    <div className="w-12 h-12 rounded-2xl bg-[#E8AB36]/10 flex items-center justify-center group-hover:bg-[#E8AB36] transition-all duration-500">
-                                       <Lightbulb className="w-6 h-6 text-[#E8AB36] group-hover:text-white transition-colors" />
-                                    </div>
-                                    <ArrowRight className="w-8 h-8 text-[#1A1A1A]/20 -rotate-45 group-hover:rotate-0 group-hover:text-[#E8AB36] transition-all duration-300" />
+                                    <ArrowRight className="w-8 h-8 text-white/30 -rotate-45 group-hover:rotate-0 group-hover:text-[#E8AB36] transition-all duration-300" />
                                  </div>
-                                 <h3 className="text-2xl font-semibold text-[#1A1A1A] mb-2">Innovation</h3>
+                                 <h3 className="text-2xl font-semibold text-white mb-2">Innovation</h3>
+                                 <p className="text-white/70 text-sm">Reimagining solutions for today's and tomorrow's challenges.</p>
                               </div>
-                              <p className="text-gray-400 font-medium text-sm relative z-10">Reimagining solutions for today's and tomorrow's challenges.</p>
                            </div>
                         </FadeIn>
 
                         {/* Empowerment */}
                         <FadeIn delay={0.4}>
-                           <div className="bg-[#48B2A9] rounded-[40px] p-8 flex flex-col justify-between h-full group relative overflow-hidden min-h-[240px] playful-card">
-                              <div className="relative z-10">
+                           <div className="rounded-[40px] flex flex-col justify-end h-full group relative overflow-hidden min-h-[240px] playful-card">
+                              <img src="https://images.unsplash.com/photo-1606471015285-85fa1288aa4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbXBvd2VybWVudCUyMHBlb3BsZSUyMGNlbGVicmF0aW5nJTIwc3VjY2Vzc3xlbnwxfHx8fDE3NzI3MDUyNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Empowerment" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                              <div className="absolute inset-0 bg-gradient-to-t from-[#48B2A9]/90 via-[#48B2A9]/50 to-transparent" />
+                              <div className="relative z-10 p-8">
                                  <div className="flex justify-between items-start mb-4">
-                                    <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center">
-                                       <Zap className="w-6 h-6 text-white" />
-                                    </div>
                                     <ArrowRight className="w-8 h-8 text-white/40 -rotate-45 group-hover:rotate-0 transition-all duration-300" />
                                  </div>
                                  <h3 className="text-2xl font-semibold text-white mb-2">Empowerment</h3>
+                                 <p className="text-white/80 text-sm">Enabling individuals and communities to stand tall.</p>
                               </div>
-                              <p className="text-white/80 font-bold text-sm relative z-10">Enabling individuals and communities to stand tall.</p>
                            </div>
                         </FadeIn>
                      </div>
 
                      {/* Sustainability */}
                      <FadeIn delay={0.5}>
-                        <div className="bg-[#1A1A1A] rounded-[40px] p-8 md:p-10 flex flex-col justify-between relative overflow-hidden group text-white min-h-[240px] playful-card">
-                           <div className="flex justify-between items-start w-full relative z-10 mb-4">
-                              <div className="w-12 h-12 rounded-2xl bg-[#48B2A9]/20 flex items-center justify-center">
-                                 <Leaf className="w-6 h-6 text-[#48B2A9]" />
+                        <div className="rounded-[40px] flex flex-col justify-end relative overflow-hidden group text-white min-h-[240px] playful-card">
+                           <img src="https://images.unsplash.com/photo-1763856957026-a74ab4f05891?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmVlbiUyMHN1c3RhaW5hYmlsaXR5JTIwbmF0dXJlJTIwcGxhbnRzJTIwZ3Jvd3RofGVufDF8fHx8MTc3MjcwNTI2M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Sustainability" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                           <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A]/90 via-[#1A1A1A]/60 to-transparent" />
+                           <div className="relative z-10 p-8 md:p-10">
+                              <div className="flex justify-between items-start w-full mb-4">
+                                 <ArrowRight className="w-8 h-8 text-[#48B2A9]/40 -rotate-45 group-hover:rotate-0 group-hover:text-[#48B2A9] transition-all duration-300" />
                               </div>
-                              <ArrowRight className="w-8 h-8 text-[#48B2A9]/40 -rotate-45 group-hover:rotate-0 group-hover:text-[#48B2A9] transition-all duration-300" />
-                           </div>
-                           <div className="relative z-10 max-w-lg">
-                              <h3 className="text-3xl font-semibold mb-4">Sustainability</h3>
-                              <p className="text-white/50 text-lg">Protecting our environment as we grow.</p>
+                              <div className="max-w-lg">
+                                 <h3 className="text-3xl font-semibold mb-4">Sustainability</h3>
+                                 <p className="text-white/70 text-lg">Protecting our environment as we grow.</p>
+                              </div>
                            </div>
                         </div>
                      </FadeIn>
@@ -261,10 +260,7 @@ export function Home() {
             <div className="max-w-7xl mx-auto">
                {/* Section label */}
                <FadeIn className="text-left mb-12">
-                  <span className="inline-block bg-[#48B2A9]/10 text-[#48B2A9] px-5 py-2 rounded-full text-sm tracking-wide mb-4">
-                     Our Purpose &amp; Promise
-                  </span>
-                  <h2 className="text-5xl md:text-7xl font-semibold text-[#1A1A1A] leading-tight">Our Purpose and Promise</h2>
+                  <h2 className="text-5xl md:text-7xl font-semibold text-[#48B2A9] leading-tight">Our Purpose and Promise</h2>
                </FadeIn>
 
                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
