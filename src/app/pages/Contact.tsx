@@ -193,7 +193,7 @@ export function Contact() {
       <div className="relative bg-[#EBF3F5] pb-12 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
-            <div className="overflow-hidden rounded-[32px] shadow-lg" style={{ height: '450px' }}>
+            <div className="relative overflow-hidden rounded-[32px] shadow-lg" style={{ height: '450px' }}>
               <iframe
                 title="Alfeco Foundation Location"
                 width="100%"
@@ -201,8 +201,17 @@ export function Contact() {
                 style={{ border: 0 }}
                 loading="lazy"
                 allowFullScreen
-                src="https://www.openstreetmap.org/export/embed.html?bbox=28.0412%2C-26.0933%2C28.0612%2C-26.0733&layer=mapnik&marker=-26.0833%2C28.0512"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=28.0486%2C-26.0558%2C28.0686%2C-26.0358&layer=mapnik&marker=-26.0458%2C28.0586"
               />
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=29+Autumn+Street+Edenburg+Sandton+2128+South+Africa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 flex items-center gap-2 bg-white text-gray-800 text-sm font-medium px-4 py-2 rounded-full shadow-lg hover:shadow-xl hover:bg-gray-50 transition-all duration-200"
+              >
+                <MapPin className="w-4 h-4 text-[#C1272D]" />
+                Open in Google Maps
+              </a>
             </div>
           </FadeIn>
         </div>
