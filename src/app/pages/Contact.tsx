@@ -189,6 +189,25 @@ export function Contact() {
         </div>
       </div>
 
+      {/* ── Google Maps Embed ── */}
+      <div className="relative bg-[#EBF3F5] pb-12 px-6 md:px-12">
+        <div className="max-w-6xl mx-auto">
+          <FadeIn>
+            <div className="overflow-hidden rounded-[32px] shadow-lg" style={{ height: '450px' }}>
+              <iframe
+                title="Alfeco Foundation Location"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+                src="https://www.openstreetmap.org/export/embed.html?bbox=28.0412%2C-26.0933%2C28.0612%2C-26.0733&layer=mapnik&marker=-26.0833%2C28.0512"
+              />
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+
       {/* ── Form + Image Section ── */}
       <div id="contact-form" className="relative py-24 px-6 md:px-12 overflow-hidden" style={{ background: 'linear-gradient(180deg, #EBF3F5 0%, #ffffff 30%, #EBF3F5 100%)' }}>
         {/* Colorful decorative blobs */}
