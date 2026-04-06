@@ -7,10 +7,12 @@ import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 import CountUp from 'react-countup';
 
-const HERO_IMG = "https://images.unsplash.com/photo-1591503049013-993ae5cf7e7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
-const FEEDING_IMG = "/IMG_3891.jpg";
-const KITCHEN_IMG = "/IMG_3902.jpg";
-const PARCELS_IMG = "https://images.unsplash.com/photo-1595589538352-f3b77350b84a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
+const HERO_IMG = "/pillars/food security/IMG_4103-original.webp";
+const FEEDING_IMG = "/pillars/food security/IMG_4120-original.webp";
+const KITCHEN_IMG = "/pillars/food security/IMG_4079-original.webp";
+const PARCELS_IMG = "/pillars/food security/IMG_2048-original.webp";
+const BFG_IMG = "/pillars/food security/IMG_3910-original.webp"
+const WHDLEFT_IMG = "/pillars/food security/IMG_4076-original.webp"
 
 const CAROUSEL_IMAGES = [HERO_IMG, FEEDING_IMG, KITCHEN_IMG];
 
@@ -118,7 +120,7 @@ export function FoodSecurity() {
           <FadeIn delay={0.2}>
             <div className="rounded-[40px] overflow-hidden h-full min-h-[350px] shadow-premium playful-card">
               <ImageWithFallback
-                src={FEEDING_IMG}
+                src={BFG_IMG}
                 alt="Breakfast Feeding Programme"
                 className="w-full h-full object-cover"
               />
@@ -167,7 +169,7 @@ export function FoodSecurity() {
           <FadeIn delay={0.1} className="lg:col-span-3 flex">
             <div className="rounded-[40px] overflow-hidden w-full">
               <ImageWithFallback
-                src={KITCHEN_IMG}
+                src={WHDLEFT_IMG}
                 alt="Kitchen serving meals"
                 className="w-full h-full object-cover aspect-square"
               />

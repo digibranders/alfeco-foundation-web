@@ -6,7 +6,7 @@ import { FadeIn } from '../components/FadeIn';
 
 const PILLAR_IMAGES = [
   "https://images.unsplash.com/photo-1744809482817-9a9d4fc280af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
-  "https://images.unsplash.com/photo-1473605768212-7e1f2c756179?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+  "/pillars/food security/IMG_4106-original.webp",
   "https://images.unsplash.com/photo-1688302529084-767fbc296565?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
   "https://images.unsplash.com/photo-1767479813249-8d8b9e212496?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
 ];
@@ -29,29 +29,33 @@ export function Pillars() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[280px]">
                {[
-                 { title: "Education & Development", img: PILLAR_IMAGES[0], color: "#48B2A9", desc: "Empowering minds through quality education, skills development and mentorship.", icon: Lightbulb, layout: "tall" as const },
-                 { title: "Food Security", img: PILLAR_IMAGES[1], color: "#E8AB36", desc: "Sustainable agriculture, nutrition programmes and food initiatives.", icon: Leaf, layout: "regular" as const },
-                 { title: "Women & Youth", img: PILLAR_IMAGES[2], color: "#C1272D", desc: "Supporting entrepreneurship, leadership development and financial inclusion.", icon: Users, layout: "regular" as const },
-                 { title: "Conservation", img: PILLAR_IMAGES[3], color: "#48B2A9", desc: "Protecting our planet through renewable energy and green manufacturing.", icon: Leaf, layout: "wide" as const },
+                 { title: "Education & Development", path: "/pillars/education", img: PILLAR_IMAGES[0], color: "#48B2A9", desc: "Empowering minds through quality education, skills development and mentorship.", icon: Lightbulb, layout: "tall" as const },
+                 { title: "Food Security", path: "/pillars/food-security", img: PILLAR_IMAGES[1], color: "#E8AB36", desc: "Sustainable agriculture, nutrition programmes and food initiatives.", icon: Leaf, layout: "regular" as const },
+                 { title: "Women & Youth", path: "/pillars/women-youth", img: PILLAR_IMAGES[2], color: "#C1272D", desc: "Supporting entrepreneurship, leadership development and financial inclusion.", icon: Users, layout: "regular" as const },
+                 { title: "Conservation", path: "/pillars/conservation", img: PILLAR_IMAGES[3], color: "#48B2A9", desc: "Protecting our planet through renewable energy and green manufacturing.", icon: Leaf, layout: "wide" as const },
                ].map((pillar, idx) => {
                   const isTall = pillar.layout === "tall";
                   const isWide = pillar.layout === "wide";
                   const gridClass = isTall ? "md:row-span-2" : isWide ? "md:col-span-2" : "";
                   
                   return (
-                     <FadeIn 
+                     <FadeIn
                         key={idx}
                         delay={idx * 0.1}
                         className={`group relative rounded-[40px] overflow-hidden playful-card ${gridClass}`}
                      >
+                        <Link href={pillar.path} className="block h-full w-full cursor-pointer">
                         {isTall && (
                            <div className="h-full w-full relative">
                               <img src={pillar.img} alt={pillar.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                              
+
                               <div className="absolute bottom-0 left-0 p-8 text-white">
                                  <h3 className="text-4xl font-extrabold mb-4 leading-tight">{pillar.title}</h3>
-                                 <p className="text-white/80 text-lg leading-relaxed mb-6">{pillar.desc}</p>
+                                 <p className="text-white/80 text-lg leading-relaxed mb-4">{pillar.desc}</p>
+                                 <span className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-300 group-hover:gap-3" style={{ backgroundColor: pillar.color, color: '#fff' }}>
+                                    Learn More <ArrowRight className="w-4 h-4" />
+                                 </span>
                               </div>
                            </div>
                         )}
@@ -60,10 +64,13 @@ export function Pillars() {
                            <div className="h-full w-full relative">
                               <img src={pillar.img} alt={pillar.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                              
+
                               <div className="absolute bottom-0 left-0 p-6 text-white">
                                  <h3 className="text-2xl font-semibold mb-2 leading-tight">{pillar.title}</h3>
-                                 <p className="text-white/75 text-sm leading-relaxed">{pillar.desc}</p>
+                                 <p className="text-white/75 text-sm leading-relaxed mb-3">{pillar.desc}</p>
+                                 <span className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full transition-all duration-300 group-hover:gap-3" style={{ backgroundColor: pillar.color, color: '#fff' }}>
+                                    Learn More <ArrowRight className="w-3.5 h-3.5" />
+                                 </span>
                               </div>
                            </div>
                         )}
@@ -76,9 +83,13 @@ export function Pillars() {
                               <div className="p-8 flex flex-col justify-center md:w-1/2 z-10 relative">
                                  <h3 className="text-3xl font-extrabold text-[#1A1A1A] mb-4">{pillar.title}</h3>
                                  <p className="text-gray-500 mb-6">{pillar.desc}</p>
+                                 <span className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-300 group-hover:gap-3 self-start" style={{ backgroundColor: pillar.color, color: '#fff' }}>
+                                    Learn More <ArrowRight className="w-4 h-4" />
+                                 </span>
                               </div>
                            </div>
                         )}
+                        </Link>
                      </FadeIn>
                   );
                })}

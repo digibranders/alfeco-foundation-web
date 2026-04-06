@@ -7,8 +7,8 @@ import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 import CountUp from 'react-countup';
 
-const BLOCKS_IMG = "/bursary.png";
-const AWARD_IMG = "https://images.unsplash.com/photo-1746122097999-31518d837ca4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
+const BLOCKS_IMG = "/pillars/education/1-original.webp";
+const AWARD_IMG = "/pillars/education/IMG_3776-original.webp";
 
 export function BursaryProgramme() {
   return (
@@ -47,11 +47,17 @@ export function BursaryProgramme() {
           </FadeIn>
 
           {/* Hero Image */}
-          <FadeIn delay={0.2}>
-            <div className="rounded-[40px] overflow-hidden aspect-[4/3] lg:aspect-auto h-full min-h-[300px]">
-              <ImageWithFallback src="https://images.unsplash.com/photo-1686213011624-8578b598ef0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Bursary Programme recipients" className="w-full h-full object-cover" />
-            </div>
-          </FadeIn>
+          <FadeIn delay={0.2} className="h-full flex">
+  <div className="rounded-[40px] overflow-hidden bg-[#EBF3F5] w-full h-full flex items-center justify-center">
+    
+    <ImageWithFallback 
+      src="/pillars/education/IMG_3837-original.webp" 
+      alt="Bursary Programme recipients" 
+      className="w-full h-full object-cover rounded-[40px]"
+    />
+
+  </div>
+</FadeIn>
 
           {/* How to Apply */}
           <FadeIn delay={0.3}>
@@ -119,7 +125,7 @@ export function BursaryProgramme() {
           {/* Left Image */}
           <FadeIn delay={0.1} className="lg:col-span-3 flex">
             <div className="rounded-[40px] overflow-hidden w-full">
-              <ImageWithFallback src={BLOCKS_IMG} alt="Education development" className="w-full h-full object-cover aspect-square" />
+              <ImageWithFallback src={BLOCKS_IMG} alt="Education development" className="w-full h-full object-cover object-top aspect-[4/3]" />
             </div>
           </FadeIn>
 
@@ -148,7 +154,7 @@ export function BursaryProgramme() {
           {/* Right Image */}
           <FadeIn delay={0.3} className="lg:col-span-3 flex">
             <div className="rounded-[40px] overflow-hidden w-full">
-              <ImageWithFallback src={AWARD_IMG} alt="Student receiving award" className="w-full h-full object-cover aspect-square" />
+              <ImageWithFallback src={AWARD_IMG} alt="Student receiving award" className="w-full h-full object-cover object-top aspect-[4/3]" />
             </div>
           </FadeIn>
         </div>
