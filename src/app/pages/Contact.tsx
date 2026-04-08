@@ -325,9 +325,9 @@ export function Contact() {
                     <p className="text-white/70 text-sm">Come visit us in Sandton, Johannesburg</p>
                   </div>
                   {/* Corner accent */}
-                  <div className="absolute top-4 right-4 w-12 h-12 bg-[#E8AB36] rounded-2xl flex items-center justify-center shadow-lg">
-                    <MapPin className="w-5 h-5 text-white" />
-                  </div>
+                  {/* <div className="absolute top-4 right-4 w-12 h-12 bg-[#E8AB36] rounded-2xl flex items-center justify-center shadow-lg">
+                    {/* <MapPin className="w-5 h-5 text-white" /> */}
+                  {/* </div> */}
                 </div>
               </div>
             </FadeIn>

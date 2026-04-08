@@ -14,6 +14,14 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
+  const handleScrollToTop = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    if (pathname === path) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -69,7 +77,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
             !scrolled && "border-b border-[#1A1A1A]/5"
           )}>
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
+            <Link href="/" onClick={(e) => handleScrollToTop(e, '/')} className="flex items-center gap-3 group">
               <motion.img
                 src={logoImg}
                 alt="Alfeco Foundation"
@@ -89,17 +97,18 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                       <div className="relative group">
                         <Link
                           href={link.path}
+                          onClick={(e) => handleScrollToTop(e, link.path)}
                           className={clsx(
                             "text-[13px] font-bold tracking-wide uppercase transition-all hover:text-[#C1272D] flex items-center gap-1 py-2",
                             pathname.startsWith('/pillars') ? "text-[#C1272D]" : "text-[#1A1A1A]"
                           )}
                         >
                           {link.name}
-                          <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
+                          {/* <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" /> */}
                         </Link>
 
                         {/* Dropdown Menu */}
-                        <div className="absolute top-full left-0 pt-4 hidden group-hover:block w-72 z-50">
+                        {/* <div className="absolute top-full left-0 pt-4 hidden group-hover:block w-72 z-50">
                           <div className="bg-white/95 backdrop-blur-xl border border-[#1A1A1A]/5 rounded-3xl shadow-premium overflow-visible p-2 flex flex-col gap-0.5">
                             {pillarsSubmenu.map((subItem) => {
                               if ('subItems' in subItem) {
@@ -111,7 +120,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                                     </div>
 
                                     {/* Sub-dropdown */}
-                                    <div className="absolute left-full top-0 pl-2 hidden group-hover/sub:block w-72 z-50">
+                                    {/* <div className="absolute left-full top-0 pl-2 hidden group-hover/sub:block w-72 z-50">
                                       <div className="bg-[#C1272D] rounded-3xl shadow-2xl overflow-hidden p-2 flex flex-col gap-0.5">
                                         {subItem.subItems?.map((nestedItem) => (
                                           <Link
@@ -126,9 +135,9 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                                     </div>
                                   </div>
                                 );
-                              }
+                              } */}
 
-                              return (
+                              {/* return (
                                 <Link
                                   key={subItem.name}
                                   href={subItem.path}
@@ -139,12 +148,13 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                               );
                             })}
                           </div>
-                        </div>
+                        </div> */} 
                       </div>
 
                       {/* Get Involved Link */}
                       <Link
                         href="/get-involved"
+                        onClick={(e) => handleScrollToTop(e, '/get-involved')}
                         className={clsx(
                           "text-[13px] font-bold tracking-wide uppercase transition-all hover:text-[#C1272D] py-2",
                           pathname === '/get-involved' ? "text-[#C1272D]" : "text-[#1A1A1A]"
@@ -160,6 +170,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                   <Link
                     key={link.name}
                     href={link.path}
+                    onClick={(e) => handleScrollToTop(e, link.path)}
                     className={clsx(
                       "text-[13px] font-bold tracking-wide uppercase transition-all hover:text-[#C1272D] py-2 relative",
                       pathname === link.path ? "text-[#C1272D]" : "text-[#1A1A1A]"
@@ -178,6 +189,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
               })}
               <Link
                 href="/contact"
+                onClick={(e) => handleScrollToTop(e, '/contact')}
                 className="playful-btn px-6 py-2.5 bg-[#1A1A1A] text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#C1272D] hover:shadow-lg"
               >Let&apos;s Connect</Link>
             </nav>
@@ -205,7 +217,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
           >
             {/* Menu Header */}
             <div className="flex items-center justify-between px-6 h-24 border-b border-[#1A1A1A]/5">
-              <Link href="/" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/" onClick={(e) => { setIsMenuOpen(false); handleScrollToTop(e, '/'); }}>
                 <img src={logoImg} alt="Alfeco Foundation" className="h-10 w-auto object-contain" />
               </Link>
               <button
@@ -220,7 +232,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
             {/* Menu Links */}
             <div className="flex-grow flex flex-col items-center justify-center text-center px-8 py-4 overflow-hidden">
               <div className="flex flex-col gap-4 mb-8">
-                {navLinks.filter(link => link.name !== 'Our Pillars' && link.name !== 'Home').map((link, i) => (
+                {navLinks.filter(link => link.name !== 'Home').map((link, i) => (
                   <motion.div
                     key={link.name}
                     initial={{ opacity: 0, y: 10 }}
@@ -229,7 +241,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                   >
                     <Link
                       href={link.path}
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={(e) => { setIsMenuOpen(false); handleScrollToTop(e, link.path); }}
                       className="text-2xl sm:text-[28px] font-bold text-[#1A1A1A] hover:text-[#C1272D] transition-colors tracking-tight"
                     >
                       {link.name}
@@ -244,7 +256,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                 >
                   <Link
                     href="/get-involved"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={(e) => { setIsMenuOpen(false); handleScrollToTop(e, '/get-involved'); }}
                     className="text-2xl sm:text-[28px] font-bold text-[#1A1A1A] hover:text-[#C1272D] transition-colors tracking-tight"
                   >
                     Get Involved
@@ -252,49 +264,11 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                 </motion.div>
               </div>
 
-              {/* Pillars Section */}
-              <div className="w-full max-w-sm space-y-4 pt-6 border-t border-[#1A1A1A]/5">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#7E8083] opacity-60">Our Pillars</p>
-                <div className="grid grid-cols-1 gap-4">
-                  {pillarsSubmenu.map((subItem, i) => (
-                    <motion.div
-                      key={subItem.name}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.3 + (i * 0.04) }}
-                      className="space-y-1"
-                    >
-                      <Link
-                        href={subItem.path}
-                        onClick={() => setIsMenuOpen(false)}
-                        className="block text-lg font-bold text-[#1A1A1A] hover:text-[#C1272D] transition-colors leading-tight"
-                      >
-                        {subItem.name}
-                      </Link>
-                      {'subItems' in subItem && (
-                        <div className="flex flex-wrap justify-center gap-x-4 gap-y-1">
-                          {subItem.subItems?.map((nested) => (
-                            <Link
-                              key={nested.name}
-                              href={nested.path}
-                              onClick={() => setIsMenuOpen(false)}
-                              className="text-[11px] font-medium text-[#7E8083] hover:text-[#C1272D] transition-colors"
-                            >
-                              {nested.name}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-
               {/* Bottom Action */}
               <div className="mt-8 w-full max-w-xs">
                 <Link
                   href="/contact"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => { setIsMenuOpen(false); handleScrollToTop(e, '/contact'); }}
                   className="block w-full py-4 bg-[#1A1A1A] text-white text-xs font-bold uppercase tracking-widest rounded-full shadow-lg shadow-[#1A1A1A]/20 active:scale-95 transition-all text-center"
                 >
                   Let&apos;s Connect
@@ -333,12 +307,14 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     href="/contact"
+                    onClick={(e) => handleScrollToTop(e, '/contact')}
                     className="playful-btn inline-flex items-center justify-center gap-2 bg-[#C1272D] text-white font-bold py-4 px-10 rounded-full uppercase tracking-widest text-sm hover:shadow-lg"
                   >
                     <Mail className="w-4 h-4" /> Contact Us
                   </Link>
                   <Link
                     href="/get-involved"
+                    onClick={(e) => handleScrollToTop(e, '/get-involved')}
                     className="playful-btn inline-flex items-center justify-center gap-2 bg-white/10 text-white font-bold py-4 px-10 rounded-full uppercase tracking-widest text-sm hover:bg-white/20 border border-white/10"
                   >
                     <Heart className="w-4 h-4" /> Get Involved
@@ -427,7 +403,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                     { name: 'Get Involved', path: '/get-involved' },
                     { name: 'Contact Us', path: '/contact' },
                   ] as { name: string; path: string }[]).map(({ name, path }) => (
-                    <Link key={name} href={path} className="text-white/50 hover:text-[#E8AB36] transition-colors font-medium text-sm">
+                    <Link key={name} href={path} onClick={(e) => handleScrollToTop(e, path)} className="text-white/50 hover:text-[#E8AB36] transition-colors font-medium text-sm">
                       {name}
                     </Link>
                   ))}
@@ -461,8 +437,8 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                 Made with <Heart className="w-3 h-3 text-[#C1272D] fill-[#C1272D]" /> &copy; {new Date().getFullYear()} Alfeco Foundation
               </p>
               <div className="flex gap-6">
-                <Link href="/privacy" className="hover:text-white/70 transition-colors">Privacy</Link>
-                <Link href="/terms" className="hover:text-white/70 transition-colors">Terms</Link>
+                <Link href="/privacy" onClick={(e) => handleScrollToTop(e, '/privacy')} className="hover:text-white/70 transition-colors">Privacy</Link>
+                <Link href="/terms" onClick={(e) => handleScrollToTop(e, '/terms')} className="hover:text-white/70 transition-colors">Terms</Link>
               </div>
             </div>
           </div>
