@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion, useScroll, useSpring } from 'motion/react';
-import { ArrowRight, CheckCircle2, Heart, Users, Leaf, Lightbulb, User, HandCoins, HeartHandshake, Sparkles, Star, Shield, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Heart, Users, Leaf, Lightbulb, User, HandCoins, HeartHandshake, Sparkles, Star, Shield, Zap,Utensils,CookingPot,GraduationCap} from 'lucide-react';
 import CountUp from 'react-countup';
 import { FadeIn } from '../components/FadeIn';
 
@@ -107,16 +107,17 @@ export function Home() {
                   <div className="block">
                      <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
                         <p>
-                           The Alfeco Foundation was born from the vision, compassion and lived experience of Mr. Sachin Ahuja, a self-made entrepreneur whose remarkable journey from a small town near Jaipur, Rajasthan, to the helm of one of South Africa's most dynamic industrial conglomerates is a testament to perseverance, inclusivity, and the power of human connection.
+                           The Alfeco Foundation was inspired by the journey of Mr. Sachin Ahuja, whose rise from a small town near Jaipur to leading a major South African industrial group reflects resilience, vision and a deep commitment to people.
+
                         </p>
                         <p>
-                           What began as a modest scrap metal trading venture grew - through resilience, foresight and relentless determination - into the Alfeco Group: a diversified enterprise spanning steel, aluminum, and copper beneficiation. Under Mr. Ahuja's leadership, the group now employs more than 2,000 people and has propelled Veer Steel Mills into becoming one of South Africa's second-largest steel manufacturer.
+                          What began as a small scrap metal business has grown into the Alfeco Group, a diversified enterprise in steel, aluminium and copper, employing over 2,000 people. At its core are the values of humility, gratitude and community shaped by the support of family, friends and mentors.
                         </p>
                         <p>
-                           Behind every milestone lies a story of family, friends, and mentors the silent pillars whose unwavering support shaped his values, nurtured his ambition, and instilled in him a belief that every achievement is shared. This foundation of humility, gratitude, and community forms the moral compass that guides Alfeco's culture and breathes life into all that we do.
+                           Built on this foundation, the Alfeco Foundation is dedicated to creating meaningful change across South Africa. We believe progress happens when people come together with empathy, courage and purpose.
                         </p>
                         <p>
-                           Out of this legacy, the Alfeco Foundation emerged, a beacon of compassion, hope and determination in South Africa's ongoing pursuit of progress. Our purpose is deeply rooted in the belief that meaningful change is possible when people come together with courage, empathy and vision.
+                           Driven by a passionate team, we strive to uplift communities, inspire hope and create lasting impact, building a better future, together.
                         </p>
 
                         <div className="bg-[#EBF3F5] p-8 rounded-[32px] my-8 border-l-4 border-[#48B2A9] shadow-playful">
@@ -315,12 +316,12 @@ export function Home() {
 
                   <h2 className="text-4xl md:text-5xl font-semibold text-white">Hope in Numbers</h2>
                </div>
-               <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-4">
+               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-4">
                   {[
+                     { icon: CookingPot, color: "#C1272D", number: "99M+", label: "Meals Served Daily" },
+                     { icon: GraduationCap, color: "#48B2A9", number: "132K", label: "Bursaries Awarded" },
                      { icon: User, color: "#E8AB36", number: "232K", label: "Lives Impacted" },
-                     { icon: HandCoins, color: "#C1272D", number: "99M+", label: "Donations Raised" },
-                     { icon: HeartHandshake, color: "#48B2A9", number: "132K", label: "Volunteers" },
-                     { icon: Users, color: "#7E8083", number: "35K+", label: "Community Partners" },
+                     // { icon: Users, color: "#7E8083", number: "35K+", label: "Lives Impacted" },
                   ].map((stat) => {
                      const num = parseInt(stat.number.replace(/[^0-9]/g, ""), 10);
                      const suffix = stat.number.replace(/[0-9]/g, "");

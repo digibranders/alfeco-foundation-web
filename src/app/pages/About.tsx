@@ -51,7 +51,7 @@ export function About() {
                         </FadeIn>
                         <FadeIn delay={0.5}>
                             <div className="mt-8 pt-8 border-t border-gray-100 bg-gradient-to-r from-[#C1272D]/5 to-transparent p-8 rounded-[32px] -mx-2">
-                                <p className="text-2xl font-extrabold text-[#C1272D]">
+                                <p className="text-2xl font-extrabold text-[#C1272D] text-center">
                                     The Alfeco Foundation thrives on the belief that we can be the architects of a better future, hand in hand, heart to heart.
                                 </p>
                             </div>

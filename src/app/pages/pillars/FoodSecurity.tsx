@@ -184,7 +184,7 @@ export function FoodSecurity() {
               </p>
               <p>Building on this momentum, we expanded to serve 10,280 learners, providing more than 2 million meals. A major milestone in this growth was the successful rollout of the programme at Sicelo Primary School in Meyerton, Gauteng—reinforcing our commitment to ensuring that no child begins their school day hungry.</p>
               <p>
-                Looking ahead, our aim is to reach 20,000 school children nationwide by 2026, deepening our impact in the fight against malnutrition and helping children get the nutrition they need to learn, grow and succeed.
+                Looking ahead, our aim is to reach 20,000 school children nationwide by 2027, deepening our impact in the fight against malnutrition and helping children get the nutrition they need to learn, grow and succeed.
               </p>
             </div>
           </FadeIn>
