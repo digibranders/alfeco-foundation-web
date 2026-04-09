@@ -29,10 +29,10 @@ export function Pillars() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[280px]">
                {[
-                 { title: "Education & Development", path: "/pillars/education", img: PILLAR_IMAGES[0], color: "#48B2A9", desc: "Empowering minds through quality education, skills development and mentorship.", icon: Lightbulb, layout: "tall" as const },
+                 { title: "Education & Development", path: "/pillars/education", img: PILLAR_IMAGES[0], color: "#8E9092", desc: "Empowering minds through quality education, skills development and mentorship.", icon: Lightbulb, layout: "tall" as const },
                  { title: "Food Security", path: "/pillars/food-security", img: PILLAR_IMAGES[1], color: "#E8AB36", desc: "Sustainable agriculture, nutrition programmes and food initiatives.", icon: Leaf, layout: "regular" as const },
                  { title: "Women & Youth", path: "/pillars/women-youth", img: PILLAR_IMAGES[2], color: "#C1272D", desc: "Supporting entrepreneurship, leadership development and financial inclusion.", icon: Users, layout: "regular" as const },
-                 { title: "Conservation", path: "/pillars/conservation", img: PILLAR_IMAGES[3], color: "#48B2A9", desc: "Protecting our planet through renewable energy and green manufacturing.", icon: Leaf, layout: "wide" as const },
+                 { title: "Conservation", path: "/pillars/conservation", img: PILLAR_IMAGES[3], color: "#45B3A2", desc: "Protecting our planet through renewable energy and green manufacturing.", icon: Leaf, layout: "wide" as const },
                ].map((pillar, idx) => {
                   const isTall = pillar.layout === "tall";
                   const isWide = pillar.layout === "wide";
