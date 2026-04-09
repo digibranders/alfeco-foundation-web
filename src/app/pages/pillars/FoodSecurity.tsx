@@ -19,9 +19,36 @@ const CAROUSEL_IMAGES = [HERO_IMG, FEEDING_IMG, KITCHEN_IMG];
 export function FoodSecurity() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [readMoreOpen, setReadMoreOpen] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % CAROUSEL_IMAGES.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + CAROUSEL_IMAGES.length) % CAROUSEL_IMAGES.length);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    }
+    if (isRightSwipe) {
+      prevSlide();
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#E8AB36] pt-12 pb-24 font-sans text-[#1A1A1A]">
@@ -51,7 +78,12 @@ export function FoodSecurity() {
 
           {/* Right – image carousel */}
           <FadeIn delay={0.2}>
-            <div className="relative rounded-[40px] overflow-hidden aspect-[4/3]">
+            <div 
+              className="relative rounded-[40px] overflow-hidden aspect-[4/3] cursor-pointer touch-pan-y"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
               <ImageWithFallback
                 src={CAROUSEL_IMAGES[currentSlide]}
                 alt="Food Security programme"
