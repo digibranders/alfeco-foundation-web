@@ -6,7 +6,7 @@ import { FadeIn } from '../components/FadeIn';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { motion } from 'motion/react';
 
-const TEAM_IMG = "https://images.unsplash.com/photo-1690383922983-90d7a4658ef3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmllbmRseSUyMGRpdmVyc2UlMjB0ZWFtJTIwbWVldGluZyUyMHNtaWxpbmd8ZW58MXx8fHwxNzcyNzAzMjg2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
+const TEAM_IMG = '/assets/IMG_2559-original-original.webp';
 
 const CONTACT_CARDS = [
   {
@@ -325,9 +325,9 @@ export function Contact() {
                     <p className="text-white/70 text-sm">Come visit us in Sandton, Johannesburg</p>
                   </div>
                   {/* Corner accent */}
-                  <div className="absolute top-4 right-4 w-12 h-12 bg-[#E8AB36] rounded-2xl flex items-center justify-center shadow-lg">
-                    <MapPin className="w-5 h-5 text-white" />
-                  </div>
+                  {/* <div className="absolute top-4 right-4 w-12 h-12 bg-[#E8AB36] rounded-2xl flex items-center justify-center shadow-lg">
+                    {/* <MapPin className="w-5 h-5 text-white" /> */}
+                  {/* </div> */}
                 </div>
               </div>
             </FadeIn>

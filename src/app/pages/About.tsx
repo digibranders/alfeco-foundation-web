@@ -21,14 +21,14 @@ export function About() {
                 </FadeIn>
 
                 {/* Section 1: About The Foundation */}
-                <div className="bg-white rounded-[48px] p-8 md:p-16 mb-16">
+                <div className="bg-white rounded-[48px] p-8 md:p-16 mb-16 text-center">
                     <FadeIn>
                         <h2 className="text-3xl md:text-5xl font-semibold text-[#1A1A1A] mb-8 leading-tight">
                             About The Alfeco Foundation
                         </h2>
                     </FadeIn>
 
-                    <div className="space-y-6 text-lg text-gray-500 leading-relaxed max-w-4xl">
+                    <div className="space-y-6 text-lg text-gray-500 leading-relaxed max-w-4xl mx-auto text-justify md:text-center lg:text-justify">
                         <FadeIn delay={0.1}>
                             <p>
                                 In the heart of South Africa's pursuit of progress and hope, the Alfeco Foundation emerged, a beacon of compassion and determination, ignited by the vision of a remarkable businessman, Mr Sachin Ahuja. Our passion knows no bounds as we embark on transformative projects, spanning the diverse fabric of South African society.
@@ -51,7 +51,7 @@ export function About() {
                         </FadeIn>
                         <FadeIn delay={0.5}>
                             <div className="mt-8 pt-8 border-t border-gray-100 bg-gradient-to-r from-[#C1272D]/5 to-transparent p-8 rounded-[32px] -mx-2">
-                                <p className="text-2xl font-extrabold text-[#C1272D]">
+                                <p className="text-2xl font-extrabold text-[#C1272D] text-center">
                                     The Alfeco Foundation thrives on the belief that we can be the architects of a better future, hand in hand, heart to heart.
                                 </p>
                             </div>

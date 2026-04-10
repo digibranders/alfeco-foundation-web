@@ -49,8 +49,8 @@ export function GetInvolved() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/volunteer" className="playful-btn inline-flex items-center gap-2 bg-[#1A1A1A] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-[#48B2A9] self-start">
-                  Sign Up <ArrowRight className="w-5 h-5" />
+                <Link href="/volunteer" className="playful-btn inline-flex items-center justify-center gap-2 bg-[#1A1A1A] text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full uppercase tracking-wider md:tracking-widest text-sm md:text-base whitespace-nowrap hover:bg-[#48B2A9] self-start">
+                  Sign Up <ArrowRight className="w-4 h-4 md:w-5 md:h-5 shrink-0" />
                 </Link>
               </div>
             </div>
@@ -76,8 +76,8 @@ export function GetInvolved() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/donate" className="playful-btn inline-flex items-center gap-2 bg-[#C1272D] text-white font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-[#1A1A1A] self-start">
-                  Donate Now <ArrowRight className="w-5 h-5" />
+                <Link href="/donate" className="playful-btn inline-flex items-center justify-center gap-2 bg-[#C1272D] text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full uppercase tracking-wider md:tracking-widest text-sm md:text-base whitespace-nowrap hover:bg-[#1A1A1A] self-start">
+                  Donate Now <ArrowRight className="w-4 h-4 md:w-5 md:h-5 shrink-0" />
                 </Link>
               </div>
             </div>
@@ -103,8 +103,8 @@ export function GetInvolved() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/partnerships" className="playful-btn inline-flex items-center gap-2 bg-[#E8AB36] text-[#1A1A1A] font-bold py-4 px-8 rounded-full uppercase tracking-widest hover:bg-white self-start">
-                  Partner With Us <ArrowRight className="w-5 h-5" />
+                <Link href="/partnerships" className="playful-btn inline-flex items-center justify-center gap-2 bg-[#E8AB36] text-[#1A1A1A] font-bold py-3 px-6 md:py-4 md:px-8 rounded-full uppercase tracking-wider md:tracking-widest text-sm md:text-base whitespace-nowrap hover:bg-white self-start">
+                  Partner With Us <ArrowRight className="w-4 h-4 md:w-5 md:h-5 shrink-0" />
                 </Link>
               </div>
             </div>
