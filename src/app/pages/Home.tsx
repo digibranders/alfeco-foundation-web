@@ -318,14 +318,18 @@ export function Home() {
                </div>
                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-4">
                   {[
-                     { icon: CookingPot, color: "#C1272D", number: "99M+", label: "Meals Served Daily" },
-                     { icon: GraduationCap, color: "#48B2A9", number: "132K", label: "Bursaries Awarded" },
-                     { icon: User, color: "#E8AB36", number: "232K", label: "Lives Impacted" },
-                     // { icon: Users, color: "#7E8083", number: "35K+", label: "Lives Impacted" },
+                     { icon: CookingPot, color: "#C1272D", number: "10500", label: "Meals Served Daily" },
+                     { icon: GraduationCap, color: "#48B2A9", number: "350", label: "Bursaries Awarded" },
+                     { icon: User, color: "#E8AB36", string: "COUNTLESS", label: "Lives Impacted" },
                   ].map((stat) => {
-                     const num = parseInt(stat.number.replace(/[^0-9]/g, ""), 10);
-                     const suffix = stat.number.replace(/[0-9]/g, "");
                      const Icon = stat.icon;
+                     
+                     let num = 0;
+                     let suffix = "";
+                     if (stat.number) {
+                        num = parseInt(stat.number.replace(/[^0-9]/g, ""), 10);
+                        suffix = stat.number.replace(/[0-9]/g, "");
+                     }
 
                      return (
                         <FadeIn key={stat.label} delay={0.1} scale>
@@ -335,14 +339,18 @@ export function Home() {
                               </div>
                               <div>
                                  <div className="text-4xl font-extrabold text-white">
-                                    <CountUp
-                                       end={num}
-                                       duration={2.5}
-                                       suffix={suffix}
-                                       separator=","
-                                       enableScrollSpy
-                                       scrollSpyOnce
-                                    />
+                                    {stat.string ? (
+                                       <span>{stat.string}</span>
+                                    ) : (
+                                       <CountUp
+                                          end={num}
+                                          duration={2.5}
+                                          suffix={suffix}
+                                          separator=","
+                                          enableScrollSpy
+                                          scrollSpyOnce
+                                       />
+                                    )}
                                  </div>
                                  <div className="text-sm font-bold text-white/40 mt-1">{stat.label}</div>
                               </div>
