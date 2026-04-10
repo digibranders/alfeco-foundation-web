@@ -126,7 +126,7 @@ export function Donate() {
         </FadeIn>
 
         {/* Payment Methods */}
-        <FadeIn className="mb-8">
+        {/* <FadeIn className="mb-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {PAYMENT_METHODS.map((method) => (
               <div
@@ -139,7 +139,7 @@ export function Donate() {
               </div>
             ))}
           </div>
-        </FadeIn>
+        </FadeIn> */}
 
         {/* Donation Form */}
         <FadeIn delay={0.1}>
