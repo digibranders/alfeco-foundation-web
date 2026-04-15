@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ArrowRight, ArrowLeft, Download, Heart, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Download, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
@@ -244,6 +244,7 @@ export function FoodSecurity() {
                 Meals Impacted to Date
               </p>
             </div>
+            {/* TODO: Verify — this stat shows the same number (1191) as "Meals Impacted to Date" above */}
             <div className="bg-white rounded-[40px] px-10 py-6 text-center shadow-premium playful-card">
               <div className="text-4xl md:text-5xl font-extrabold text-[#1A1A1A]">
                 <CountUp end={1191} separator="," duration={2.5} enableScrollSpy scrollSpyOnce />

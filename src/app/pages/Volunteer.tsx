@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import type { VolunteerFormData } from '../types/forms';
 import { FadeIn } from '../components/FadeIn';
 import { CheckCircle2, Send, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -24,12 +25,12 @@ const AVAILABILITY_OPTIONS = [
 const inputClass = "w-full bg-[#EBF3F5] border-2 border-transparent rounded-2xl focus:ring-0 focus:border-[#48B2A9] outline-none py-3.5 px-5 text-[#1A1A1A] placeholder:text-gray-400 transition-all text-[15px]";
 
 export function Volunteer() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<VolunteerFormData>({
     fullName: '',
     email: '',
     phone: '',
     area: '',
-    interests: [] as string[],
+    interests: [],
     availability: '',
     message: '',
   });
@@ -41,14 +42,14 @@ export function Volunteer() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleInterestToggle = (interest: string) => {
+  const handleInterestToggle = useCallback((interest: string) => {
     setFormData(prev => ({
       ...prev,
       interests: prev.interests.includes(interest)
         ? prev.interests.filter(i => i !== interest)
         : [...prev.interests, interest],
     }));
-  };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,7 +65,8 @@ export function Volunteer() {
 
       if (!res.ok) throw new Error('Failed to submit');
       setSubmitted(true);
-    } catch {
+    } catch (err: unknown) {
+      console.error('Volunteer form error:', err instanceof Error ? err.message : err);
       setError('Something went wrong. Please try again or contact us directly.');
     } finally {
       setSubmitting(false);
@@ -239,7 +241,7 @@ export function Volunteer() {
             </div>
 
             {error && (
-              <div className="bg-[#C1272D]/10 text-[#C1272D] px-5 py-3 rounded-2xl text-sm font-medium">
+              <div role="alert" aria-live="polite" className="bg-[#C1272D]/10 text-[#C1272D] px-5 py-3 rounded-2xl text-sm font-medium">
                 {error}
               </div>
             )}

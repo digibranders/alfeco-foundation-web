@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ArrowRight, Leaf, Sparkles, ChevronDown } from 'lucide-react';
+import { ArrowRight, Leaf, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';

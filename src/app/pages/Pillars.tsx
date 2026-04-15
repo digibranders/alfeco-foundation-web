@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Users, Shield, Lightbulb, Zap, Leaf, Heart, HandCoins, Sparkles, Star } from 'lucide-react';
+import { ArrowRight, Users, Lightbulb, Leaf } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
 
 const PILLAR_IMAGES = [

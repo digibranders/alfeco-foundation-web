@@ -2,8 +2,6 @@
 
 import React from 'react';
 import { FadeIn } from '../components/FadeIn';
-import { Sparkles } from 'lucide-react';
-
 export function About() {
     return (
         <div className="min-h-screen bg-[#EBF3F5] pt-12 pb-24 font-sans text-[#1A1A1A]">

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion, useScroll, useSpring } from 'motion/react';
-import { ArrowRight, CheckCircle2, Heart, Users, Leaf, Lightbulb, User, HandCoins, HeartHandshake, Sparkles, Star, Shield, Zap,Utensils,CookingPot,GraduationCap} from 'lucide-react';
+import { ArrowRight, CheckCircle2, Heart, User, GraduationCap, CookingPot } from 'lucide-react';
 import CountUp from 'react-countup';
 import { FadeIn } from '../components/FadeIn';
 
@@ -19,10 +19,7 @@ const ProgressBar = () => {
    return <motion.div className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#C1272D] via-[#E8AB36] to-[#48B2A9] z-[60] origin-left" style={{ scaleX }} />;
 };
 
-import { NEWS_ITEMS } from '../data/news';
-
 export function Home() {
-   const recentNews = NEWS_ITEMS.slice(0, 3);
 
    return (
       <div className="flex flex-col min-h-screen font-sans bg-[#EBF3F5] text-[#1A1A1A] overflow-x-hidden selection:bg-[#E8AB36] selection:text-black">
@@ -77,7 +74,7 @@ export function Home() {
                            whileHover={{ rotate: idx % 2 === 0 ? 1 : -1 }}
                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         >
-                           <img src={img} alt="Community" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                           <img src={img} alt={`Alfeco Foundation community impact ${idx + 1}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </motion.div>
                      ))}

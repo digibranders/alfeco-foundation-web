@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, ChevronDown, Calendar, Filter, ChevronLeft, ChevronRight, Instagram, Linkedin, Sparkles } from 'lucide-react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { ArrowRight, Calendar, ChevronLeft, ChevronRight, Instagram, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import Slider from 'react-slick';
 import { FadeIn } from '../components/FadeIn';
@@ -36,9 +36,10 @@ export function News() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const filteredNews = activeFilter === "All" 
-    ? NEWS_ITEMS 
-    : NEWS_ITEMS.filter(item => item.category === activeFilter);
+  const filteredNews = useMemo(
+    () => activeFilter === "All" ? NEWS_ITEMS : NEWS_ITEMS.filter(item => item.category === activeFilter),
+    [activeFilter]
+  );
 
   return (
     <div className="min-h-screen bg-[#EBF3F5] pt-12">
@@ -211,7 +212,7 @@ export function News() {
                   Help us identify a worthy cause of any kind that has a significant impact on development and growth! These projects must be passionate to you and be driven by you for us to consider partnering in any meaningful manner.
                 </p>
                 <p className="text-white/80 font-medium mb-8">
-                  Also remember no cause is too small or too for Alfeco Foundation to considering partnering with you to bring about changes to people's lives!
+                  Also remember no cause is too small or too big for Alfeco Foundation to consider partnering with you to bring about changes to people's lives!
                 </p>
                 <div className="flex items-center gap-3">
                   <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-white hover:bg-white/30 transition-all playful-btn">

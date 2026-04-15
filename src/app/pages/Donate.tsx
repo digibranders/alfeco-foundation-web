@@ -80,7 +80,8 @@ export function Donate() {
       if (data.redirectUrl) {
         window.location.href = data.redirectUrl;
       }
-    } catch {
+    } catch (err: unknown) {
+      console.error('Donation form error:', err instanceof Error ? err.message : err);
       setError('Something went wrong. Please try again or contact us directly.');
     } finally {
       setSubmitting(false);
@@ -274,7 +275,7 @@ export function Donate() {
             </div>
 
             {error && (
-              <div className="bg-[#C1272D]/10 text-[#C1272D] px-5 py-3 rounded-2xl text-sm font-medium">
+              <div role="alert" aria-live="polite" className="bg-[#C1272D]/10 text-[#C1272D] px-5 py-3 rounded-2xl text-sm font-medium">
                 {error}
               </div>
             )}

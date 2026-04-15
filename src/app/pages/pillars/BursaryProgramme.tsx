@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ArrowRight, GraduationCap, CheckCircle2, Download, FileText, Calendar, ClipboardCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Download, Calendar, ClipboardCheck } from 'lucide-react';
 import Link from 'next/link';
 import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
@@ -136,7 +136,7 @@ export function BursaryProgramme() {
                 The Alfeco Foundation has awarded over 260 bursaries for the 2023/2024 academic year, supporting students across various fields of study. Committed to education and skills development, the foundation ensures that financial barriers do not hinder learning, helping students at all levels pursue their academic and career goals.
               </p>
 
-              {/* Stat */}
+              {/* Stat — TODO: Verify — CountUp shows 500 but text above says "over 260 bursaries" */}
               <div className="inline-flex flex-col items-center bg-[#48B2A9] rounded-[32px] px-12 py-8 text-white">
                 <div className="text-6xl md:text-7xl font-extrabold leading-none">
                   <CountUp

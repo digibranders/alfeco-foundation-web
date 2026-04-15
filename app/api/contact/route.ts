@@ -1,65 +1,80 @@
-// Brevo Template IDs
-const CONTACT_CONFIRMATION_TEMPLATE_ID = 53; // alfeco-contact-confirmation
-const CONTACT_NOTIFICATION_TEMPLATE_ID = 52; // alfeco-contact-notification
+import { ContactSchema } from '../_shared/validation';
+import { sanitizeParams } from '../_shared/sanitize';
+import { checkRateLimit } from '../_shared/rateLimit';
 
-export async function POST(request: Request) {
-  const body = await request.json();
-  const { name, email, message } = body;
+const CONTACT_CONFIRMATION_TEMPLATE_ID = 53;
+const CONTACT_NOTIFICATION_TEMPLATE_ID = 52;
+const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
 
-  if (!name || !email || !message) {
-    return Response.json({ error: 'Missing required fields' }, { status: 400 });
+export async function POST(request: Request): Promise<Response> {
+  const rateLimitResponse = checkRateLimit(request);
+  if (rateLimitResponse) return rateLimitResponse;
+
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return Response.json({ error: 'Invalid request body' }, { status: 400 });
   }
 
-  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!EMAIL_REGEX.test(email)) {
-    return Response.json({ error: 'Invalid email address' }, { status: 400 });
+  const result = ContactSchema.safeParse(body);
+  if (!result.success) {
+    const firstError = result.error.errors[0]?.message ?? 'Invalid input';
+    return Response.json({ error: firstError }, { status: 400 });
   }
+
+  const { name, email, message } = result.data;
 
   const apiKey = process.env.BREVO_API_KEY;
   if (!apiKey) {
-    return Response.json({ error: 'Email service not configured' }, { status: 500 });
+    console.error('BREVO_API_KEY environment variable is not set');
+    return Response.json({ error: 'Unable to process request. Please try again later.' }, { status: 500 });
   }
 
-  const templateParams = {
+  const templateParams = sanitizeParams({
     NAME: name,
     EMAIL: email,
     MESSAGE: message,
+  });
+
+  const headers = {
+    'accept': 'application/json',
+    'api-key': apiKey,
+    'content-type': 'application/json',
   };
 
   try {
-    // 1. Send confirmation email to the sender
-    await fetch('https://api.brevo.com/v3/smtp/email', {
-      method: 'POST',
-      headers: {
-        'accept': 'application/json',
-        'api-key': apiKey,
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        to: [{ email, name }],
-        templateId: CONTACT_CONFIRMATION_TEMPLATE_ID,
-        params: templateParams,
+    const [confirmationResult, notificationResult] = await Promise.allSettled([
+      fetch(BREVO_API_URL, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          to: [{ email, name }],
+          templateId: CONTACT_CONFIRMATION_TEMPLATE_ID,
+          params: templateParams,
+        }),
       }),
-    });
+      fetch(BREVO_API_URL, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          to: [{ email: 'info@alfecofoundation.com', name: 'Alfeco Foundation' }],
+          templateId: CONTACT_NOTIFICATION_TEMPLATE_ID,
+          params: templateParams,
+        }),
+      }),
+    ]);
 
-    // 2. Send notification email to Alfeco Foundation
-    await fetch('https://api.brevo.com/v3/smtp/email', {
-      method: 'POST',
-      headers: {
-        'accept': 'application/json',
-        'api-key': apiKey,
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        to: [{ email: 'info@alfecofoundation.com', name: 'Alfeco Foundation' }],
-        templateId: CONTACT_NOTIFICATION_TEMPLATE_ID,
-        params: templateParams,
-      }),
-    });
+    if (confirmationResult.status === 'rejected') {
+      console.error('Confirmation email failed:', confirmationResult.reason);
+    }
+    if (notificationResult.status === 'rejected') {
+      console.error('Notification email failed:', notificationResult.reason);
+    }
 
     return Response.json({ success: true });
-  } catch (error) {
-    console.error('Email send error:', error);
+  } catch (err: unknown) {
+    console.error('Email send error:', err instanceof Error ? err.message : err);
     return Response.json({ error: 'Failed to send email' }, { status: 500 });
   }
 }

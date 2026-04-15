@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ChevronDown, ChevronRight, Heart } from 'lucide-react';
+import { Menu, X, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Heart } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import clsx from 'clsx';
 
@@ -44,21 +44,6 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
     { name: 'About Us', path: '/about' },
     { name: 'Our Pillars', path: '/pillars' },
     { name: 'News & Events', path: '/news' },
-  ];
-
-  const pillarsSubmenu = [
-    {
-      name: 'Education & Development',
-      path: '/pillars/education',
-      subItems: [
-        { name: 'Bursary Programme', path: '/pillars/education/bursary' },
-        { name: 'Skills Development Programme', path: '/pillars/education/skills' },
-        { name: 'Revive & Thrive Programme', path: '/pillars/education/revive' },
-      ]
-    },
-    { name: 'Food Security', path: '/pillars/food-security' },
-    { name: 'Women & Youth', path: '/pillars/women-youth' },
-    { name: 'Conservation & Environment', path: '/pillars/conservation' },
   ];
 
   return (
@@ -104,51 +89,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                           )}
                         >
                           {link.name}
-                          {/* <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" /> */}
                         </Link>
-
-                        {/* Dropdown Menu */}
-                        {/* <div className="absolute top-full left-0 pt-4 hidden group-hover:block w-72 z-50">
-                          <div className="bg-white/95 backdrop-blur-xl border border-[#1A1A1A]/5 rounded-3xl shadow-premium overflow-visible p-2 flex flex-col gap-0.5">
-                            {pillarsSubmenu.map((subItem) => {
-                              if ('subItems' in subItem) {
-                                return (
-                                  <div key={subItem.name} className="relative group/sub">
-                                    <div className="flex items-center justify-between px-4 py-3 text-sm font-bold text-[#1A1A1A] hover:bg-[#EBF3F5] hover:text-[#C1272D] rounded-2xl transition-all cursor-pointer">
-                                      {subItem.name}
-                                      <ChevronRight className="w-4 h-4" />
-                                    </div>
-
-                                    {/* Sub-dropdown */}
-                                    {/* <div className="absolute left-full top-0 pl-2 hidden group-hover/sub:block w-72 z-50">
-                                      <div className="bg-[#C1272D] rounded-3xl shadow-2xl overflow-hidden p-2 flex flex-col gap-0.5">
-                                        {subItem.subItems?.map((nestedItem) => (
-                                          <Link
-                                            key={nestedItem.name}
-                                            href={nestedItem.path}
-                                            className="block px-4 py-3 text-sm font-bold text-white hover:bg-white/15 rounded-2xl transition-all"
-                                          >
-                                            {nestedItem.name}
-                                          </Link>
-                                        ))}
-                                      </div>
-                                    </div>
-                                  </div>
-                                );
-                              } */}
-
-                              {/* return (
-                                <Link
-                                  key={subItem.name}
-                                  href={subItem.path}
-                                  className="block px-4 py-3 text-sm font-bold text-[#1A1A1A] hover:bg-[#EBF3F5] hover:text-[#C1272D] rounded-2xl transition-all"
-                                >
-                                  {subItem.name}
-                                </Link>
-                              );
-                            })}
-                          </div>
-                        </div> */} 
                       </div>
 
                       {/* Get Involved Link */}

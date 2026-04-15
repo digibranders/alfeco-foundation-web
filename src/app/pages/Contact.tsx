@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import type { ContactFormData } from '../types/forms';
 import { MapPin, Phone, Mail, Facebook, Twitter, Youtube, Instagram, Send, MessageCircle, Clock, Sparkles, Heart, ArrowRight, Star } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
@@ -87,7 +88,7 @@ function FloatingStar({ className, delay = 0 }: { className: string; delay?: num
 }
 
 export function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState<ContactFormData>({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
@@ -107,8 +108,9 @@ export function Contact() {
       if (!res.ok) throw new Error('Failed to submit');
       setSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
-    } catch {
-      setError('Something went wrong. Please try again or contact us directly.');
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Something went wrong.';
+      setError(message === 'Failed to submit' ? 'Something went wrong. Please try again or contact us directly.' : message);
     } finally {
       setSubmitting(false);
     }
@@ -281,7 +283,7 @@ export function Contact() {
                   </p>
 
                   {error && (
-                    <div className="bg-[#C1272D]/10 text-[#C1272D] px-5 py-3 rounded-2xl text-sm font-medium">
+                    <div role="alert" aria-live="polite" className="bg-[#C1272D]/10 text-[#C1272D] px-5 py-3 rounded-2xl text-sm font-medium">
                       {error}
                     </div>
                   )}
@@ -324,10 +326,6 @@ export function Contact() {
                     <p className="text-white font-bold text-lg">Our doors are always open</p>
                     <p className="text-white/70 text-sm">Come visit us in Sandton, Johannesburg</p>
                   </div>
-                  {/* Corner accent */}
-                  {/* <div className="absolute top-4 right-4 w-12 h-12 bg-[#E8AB36] rounded-2xl flex items-center justify-center shadow-lg">
-                    {/* <MapPin className="w-5 h-5 text-white" /> */}
-                  {/* </div> */}
                 </div>
               </div>
             </FadeIn>
