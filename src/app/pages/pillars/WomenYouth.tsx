@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 
-const SANITATION_IMG = "https://images.unsplash.com/photo-1706524077391-12206f155e94?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
+const SANITATION_IMG = "https://images.unsplash.com/photo-1706524077391-12206f155e94?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80";
 
 export function WomenYouth() {
   return (

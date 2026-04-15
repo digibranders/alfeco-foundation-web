@@ -6,9 +6,9 @@ import Link from 'next/link';
 import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 
-const HERO_IMG = "https://images.unsplash.com/photo-1744960149322-db88b3f4f25f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
-const GROUP_IMG = "https://images.unsplash.com/photo-1599666882726-fe28581e3147?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
-const RENOVATED_IMG = "https://images.unsplash.com/photo-1647342003191-70d033b24485?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
+const HERO_IMG = "https://images.unsplash.com/photo-1744960149322-db88b3f4f25f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80";
+const GROUP_IMG = "https://images.unsplash.com/photo-1599666882726-fe28581e3147?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80";
+const RENOVATED_IMG = "https://images.unsplash.com/photo-1647342003191-70d033b24485?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80";
 
 export function ReviveThrive() {
   return (

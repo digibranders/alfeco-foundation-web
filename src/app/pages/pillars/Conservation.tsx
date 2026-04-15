@@ -6,9 +6,9 @@ import Link from 'next/link';
 import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 
-const EARTH_IMG = "https://images.unsplash.com/photo-1701270631538-2fc8bca671dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
-const WILDLIFE_IMG = "https://images.unsplash.com/photo-1767781404520-28bf77457f10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
-const ENVIRONMENT_IMG = "https://images.unsplash.com/photo-1704595232687-a180ce7f3b97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
+const EARTH_IMG = "https://images.unsplash.com/photo-1701270631538-2fc8bca671dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80";
+const WILDLIFE_IMG = "https://images.unsplash.com/photo-1767781404520-28bf77457f10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80";
+const ENVIRONMENT_IMG = "https://images.unsplash.com/photo-1704595232687-a180ce7f3b97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80";
 
 export function Conservation() {
   return (

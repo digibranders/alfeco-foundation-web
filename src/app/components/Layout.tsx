@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Heart } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -63,13 +64,20 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
           )}>
             {/* Logo */}
             <Link href="/" onClick={(e) => handleScrollToTop(e, '/')} className="flex items-center gap-3 group">
-              <motion.img
-                src={logoImg}
-                alt="Alfeco Foundation"
-                className="h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              <motion.div
                 whileHover={{ rotate: [0, -3, 3, 0] }}
                 transition={{ duration: 0.5 }}
-              />
+                className="transition-transform duration-300 group-hover:scale-105"
+              >
+                <Image
+                  src={logoImg}
+                  alt="Alfeco Foundation"
+                  width={140}
+                  height={44}
+                  className="h-11 w-auto object-contain"
+                  priority
+                />
+              </motion.div>
             </Link>
 
             {/* Desktop Nav */}
@@ -159,7 +167,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
             {/* Menu Header */}
             <div className="flex items-center justify-between px-6 h-24 border-b border-[#1A1A1A]/5">
               <Link href="/" onClick={(e) => { setIsMenuOpen(false); handleScrollToTop(e, '/'); }}>
-                <img src={logoImg} alt="Alfeco Foundation" className="h-10 w-auto object-contain" />
+                <Image src={logoImg} alt="Alfeco Foundation" width={128} height={40} className="h-10 w-auto object-contain" />
               </Link>
               <button
                 onClick={() => setIsMenuOpen(false)}
@@ -242,7 +250,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                   <span className="text-xs font-bold uppercase tracking-widest text-[#48B2A9]">Get in Touch</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 leading-tight">Let&apos;s make a lasting difference together!<br /></h2>
-                <p className="text-white/50 text-lg max-w-lg mb-8">
+                <p className="text-white/70 text-lg max-w-lg mb-8">
                   Whether you want to partner, volunteer, or simply learn more about our work — we&apos;d love to hear from you.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -272,7 +280,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                     </div>
                     <div>
                       <h4 className="font-bold text-white mb-1">Visit Us</h4>
-                      <p className="text-white/50 text-sm">29 Autumn Street, Edenburg, Sandton, 2128</p>
+                      <p className="text-white/70 text-sm">29 Autumn Street, Edenburg, Sandton, 2128</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -281,7 +289,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                     </div>
                     <div>
                       <h4 className="font-bold text-white mb-1">Call Us</h4>
-                      <p className="text-white/50 text-sm">011-908 9440</p>
+                      <p className="text-white/70 text-sm">011-908 9440</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -290,7 +298,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                     </div>
                     <div>
                       <h4 className="font-bold text-white mb-1">Email Us</h4>
-                      <p className="text-white/50 text-sm">info@alfecofoundation.com</p>
+                      <p className="text-white/70 text-sm">info@alfecofoundation.com</p>
                     </div>
                   </div>
                 </div>
@@ -310,8 +318,8 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
               {/* Logo & tagline */}
               <div className="md:col-span-4">
-                <img src={logoImg} alt="Alfeco Foundation" className="h-12 w-auto mb-6 brightness-0 invert opacity-90" />
-                <p className="text-white/50 font-medium mb-8 max-w-xs">
+                <Image src={logoImg} alt="Alfeco Foundation" width={160} height={48} className="h-12 w-auto mb-6 brightness-0 invert opacity-90" />
+                <p className="text-white/70 font-medium mb-8 max-w-xs">
                   Empowering communities through compassion, collaboration, and practical solutions.
                 </p>
                 <div className="flex gap-3">
@@ -356,7 +364,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                 <h4 className="font-bold text-white/80 uppercase tracking-widest text-xs mb-6">Our Pillars</h4>
                 <div className="flex flex-col gap-3">
                   {['Education & Development', 'Food Security', 'Women & Youth', 'Conservation'].map(name => (
-                    <span key={name} className="text-white/50 font-medium text-sm">{name}</span>
+                    <span key={name} className="text-white/70 font-medium text-sm">{name}</span>
                   ))}
                 </div>
               </div>

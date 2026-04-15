@@ -1,14 +1,15 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Users, Lightbulb, Leaf } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
 
 const PILLAR_IMAGES = [
-  "https://images.unsplash.com/photo-1744809482817-9a9d4fc280af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+  "https://images.unsplash.com/photo-1744809482817-9a9d4fc280af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80",
   "/pillars/food-security/food-community.webp",
-  "https://images.unsplash.com/photo-1688302529084-767fbc296565?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
-  "https://images.unsplash.com/photo-1767479813249-8d8b9e212496?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+  "https://images.unsplash.com/photo-1688302529084-767fbc296565?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80",
+  "https://images.unsplash.com/photo-1767479813249-8d8b9e212496?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80",
 ];
 
 export function Pillars() {
@@ -47,7 +48,7 @@ export function Pillars() {
                         <Link href={pillar.path} className="block h-full w-full cursor-pointer">
                         {isTall && (
                            <div className="h-full w-full relative">
-                              <img src={pillar.img} alt={pillar.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                              <Image src={pillar.img} alt={pillar.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
                               <div className="absolute bottom-0 left-0 p-6 md:p-8 text-white">
@@ -62,7 +63,7 @@ export function Pillars() {
 
                         {!isTall && !isWide && (
                            <div className="h-full w-full relative">
-                              <img src={pillar.img} alt={pillar.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                              <Image src={pillar.img} alt={pillar.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
                               <div className="absolute bottom-0 left-0 p-6 text-white">
@@ -78,7 +79,7 @@ export function Pillars() {
                         {isWide && (
                            <div className="h-full w-full flex flex-col md:flex-row bg-white relative overflow-hidden shadow-playful">
                               <div className="md:w-1/2 h-full relative overflow-hidden">
-                                 <img src={pillar.img} alt={pillar.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                 <Image src={pillar.img} alt={pillar.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                               </div>
                               <div className="p-6 md:p-8 flex flex-col justify-center md:w-1/2 z-10 relative">
                                  <h3 className="text-2xl md:text-3xl font-semibold md:font-extrabold text-[#1A1A1A] mb-2 md:mb-4">{pillar.title}</h3>
@@ -114,7 +115,7 @@ export function Pillars() {
                {/* Inclusivity */}
                <FadeIn delay={0.1} className="h-full">
                   <div className="h-full bg-white rounded-[40px] flex flex-col justify-end relative overflow-hidden group min-h-[400px] playful-card shadow-playful hover:shadow-playful-hover">
-                     <img src="https://images.unsplash.com/photo-1630068846062-3ffe78aa5049?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwY29tbXVuaXR5JTIwaGFuZHMlMjB0b2dldGhlciUyMGluY2x1c2l2aXR5fGVufDF8fHx8MTc3MjcwNTI2MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Inclusivity" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                     <Image src="https://images.unsplash.com/photo-1630068846062-3ffe78aa5049?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwY29tbXVuaXR5JTIwaGFuZHMlMjB0b2dldGhlciUyMGluY2x1c2l2aXR5fGVufDF8fHx8MTc3MjcwNTI2MXww&ixlib=rb-4.1.0&q=80" alt="Inclusivity" fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
                      <div className="relative z-10 p-8 md:p-10">
                         <div className="flex justify-between items-start mb-6">
@@ -133,7 +134,7 @@ export function Pillars() {
                   {/* Integrity */}
                   <FadeIn delay={0.2}>
                      <div className="rounded-[40px] flex flex-col justify-end relative overflow-hidden group min-h-[240px] playful-card shadow-warm">
-                        <img src="https://images.unsplash.com/photo-1696861270495-7f35c35c3273?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYW5kc2hha2UlMjB0cnVzdCUyMGludGVncml0eSUyMGJ1c2luZXNzfGVufDF8fHx8MTc3MjcwNTI2Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Integrity" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <Image src="https://images.unsplash.com/photo-1696861270495-7f35c35c3273?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYW5kc2hha2UlMjB0cnVzdCUyMGludGVncml0eSUyMGJ1c2luZXNzfGVufDF8fHx8MTc3MjcwNTI2Mnww&ixlib=rb-4.1.0&q=80" alt="Integrity" fill sizes="(max-width: 1024px) 100vw, 66vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                         <div className="absolute inset-0 bg-gradient-to-r from-[#E8AB36]/90 via-[#E8AB36]/70 to-transparent" />
                         <div className="relative z-10 p-8 md:p-10">
                            <div className="flex justify-between items-start w-full mb-4">
@@ -152,7 +153,7 @@ export function Pillars() {
                      {/* Innovation */}
                      <FadeIn delay={0.3}>
                         <div className="rounded-[40px] flex flex-col justify-end h-full group relative overflow-hidden min-h-[240px] playful-card shadow-playful hover:shadow-playful-hover">
-                           <img src="https://images.unsplash.com/photo-1770632067760-70ac2cb9ec3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGlubm92YXRpb24lMjBsaWdodGJ1bGIlMjB0ZWNobm9sb2d5fGVufDF8fHx8MTc3MjcwNTI2Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Innovation" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                           <Image src="https://images.unsplash.com/photo-1770632067760-70ac2cb9ec3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGlubm92YXRpb24lMjBsaWdodGJ1bGIlMjB0ZWNobm9sb2d5fGVufDF8fHx8MTc3MjcwNTI2Mnww&ixlib=rb-4.1.0&q=80" alt="Innovation" fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
                            <div className="relative z-10 p-8">
                               <div className="flex justify-between items-start mb-4">
@@ -160,7 +161,7 @@ export function Pillars() {
                                  <ArrowRight className="w-8 h-8 text-white/30 -rotate-45 group-hover:rotate-0 group-hover:text-[#E8AB36] transition-all duration-300" />
                               </div>
                               <h3 className="text-2xl font-semibold text-white mb-2">Innovation</h3>
-                              <p className="text-white/70 text-sm">Reimagining solutions for today's and tomorrow's challenges.</p>
+                              <p className="text-white/80 text-sm">Reimagining solutions for today's and tomorrow's challenges.</p>
                            </div>
                         </div>
                      </FadeIn>
@@ -168,7 +169,7 @@ export function Pillars() {
                      {/* Empowerment */}
                      <FadeIn delay={0.4}>
                         <div className="rounded-[40px] flex flex-col justify-end h-full group relative overflow-hidden min-h-[240px] playful-card">
-                           <img src="https://images.unsplash.com/photo-1606471015285-85fa1288aa4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbXBvd2VybWVudCUyMHBlb3BsZSUyMGNlbGVicmF0aW5nJTIwc3VjY2Vzc3xlbnwxfHx8fDE3NzI3MDUyNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Empowerment" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                           <Image src="https://images.unsplash.com/photo-1606471015285-85fa1288aa4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbXBvd2VybWVudCUyMHBlb3BsZSUyMGNlbGVicmF0aW5nJTIwc3VjY2Vzc3xlbnwxfHx8fDE3NzI3MDUyNjJ8MA&ixlib=rb-4.1.0&q=80" alt="Empowerment" fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                            <div className="absolute inset-0 bg-gradient-to-t from-[#48B2A9]/90 via-[#48B2A9]/50 to-transparent" />
                            <div className="relative z-10 p-8">
                               <div className="flex justify-between items-start mb-4">
@@ -185,7 +186,7 @@ export function Pillars() {
                   {/* Sustainability */}
                   <FadeIn delay={0.5}>
                      <div className="rounded-[40px] flex flex-col justify-end relative overflow-hidden group text-white min-h-[240px] playful-card">
-                        <img src="https://images.unsplash.com/photo-1763856957026-a74ab4f05891?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmVlbiUyMHN1c3RhaW5hYmlsaXR5JTIwbmF0dXJlJTIwcGxhbnRzJTIwZ3Jvd3RofGVufDF8fHx8MTc3MjcwNTI2M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Sustainability" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <Image src="https://images.unsplash.com/photo-1763856957026-a74ab4f05891?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmVlbiUyMHN1c3RhaW5hYmlsaXR5JTIwbmF0dXJlJTIwcGxhbnRzJTIwZ3Jvd3RofGVufDF8fHx8MTc3MjcwNTI2M3ww&ixlib=rb-4.1.0&q=80" alt="Sustainability" fill sizes="(max-width: 1024px) 100vw, 66vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                         <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A]/90 via-[#1A1A1A]/60 to-transparent" />
                         <div className="relative z-10 p-8 md:p-10">
                            <div className="flex justify-between items-start w-full mb-4">
@@ -194,7 +195,7 @@ export function Pillars() {
                            </div>
                            <div className="max-w-lg">
                               <h3 className="text-3xl font-semibold mb-4">Sustainability</h3>
-                              <p className="text-white/70 text-lg">Protecting our environment as we grow.</p>
+                              <p className="text-white/80 text-lg">Protecting our environment as we grow.</p>
                            </div>
                         </div>
                      </div>

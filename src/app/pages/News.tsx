@@ -3,17 +3,20 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { ArrowRight, Calendar, ChevronLeft, ChevronRight, Instagram, Linkedin } from 'lucide-react';
 import Link from 'next/link';
-import Slider from 'react-slick';
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { FadeIn } from '../components/FadeIn';
 import { NEWS_ITEMS } from '../data/news';
 
+const Slider = dynamic(() => import('react-slick'), { ssr: false });
+
 const EVENT_CALENDAR_IMAGES = [
-  "https://images.unsplash.com/photo-1761342608658-6b13accf86c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21tdW5pdHklMjBldmVudCUyMGNoaWxkcmVuJTIwdGVudCUyMG91dGRvb3IlMjBBZnJpY2F8ZW58MXx8fHwxNzcyMDgyMTk0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-  "https://images.unsplash.com/photo-1544884576-92fe6c8b154d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob2xpZGF5JTIwdG95JTIwZG9uYXRpb24lMjBkcml2ZSUyMGdpZnRzfGVufDF8fHx8MTc3MjA4MjE5OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-  "https://images.unsplash.com/photo-1769837231004-497d93ae155c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21tdW5pdHklMjBmdW5kcmFpc2VyJTIwZ2F0aGVyaW5nJTIwb3V0ZG9vcnxlbnwxfHx8fDE3NzIwODIxOTV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-  "https://images.unsplash.com/photo-1768508947362-bca7a379e62a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyaXR5JTIwZ2FsYSUyMGRpbm5lciUyMGV2ZW50fGVufDF8fHx8MTc3MjA4MjE5Nnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+  "https://images.unsplash.com/photo-1761342608658-6b13accf86c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21tdW5pdHklMjBldmVudCUyMGNoaWxkcmVuJTIwdGVudCUyMG91dGRvb3IlMjBBZnJpY2F8ZW58MXx8fHwxNzcyMDgyMTk0fDA&ixlib=rb-4.1.0&q=80",
+  "https://images.unsplash.com/photo-1544884576-92fe6c8b154d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob2xpZGF5JTIwdG95JTIwZG9uYXRpb24lMjBkcml2ZSUyMGdpZnRzfGVufDF8fHx8MTc3MjA4MjE5OXww&ixlib=rb-4.1.0&q=80",
+  "https://images.unsplash.com/photo-1769837231004-497d93ae155c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21tdW5pdHklMjBmdW5kcmFpc2VyJTIwZ2F0aGVyaW5nJTIwb3V0ZG9vcnxlbnwxfHx8fDE3NzIwODIxOTV8MA&ixlib=rb-4.1.0&q=80",
+  "https://images.unsplash.com/photo-1768508947362-bca7a379e62a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyaXR5JTIwZ2FsYSUyMGRpbm5lciUyMGV2ZW50fGVufDF8fHx8MTc3MjA4MjE5Nnww&ixlib=rb-4.1.0&q=80",
 ];
 
 const FILTER_COLORS: Record<string, string> = {
@@ -85,7 +88,7 @@ export function News() {
                       className="group bg-white rounded-[40px] overflow-hidden h-full flex flex-col playful-card shadow-playful hover:shadow-playful-hover block"
                    >
                       <div className="relative aspect-[4/3] overflow-hidden">
-                         <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                         <Image src={item.img} alt={item.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                          <div className="absolute top-4 left-4 backdrop-blur-md bg-white/80 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-[#1A1A1A] shadow-sm">
                             {item.category}
                          </div>
@@ -147,11 +150,13 @@ export function News() {
               >
                 {EVENT_CALENDAR_IMAGES.map((img, idx) => (
                   <div key={idx} className="px-3">
-                    <div className="rounded-[28px] overflow-hidden aspect-square playful-card shadow-playful">
-                      <img
+                    <div className="relative rounded-[28px] overflow-hidden aspect-square playful-card shadow-playful">
+                      <Image
                         src={img}
                         alt={`Event ${idx + 1}`}
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        className="object-cover"
                       />
                     </div>
                   </div>
