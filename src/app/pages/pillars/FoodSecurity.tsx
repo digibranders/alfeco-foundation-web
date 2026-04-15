@@ -7,12 +7,12 @@ import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 import CountUp from 'react-countup';
 
-const HERO_IMG = "/pillars/food security/IMG_4103-original.webp";
-const FEEDING_IMG = "/pillars/food security/IMG_4120-original.webp";
-const KITCHEN_IMG = "/pillars/food security/IMG_4079-original.webp";
-const PARCELS_IMG = "/pillars/food security/IMG_2048-original.webp";
-const BFG_IMG = "/pillars/food security/IMG_3910-original.webp"
-const WHDLEFT_IMG = "/pillars/food security/IMG_4076-original.webp"
+const HERO_IMG = "/pillars/food-security/food-hero.webp";
+const FEEDING_IMG = "/pillars/food-security/food-feeding.webp";
+const KITCHEN_IMG = "/pillars/food-security/food-kitchen.webp";
+const PARCELS_IMG = "/pillars/food-security/food-parcels.webp";
+const BFG_IMG = "/pillars/food-security/food-bfg.webp"
+const WHDLEFT_IMG = "/pillars/food-security/food-warehouse.webp"
 
 const CAROUSEL_IMAGES = [HERO_IMG, FEEDING_IMG, KITCHEN_IMG];
 

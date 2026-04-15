@@ -7,7 +7,7 @@ import { FadeIn } from '../components/FadeIn';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { motion } from 'motion/react';
 
-const TEAM_IMG = '/assets/IMG_2559-original-original.webp';
+const TEAM_IMG = '/assets/team-photo.webp';
 
 const CONTACT_CARDS = [
   {

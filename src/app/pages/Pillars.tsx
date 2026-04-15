@@ -6,7 +6,7 @@ import { FadeIn } from '../components/FadeIn';
 
 const PILLAR_IMAGES = [
   "https://images.unsplash.com/photo-1744809482817-9a9d4fc280af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
-  "/pillars/food security/IMG_4106-original.webp",
+  "/pillars/food-security/food-community.webp",
   "https://images.unsplash.com/photo-1688302529084-767fbc296565?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
   "https://images.unsplash.com/photo-1767479813249-8d8b9e212496?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
 ];

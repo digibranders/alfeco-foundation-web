@@ -7,8 +7,8 @@ import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 import CountUp from 'react-countup';
 
-const BLOCKS_IMG = "/pillars/education/1-original.webp";
-const AWARD_IMG = "/pillars/education/IMG_3776-original.webp";
+const BLOCKS_IMG = "/pillars/education/education-blocks.webp";
+const AWARD_IMG = "/pillars/education/education-award.webp";
 
 export function BursaryProgramme() {
   return (
@@ -51,7 +51,7 @@ export function BursaryProgramme() {
   <div className="rounded-[40px] overflow-hidden bg-[#EBF3F5] w-full h-full flex items-center justify-center">
     
     <ImageWithFallback 
-      src="/pillars/education/IMG_3837-original.webp" 
+      src="/pillars/education/education-ceremony.webp" 
       alt="Bursary Programme recipients" 
       className="w-full h-full object-cover rounded-[40px]"
     />
