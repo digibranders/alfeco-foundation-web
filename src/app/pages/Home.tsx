@@ -7,10 +7,10 @@ import CountUp from 'react-countup';
 import { FadeIn } from '../components/FadeIn';
 
 const HERO_IMAGES = [
-  '/assets/hero-1.png',
-  '/assets/hero-2.png',
-  '/assets/hero-3.png',
-  '/assets/hero-4.png',
+  '/assets/hero-1.webp',
+  '/assets/hero-2.webp',
+  '/assets/hero-3.webp',
+  '/assets/hero-4.webp',
 ];
 
 const ProgressBar = () => {

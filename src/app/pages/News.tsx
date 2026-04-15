@@ -4,6 +4,8 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { ArrowRight, Calendar, ChevronLeft, ChevronRight, Instagram, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { FadeIn } from '../components/FadeIn';
 import { NEWS_ITEMS } from '../data/news';
 
