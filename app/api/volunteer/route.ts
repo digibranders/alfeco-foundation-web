@@ -71,11 +71,29 @@ export async function POST(request: Request): Promise<Response> {
       }),
     ]);
 
-    if (confirmationResult.status === 'rejected') {
-      console.error('Confirmation email failed:', confirmationResult.reason);
+    // Check for network-level failures (rejected) and HTTP-level failures (non-ok response)
+    const confirmationFailed =
+      confirmationResult.status === 'rejected' ||
+      (confirmationResult.status === 'fulfilled' && !confirmationResult.value.ok);
+    const notificationFailed =
+      notificationResult.status === 'rejected' ||
+      (notificationResult.status === 'fulfilled' && !notificationResult.value.ok);
+
+    if (confirmationFailed) {
+      const reason = confirmationResult.status === 'rejected'
+        ? confirmationResult.reason
+        : `HTTP ${confirmationResult.value.status}`;
+      console.error('Confirmation email failed:', reason);
     }
-    if (notificationResult.status === 'rejected') {
-      console.error('Notification email failed:', notificationResult.reason);
+    if (notificationFailed) {
+      const reason = notificationResult.status === 'rejected'
+        ? notificationResult.reason
+        : `HTTP ${notificationResult.value.status}`;
+      console.error('Notification email failed:', reason);
+    }
+
+    if (notificationFailed) {
+      return Response.json({ error: 'Failed to send email' }, { status: 500 });
     }
 
     return Response.json({ success: true });
