@@ -5,10 +5,10 @@ import { ArrowRight, BookOpen, GraduationCap, Wrench, Heart, CheckCircle2, Spark
 import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 
-const HERO_IMG = "https://images.unsplash.com/photo-1744809482817-9a9d4fc280af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
-const BURSARY_IMG = "https://images.unsplash.com/photo-1659080907097-6153cd4ff69d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
-const SKILLS_IMG = "https://images.unsplash.com/photo-1768796370577-c6e8b708b980?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
-const REVIVE_IMG = "https://images.unsplash.com/photo-1643214410415-de1976ad74ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
+const HERO_IMG = "https://images.unsplash.com/photo-1744809482817-9a9d4fc280af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80";
+const BURSARY_IMG = "https://images.unsplash.com/photo-1659080907097-6153cd4ff69d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80";
+const SKILLS_IMG = "https://images.unsplash.com/photo-1768796370577-c6e8b708b980?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80";
+const REVIVE_IMG = "https://images.unsplash.com/photo-1643214410415-de1976ad74ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80";
 
 const programmes = [
   {

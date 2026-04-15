@@ -7,9 +7,9 @@ import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 
 const skillsHeroImg = '/assets/skills-hero.webp';
 
-const VALVE_IMG = "https://images.unsplash.com/photo-1738918922725-d70c666ddccb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
-const WELDING_IMG = "https://images.unsplash.com/photo-1673201159941-68fcdbbb4fa1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
-const BOOTS_IMG = "https://images.unsplash.com/photo-1768158988512-ad31657fe5b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
+const VALVE_IMG = "https://images.unsplash.com/photo-1738918922725-d70c666ddccb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80";
+const WELDING_IMG = "https://images.unsplash.com/photo-1673201159941-68fcdbbb4fa1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80";
+const BOOTS_IMG = "https://images.unsplash.com/photo-1768158988512-ad31657fe5b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80";
 
 export function SkillsDevelopment() {
   return (
@@ -49,7 +49,7 @@ export function SkillsDevelopment() {
           <FadeIn delay={0.2}>
             <div className="rounded-[40px] overflow-hidden h-full min-h-[350px]">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1740205642946-72e75a92124b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                src="https://images.unsplash.com/photo-1740205642946-72e75a92124b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80"
                 alt="Skills Development Programme"
                 className="w-full h-full object-cover"
               />
