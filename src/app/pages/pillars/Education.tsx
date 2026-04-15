@@ -62,7 +62,7 @@ export function Education() {
             </div>
           </FadeIn>
           <FadeIn direction="left">
-            <div className="rounded-[40px] overflow-hidden aspect-[4/3] shadow-premium playful-card hover:shadow-playful-hover">
+            <div className="relative rounded-[40px] overflow-hidden aspect-[4/3] shadow-premium playful-card hover:shadow-playful-hover">
               <ImageWithFallback src={HERO_IMG} alt="Education" className="w-full h-full object-cover" />
             </div>
           </FadeIn>

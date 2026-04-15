@@ -75,6 +75,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                   width={140}
                   height={44}
                   className="h-11 w-auto object-contain"
+                  style={{ width: 'auto' }}
                   priority
                 />
               </motion.div>
@@ -167,7 +168,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
             {/* Menu Header */}
             <div className="flex items-center justify-between px-6 h-24 border-b border-[#1A1A1A]/5">
               <Link href="/" onClick={(e) => { setIsMenuOpen(false); handleScrollToTop(e, '/'); }}>
-                <Image src={logoImg} alt="Alfeco Foundation" width={128} height={40} className="h-10 w-auto object-contain" />
+                <Image src={logoImg} alt="Alfeco Foundation" width={128} height={40} className="h-10 w-auto object-contain" style={{ width: 'auto' }} />
               </Link>
               <button
                 onClick={() => setIsMenuOpen(false)}
@@ -318,7 +319,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
               {/* Logo & tagline */}
               <div className="md:col-span-4">
-                <Image src={logoImg} alt="Alfeco Foundation" width={160} height={48} className="h-12 w-auto mb-6 brightness-0 invert opacity-90" />
+                <Image src={logoImg} alt="Alfeco Foundation" width={160} height={48} className="h-12 w-auto mb-6 brightness-0 invert opacity-90" style={{ width: 'auto' }} />
                 <p className="text-white/70 font-medium mb-8 max-w-xs">
                   Empowering communities through compassion, collaboration, and practical solutions.
                 </p>

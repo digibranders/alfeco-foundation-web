@@ -80,11 +80,11 @@ export function WomenYouth() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20 items-end">
           {/* Left – image */}
           <FadeIn delay={0.1}>
-            <div className="rounded-[32px] overflow-hidden shadow-premium playful-card">
+            <div className="relative rounded-[32px] overflow-hidden shadow-premium playful-card aspect-[4/3]">
               <ImageWithFallback
                 src={SANITATION_IMG}
                 alt="EmpowHer Sanitation Programme – pad drive donations"
-                className="w-full h-auto object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
           </FadeIn>

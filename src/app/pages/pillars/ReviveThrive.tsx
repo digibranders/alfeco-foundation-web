@@ -48,7 +48,7 @@ export function ReviveThrive() {
 
           {/* Hero Image */}
           <FadeIn delay={0.2}>
-            <div className="rounded-[40px] overflow-hidden h-full min-h-[350px]">
+            <div className="relative rounded-[40px] overflow-hidden h-full min-h-[350px]">
               <ImageWithFallback
                 src={HERO_IMG}
                 alt="Revive & Thrive Programme"
@@ -114,11 +114,11 @@ export function ReviveThrive() {
 
           {/* Left Image */}
           <FadeIn delay={0.1} className="lg:col-span-3 flex">
-            <div className="rounded-[40px] overflow-hidden w-full">
+            <div className="relative rounded-[40px] overflow-hidden w-full aspect-square">
               <ImageWithFallback
                 src={GROUP_IMG}
                 alt="Community group at school"
-                className="w-full h-full object-cover aspect-square"
+                className="w-full h-full object-cover"
               />
             </div>
           </FadeIn>
@@ -132,11 +132,11 @@ export function ReviveThrive() {
 
           {/* Right Image */}
           <FadeIn delay={0.3} className="lg:col-span-3 flex">
-            <div className="rounded-[40px] overflow-hidden w-full">
+            <div className="relative rounded-[40px] overflow-hidden w-full aspect-square">
               <ImageWithFallback
                 src={RENOVATED_IMG}
                 alt="Renovated school facility"
-                className="w-full h-full object-cover aspect-square"
+                className="w-full h-full object-cover"
               />
             </div>
           </FadeIn>

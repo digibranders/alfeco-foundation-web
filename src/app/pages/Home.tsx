@@ -75,7 +75,7 @@ export function Home() {
                            whileHover={{ rotate: idx % 2 === 0 ? 1 : -1 }}
                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         >
-                           <Image src={img} alt={`Alfeco Foundation community impact ${idx + 1}`} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover group-hover:scale-110 transition-transform duration-700" priority={idx < 2} />
+                           <Image src={img} alt={`Alfeco Foundation community impact ${idx + 1}`} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover group-hover:scale-110 transition-transform duration-700" priority />
                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </motion.div>
                      ))}
@@ -104,48 +104,49 @@ export function Home() {
 
                   <div className="block">
                      <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
-                        <p>
-                           The Alfeco Foundation was inspired by the journey of Mr. Sachin Ahuja, whose rise from a small town near Jaipur to leading a major South African industrial group reflects resilience, vision and a deep commitment to people.
+                        <div className="bg-[#48B2A9]/10 border-l-4 border-[#48B2A9] rounded-2xl p-8 space-y-6">
+                           <p>
+                              The Alfeco Foundation was inspired by the journey of Mr. Sachin Ahuja, whose rise from a small town near Jaipur to leading a major South African industrial group reflects resilience, vision and a deep commitment to people.
+                           </p>
+                           <p>
+                              What began as a small scrap metal business has grown into the Alfeco Group, a diversified enterprise in steel, aluminium and copper, employing over 2,000 people. At its core are the values of humility, gratitude and community shaped by the support of family, friends and mentors.
+                           </p>
+                           <p>
+                              Built on this foundation, the Alfeco Foundation is dedicated to creating meaningful change across South Africa. We believe progress happens when people come together with empathy, courage and purpose.
+                           </p>
+                           <p>
+                              Driven by a passionate team, we strive to uplift communities, inspire hope and create lasting impact, building a better future, together.
+                           </p>
 
-                        </p>
-                        <p>
-                          What began as a small scrap metal business has grown into the Alfeco Group, a diversified enterprise in steel, aluminium and copper, employing over 2,000 people. At its core are the values of humility, gratitude and community shaped by the support of family, friends and mentors.
-                        </p>
-                        <p>
-                           Built on this foundation, the Alfeco Foundation is dedicated to creating meaningful change across South Africa. We believe progress happens when people come together with empathy, courage and purpose.
-                        </p>
-                        <p>
-                           Driven by a passionate team, we strive to uplift communities, inspire hope and create lasting impact, building a better future, together.
-                        </p>
+                           <div className="bg-white/60 p-8 rounded-[32px] my-2 shadow-playful">
+                              <p className="font-bold text-[#1A1A1A] mb-4">We focus our efforts on strengthening lives and unlocking potential across four key pillars:</p>
+                              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                 {[
+                                    "Education and Development",
+                                    "Food Security",
+                                    "Women and Youth Empowerment",
+                                    "Conservation and Environment"
+                                 ].map((item, i) => (
+                                    <li key={i} className="flex items-start gap-2 text-sm font-bold text-[#48B2A9]">
+                                       <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" /> <span>{item}</span>
+                                    </li>
+                                 ))}
+                              </ul>
+                           </div>
 
-                        <div className="bg-[#EBF3F5] p-8 rounded-[32px] my-8 border-l-4 border-[#48B2A9] shadow-playful">
-                           <p className="font-bold text-[#1A1A1A] mb-4">We focus our efforts on strengthening lives and unlocking potential across four key pillars:</p>
-                           <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                              {[
-                                 "Education and Development",
-                                 "Food Security",
-                                 "Women and Youth Empowerment",
-                                 "Conservation and Environment"
-                              ].map((item, i) => (
-                                 <li key={i} className="flex items-start gap-2 text-sm font-bold text-[#48B2A9]">
-                                    <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" /> <span>{item}</span>
-                                 </li>
-                              ))}
-                           </ul>
+                           <p>
+                              Every initiative is a testament to our unwavering commitment to building brighter futures and igniting hope in the hearts of those who aspire to rise above their circumstances.
+                           </p>
+                           <p>
+                              Our true strength lies not only in our projects, it lives in the beating heart of our people. Our dedicated and compassionate staff embody the spirit of service, working tirelessly to infuse every initiative with care, dignity and love. They are the vibrant force that transforms our mission into meaningful, lasting impact.
+                           </p>
+                           <p>
+                              We honour and salute every man and woman who walks this journey with us. Their resilience, courage and creativity shape uniquely South African solutions to South African challenges. Together, we are crafting a tapestry of hope, one thread, one life, one community at a time.
+                           </p>
+                           <p>
+                              At the Alfeco Foundation, we believe that we can be the architects of a better future - hand in hand, heart to heart.
+                           </p>
                         </div>
-
-                        <p>
-                           Every initiative is a testament to our unwavering commitment to building brighter futures and igniting hope in the hearts of those who aspire to rise above their circumstances.
-                        </p>
-                        <p>
-                           Our true strength lies not only in our projects, it lives in the beating heart of our people. Our dedicated and compassionate staff embody the spirit of service, working tirelessly to infuse every initiative with care, dignity and love. They are the vibrant force that transforms our mission into meaningful, lasting impact.
-                        </p>
-                        <p>
-                           We honour and salute every man and woman who walks this journey with us. Their resilience, courage and creativity shape uniquely South African solutions to South African challenges. Together, we are crafting a tapestry of hope, one thread, one life, one community at a time.
-                        </p>
-                        <p>
-                           At the Alfeco Foundation, we believe that we can be the architects of a better future - hand in hand, heart to heart.
-                        </p>
                         <p className="font-bold text-[#1A1A1A] text-xl italic border-l-4 border-[#C1272D] pl-6">
                            And with every step forward, we remain guided by the simple yet powerful truth at the core of our story: Empowering communities is not just our mission. It is our purpose, our promise and our passion.
                         </p>
