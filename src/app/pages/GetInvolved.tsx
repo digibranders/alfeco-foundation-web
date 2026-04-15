@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ArrowRight, Heart, Users, HandCoins, CheckCircle2, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import { FadeIn } from '../components/FadeIn';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';

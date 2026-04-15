@@ -1,5 +1,11 @@
+import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import { Donate } from '@/app/pages/Donate'
+
+export const metadata: Metadata = {
+  title: 'Donate',
+  description: 'Make a donation to the Alfeco Foundation. Your contribution helps deliver impactful programmes and build a better future for communities across South Africa.',
+}
 
 function DonateLoading() {
   return (

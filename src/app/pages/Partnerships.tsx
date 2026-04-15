@@ -79,10 +79,15 @@ export function Partnerships() {
     try {
       let fileData: { name: string; content: string } | undefined;
       if (file) {
-        const buffer = await file.arrayBuffer();
-        const base64 = btoa(
-          new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), '')
-        );
+        const base64 = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => {
+            const result = reader.result as string;
+            resolve(result.split(',')[1]);
+          };
+          reader.onerror = () => reject(new Error('Failed to read file'));
+          reader.readAsDataURL(file);
+        });
         fileData = { name: file.name, content: base64 };
       }
 
@@ -94,7 +99,8 @@ export function Partnerships() {
 
       if (!res.ok) throw new Error('Failed to submit');
       setSubmitted(true);
-    } catch {
+    } catch (err: unknown) {
+      console.error('Partnership form error:', err instanceof Error ? err.message : err);
       setError('Something went wrong. Please try again or contact us directly.');
     } finally {
       setSubmitting(false);
@@ -318,7 +324,7 @@ export function Partnerships() {
               </div>
 
               {error && (
-                <div className="bg-[#C1272D]/10 text-[#C1272D] px-5 py-3 rounded-2xl text-sm font-medium">
+                <div role="alert" aria-live="polite" className="bg-[#C1272D]/10 text-[#C1272D] px-5 py-3 rounded-2xl text-sm font-medium">
                   {error}
                 </div>
               )}

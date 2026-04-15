@@ -1,18 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ArrowRight, ArrowLeft, Download, Heart, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Download, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 import CountUp from 'react-countup';
 
-const HERO_IMG = "/pillars/food security/IMG_4103-original.webp";
-const FEEDING_IMG = "/pillars/food security/IMG_4120-original.webp";
-const KITCHEN_IMG = "/pillars/food security/IMG_4079-original.webp";
-const PARCELS_IMG = "/pillars/food security/IMG_2048-original.webp";
-const BFG_IMG = "/pillars/food security/IMG_3910-original.webp"
-const WHDLEFT_IMG = "/pillars/food security/IMG_4076-original.webp"
+const HERO_IMG = "/pillars/food-security/food-hero.webp";
+const FEEDING_IMG = "/pillars/food-security/food-feeding.webp";
+const KITCHEN_IMG = "/pillars/food-security/food-kitchen.webp";
+const PARCELS_IMG = "/pillars/food-security/food-parcels.webp";
+const BFG_IMG = "/pillars/food-security/food-bfg.webp"
+const WHDLEFT_IMG = "/pillars/food-security/food-warehouse.webp"
 
 const CAROUSEL_IMAGES = [HERO_IMG, FEEDING_IMG, KITCHEN_IMG];
 
@@ -244,6 +244,7 @@ export function FoodSecurity() {
                 Meals Impacted to Date
               </p>
             </div>
+            {/* TODO: Verify — this stat shows the same number (1191) as "Meals Impacted to Date" above */}
             <div className="bg-white rounded-[40px] px-10 py-6 text-center shadow-premium playful-card">
               <div className="text-4xl md:text-5xl font-extrabold text-[#1A1A1A]">
                 <CountUp end={1191} separator="," duration={2.5} enableScrollSpy scrollSpyOnce />

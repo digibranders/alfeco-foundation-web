@@ -1,91 +1,148 @@
-// Brevo Template IDs
-const PARTNERSHIP_CONFIRMATION_TEMPLATE_ID = 48; // alfeco-partnership-confirmation
-const PARTNERSHIP_NOTIFICATION_TEMPLATE_ID = 49; // alfeco-partnership-notification
+import { PartnershipSchema } from '../_shared/validation';
+import { sanitizeParams } from '../_shared/sanitize';
+import { checkRateLimit } from '../_shared/rateLimit';
 
-export async function POST(request: Request) {
-  const body = await request.json();
-  const { companyName, contactPerson, email, phone, industry, partnershipType, message, file } = body;
+const PARTNERSHIP_CONFIRMATION_TEMPLATE_ID = 48;
+const PARTNERSHIP_NOTIFICATION_TEMPLATE_ID = 49;
+const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
 
-  if (!companyName || !contactPerson || !email || !phone || !industry || !partnershipType) {
-    return Response.json({ error: 'Missing required fields' }, { status: 400 });
+const ALLOWED_EXTENSIONS = ['.pdf', '.doc', '.docx'];
+const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024; // 10MB
+
+// Base64 magic byte prefixes for allowed file types
+const MIME_SIGNATURES: Record<string, string[]> = {
+  '.pdf': ['JVBERi'],           // %PDF
+  '.doc': ['0M8R4KGx'],        // OLE2 (legacy .doc)
+  '.docx': ['UEsDB', 'UEsFB'], // ZIP/PK (Office Open XML)
+};
+
+function validateFileMimeType(content: string, extension: string): boolean {
+  const signatures = MIME_SIGNATURES[extension];
+  if (!signatures) return false;
+  return signatures.some((sig) => content.startsWith(sig));
+}
+
+export async function POST(request: Request): Promise<Response> {
+  const rateLimitResponse = checkRateLimit(request);
+  if (rateLimitResponse) return rateLimitResponse;
+
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return Response.json({ error: 'Invalid request body' }, { status: 400 });
   }
 
-  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!EMAIL_REGEX.test(email)) {
-    return Response.json({ error: 'Invalid email address' }, { status: 400 });
+  const result = PartnershipSchema.safeParse(body);
+  if (!result.success) {
+    const firstError = result.error.errors[0]?.message ?? 'Invalid input';
+    return Response.json({ error: firstError }, { status: 400 });
   }
 
-  const ALLOWED_EXTENSIONS = ['.pdf', '.doc', '.docx'];
-  const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024; // 10MB
+  const { companyName, contactPerson, email, phone, industry, partnershipType, message, file } = result.data;
 
-  if (file && file.content && file.name) {
+  if (file) {
     const ext = file.name.toLowerCase().slice(file.name.lastIndexOf('.'));
     if (!ALLOWED_EXTENSIONS.includes(ext)) {
-      return Response.json({ error: 'Invalid file type. Only PDF, DOC, and DOCX files are accepted.' }, { status: 400 });
+      return Response.json(
+        { error: 'Invalid file type. Only PDF, DOC, and DOCX files are accepted.' },
+        { status: 400 }
+      );
     }
+
     const estimatedSize = (file.content.length * 3) / 4;
     if (estimatedSize > MAX_FILE_SIZE_BYTES) {
       return Response.json({ error: 'File too large. Maximum size is 10MB.' }, { status: 400 });
+    }
+
+    if (!validateFileMimeType(file.content, ext)) {
+      return Response.json(
+        { error: 'File content does not match its extension. Please upload a valid file.' },
+        { status: 400 }
+      );
     }
   }
 
   const apiKey = process.env.BREVO_API_KEY;
   if (!apiKey) {
-    return Response.json({ error: 'Email service not configured' }, { status: 500 });
+    console.error('BREVO_API_KEY environment variable is not set');
+    return Response.json({ error: 'Unable to process request. Please try again later.' }, { status: 500 });
   }
 
-  const templateParams = {
+  const templateParams = sanitizeParams({
     COMPANY_NAME: companyName,
     CONTACT_PERSON: contactPerson,
     EMAIL: email,
     PHONE: phone,
     INDUSTRY: industry,
     PARTNERSHIP_TYPE: partnershipType,
-    MESSAGE: message || '',
+    MESSAGE: message ?? '',
+  });
+
+  const headers = {
+    'accept': 'application/json',
+    'api-key': apiKey,
+    'content-type': 'application/json',
   };
 
   try {
-    // 1. Send confirmation email to the partner
-    await fetch('https://api.brevo.com/v3/smtp/email', {
-      method: 'POST',
-      headers: {
-        'accept': 'application/json',
-        'api-key': apiKey,
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        to: [{ email, name: contactPerson }],
-        templateId: PARTNERSHIP_CONFIRMATION_TEMPLATE_ID,
-        params: templateParams,
-      }),
-    });
-
-    // 2. Send notification email to Alfeco Foundation (with file attachment if provided)
     const notificationPayload: Record<string, unknown> = {
       to: [{ email: 'info@alfecofoundation.com', name: 'Alfeco Foundation' }],
       templateId: PARTNERSHIP_NOTIFICATION_TEMPLATE_ID,
       params: templateParams,
     };
 
-    if (file && file.content && file.name) {
+    if (file) {
       notificationPayload.attachment = [
         { content: file.content, name: file.name },
       ];
     }
 
-    await fetch('https://api.brevo.com/v3/smtp/email', {
-      method: 'POST',
-      headers: {
-        'accept': 'application/json',
-        'api-key': apiKey,
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(notificationPayload),
-    });
+    const [confirmationResult, notificationResult] = await Promise.allSettled([
+      fetch(BREVO_API_URL, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          to: [{ email, name: contactPerson }],
+          templateId: PARTNERSHIP_CONFIRMATION_TEMPLATE_ID,
+          params: templateParams,
+        }),
+      }),
+      fetch(BREVO_API_URL, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(notificationPayload),
+      }),
+    ]);
+
+    // Check for network-level failures (rejected) and HTTP-level failures (non-ok response)
+    const confirmationFailed =
+      confirmationResult.status === 'rejected' ||
+      (confirmationResult.status === 'fulfilled' && !confirmationResult.value.ok);
+    const notificationFailed =
+      notificationResult.status === 'rejected' ||
+      (notificationResult.status === 'fulfilled' && !notificationResult.value.ok);
+
+    if (confirmationFailed) {
+      const reason = confirmationResult.status === 'rejected'
+        ? confirmationResult.reason
+        : `HTTP ${confirmationResult.value.status}`;
+      console.error('Confirmation email failed:', reason);
+    }
+    if (notificationFailed) {
+      const reason = notificationResult.status === 'rejected'
+        ? notificationResult.reason
+        : `HTTP ${notificationResult.value.status}`;
+      console.error('Notification email failed:', reason);
+    }
+
+    if (notificationFailed) {
+      return Response.json({ error: 'Failed to send email' }, { status: 500 });
+    }
 
     return Response.json({ success: true });
-  } catch (error) {
-    console.error('Email send error:', error);
+  } catch (err: unknown) {
+    console.error('Email send error:', err instanceof Error ? err.message : err);
     return Response.json({ error: 'Failed to send email' }, { status: 500 });
   }
 }

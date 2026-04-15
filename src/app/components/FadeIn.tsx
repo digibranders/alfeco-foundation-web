@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 
 interface FadeInProps {
   children?: React.ReactNode;
@@ -13,6 +13,16 @@ interface FadeInProps {
 }
 
 export function FadeIn({ children, className = "", delay = 0, direction = 'up', fullWidth = true, scale = false }: FadeInProps) {
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) {
+    return (
+      <div className={className} style={{ width: fullWidth ? "100%" : "auto" }}>
+        {children}
+      </div>
+    );
+  }
+
   const directions = {
     up: { y: 50, x: 0 },
     down: { y: -50, x: 0 },
@@ -21,8 +31,8 @@ export function FadeIn({ children, className = "", delay = 0, direction = 'up', 
     none: { x: 0, y: 0 }
   };
 
-  const initial: Record<string, number> = { 
-    opacity: 0, 
+  const initial: Record<string, number> = {
+    opacity: 0,
     ...directions[direction],
   };
 
@@ -40,9 +50,9 @@ export function FadeIn({ children, className = "", delay = 0, direction = 'up', 
       initial={initial}
       whileInView={animate}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ 
-        duration: 0.8, 
-        delay: delay, 
+      transition={{
+        duration: 0.8,
+        delay: delay,
         ease: [0.22, 1, 0.36, 1],
       }}
       className={className}

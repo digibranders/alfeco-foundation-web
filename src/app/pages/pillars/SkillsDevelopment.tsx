@@ -5,7 +5,7 @@ import { Download, Wrench, ArrowRight } from 'lucide-react';
 import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 
-const skillsHeroImg = '/assets/skills-hero.png';
+const skillsHeroImg = '/assets/skills-hero.webp';
 
 const VALVE_IMG = "https://images.unsplash.com/photo-1738918922725-d70c666ddccb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
 const WELDING_IMG = "https://images.unsplash.com/photo-1673201159941-68fcdbbb4fa1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";

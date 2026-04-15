@@ -1,14 +1,14 @@
 'use client';
 
 import React from 'react';
-import { ArrowRight, GraduationCap, CheckCircle2, Download, FileText, Calendar, ClipboardCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Download, Calendar, ClipboardCheck } from 'lucide-react';
 import Link from 'next/link';
 import { FadeIn } from '../../components/FadeIn';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 import CountUp from 'react-countup';
 
-const BLOCKS_IMG = "/pillars/education/1-original.webp";
-const AWARD_IMG = "/pillars/education/IMG_3776-original.webp";
+const BLOCKS_IMG = "/pillars/education/education-blocks.webp";
+const AWARD_IMG = "/pillars/education/education-award.webp";
 
 export function BursaryProgramme() {
   return (
@@ -51,7 +51,7 @@ export function BursaryProgramme() {
   <div className="rounded-[40px] overflow-hidden bg-[#EBF3F5] w-full h-full flex items-center justify-center">
     
     <ImageWithFallback 
-      src="/pillars/education/IMG_3837-original.webp" 
+      src="/pillars/education/education-ceremony.webp" 
       alt="Bursary Programme recipients" 
       className="w-full h-full object-cover rounded-[40px]"
     />
@@ -136,7 +136,7 @@ export function BursaryProgramme() {
                 The Alfeco Foundation has awarded over 260 bursaries for the 2023/2024 academic year, supporting students across various fields of study. Committed to education and skills development, the foundation ensures that financial barriers do not hinder learning, helping students at all levels pursue their academic and career goals.
               </p>
 
-              {/* Stat */}
+              {/* Stat — TODO: Verify — CountUp shows 500 but text above says "over 260 bursaries" */}
               <div className="inline-flex flex-col items-center bg-[#48B2A9] rounded-[32px] px-12 py-8 text-white">
                 <div className="text-6xl md:text-7xl font-extrabold leading-none">
                   <CountUp
