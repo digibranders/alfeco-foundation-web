@@ -47,7 +47,7 @@ export function SkillsDevelopment() {
 
           {/* Hero Image */}
           <FadeIn delay={0.2}>
-            <div className="rounded-[40px] overflow-hidden h-full min-h-[350px]">
+            <div className="relative rounded-[40px] overflow-hidden h-full min-h-[350px]">
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1740205642946-72e75a92124b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80"
                 alt="Skills Development Programme"
@@ -104,7 +104,7 @@ export function SkillsDevelopment() {
 
           {/* Left Image */}
           <FadeIn delay={0.1} className="lg:col-span-3 flex">
-            <div className="rounded-[40px] overflow-hidden w-full">
+            <div className="relative rounded-[40px] overflow-hidden w-full aspect-[3/4]">
               <ImageWithFallback
                 src={VALVE_IMG}
                 alt="Industrial valve fitting"
@@ -124,14 +124,14 @@ export function SkillsDevelopment() {
 
           {/* Right Images Stacked */}
           <FadeIn delay={0.3} className="lg:col-span-3 flex flex-col gap-6">
-            <div className="rounded-[40px] overflow-hidden flex-1">
+            <div className="relative rounded-[40px] overflow-hidden flex-1 min-h-[180px]">
               <ImageWithFallback
                 src={WELDING_IMG}
                 alt="Welding sparks"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="rounded-[40px] overflow-hidden flex-1">
+            <div className="relative rounded-[40px] overflow-hidden flex-1 min-h-[180px]">
               <ImageWithFallback
                 src={BOOTS_IMG}
                 alt="Safety boots on worksite"

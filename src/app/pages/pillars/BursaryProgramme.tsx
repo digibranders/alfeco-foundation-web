@@ -48,12 +48,11 @@ export function BursaryProgramme() {
 
           {/* Hero Image */}
           <FadeIn delay={0.2} className="h-full flex">
-  <div className="rounded-[40px] overflow-hidden bg-[#EBF3F5] w-full h-full flex items-center justify-center">
-    
-    <ImageWithFallback 
-      src="/pillars/education/education-ceremony.webp" 
-      alt="Bursary Programme recipients" 
-      className="w-full h-full object-cover rounded-[40px]"
+  <div className="relative rounded-[40px] overflow-hidden bg-[#EBF3F5] w-full h-full min-h-[350px]">
+    <ImageWithFallback
+      src="/pillars/education/education-ceremony.webp"
+      alt="Bursary Programme recipients"
+      className="w-full h-full object-cover"
     />
 
   </div>
@@ -124,8 +123,8 @@ export function BursaryProgramme() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
           {/* Left Image */}
           <FadeIn delay={0.1} className="lg:col-span-3 flex">
-            <div className="rounded-[40px] overflow-hidden w-full">
-              <ImageWithFallback src={BLOCKS_IMG} alt="Education development" className="w-full h-full object-cover object-top aspect-[4/3]" />
+            <div className="relative rounded-[40px] overflow-hidden w-full aspect-[4/3]">
+              <ImageWithFallback src={BLOCKS_IMG} alt="Education development" className="w-full h-full object-cover object-top" />
             </div>
           </FadeIn>
 
@@ -153,8 +152,8 @@ export function BursaryProgramme() {
 
           {/* Right Image */}
           <FadeIn delay={0.3} className="lg:col-span-3 flex">
-            <div className="rounded-[40px] overflow-hidden w-full">
-              <ImageWithFallback src={AWARD_IMG} alt="Student receiving award" className="w-full h-full object-cover object-top aspect-[4/3]" />
+            <div className="relative rounded-[40px] overflow-hidden w-full aspect-[4/3]">
+              <ImageWithFallback src={AWARD_IMG} alt="Student receiving award" className="w-full h-full object-cover object-top" />
             </div>
           </FadeIn>
         </div>
