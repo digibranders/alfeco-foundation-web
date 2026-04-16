@@ -150,7 +150,7 @@ export function FoodSecurity() {
 
           {/* Centre image */}
           <FadeIn delay={0.2}>
-            <div className="rounded-[40px] overflow-hidden h-full min-h-[350px] shadow-premium playful-card">
+            <div className="relative rounded-[40px] overflow-hidden h-full min-h-[350px] shadow-premium playful-card">
               <ImageWithFallback
                 src={BFG_IMG}
                 alt="Breakfast Feeding Programme"
@@ -199,11 +199,11 @@ export function FoodSecurity() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10">
           {/* Left image */}
           <FadeIn delay={0.1} className="lg:col-span-3 flex">
-            <div className="rounded-[40px] overflow-hidden w-full">
+            <div className="relative rounded-[40px] overflow-hidden w-full aspect-square">
               <ImageWithFallback
                 src={WHDLEFT_IMG}
                 alt="Kitchen serving meals"
-                className="w-full h-full object-cover aspect-square"
+                className="w-full h-full object-cover"
               />
             </div>
           </FadeIn>
@@ -223,11 +223,11 @@ export function FoodSecurity() {
 
           {/* Right image */}
           <FadeIn delay={0.3} className="lg:col-span-3 flex">
-            <div className="rounded-[40px] overflow-hidden w-full">
+            <div className="relative rounded-[40px] overflow-hidden w-full aspect-square">
               <ImageWithFallback
                 src={PARCELS_IMG}
                 alt="Food parcels and donations"
-                className="w-full h-full object-cover aspect-square"
+                className="w-full h-full object-cover"
               />
             </div>
           </FadeIn>

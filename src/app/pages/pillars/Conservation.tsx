@@ -59,11 +59,11 @@ export function Conservation() {
 
           {/* Right – hero image */}
           <FadeIn delay={0.2}>
-            <div className="rounded-[20px] overflow-hidden">
+            <div className="relative rounded-[20px] overflow-hidden aspect-[4/3]">
               <ImageWithFallback
                 src={EARTH_IMG}
                 alt="Hands holding earth and plant"
-                className="w-full h-auto object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
           </FadeIn>
@@ -75,11 +75,11 @@ export function Conservation() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20 items-start">
           {/* Left – wildlife image */}
           <FadeIn delay={0.1}>
-            <div className="rounded-[20px] overflow-hidden">
+            <div className="relative rounded-[20px] overflow-hidden aspect-[4/3]">
               <ImageWithFallback
                 src={WILDLIFE_IMG}
                 alt="Wildlife conservation – deer fawn"
-                className="w-full h-auto object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
           </FadeIn>
@@ -151,11 +151,11 @@ export function Conservation() {
 
           {/* Right – environment image */}
           <FadeIn delay={0.2}>
-            <div className="rounded-[20px] overflow-hidden">
+            <div className="relative rounded-[20px] overflow-hidden aspect-[4/3]">
               <ImageWithFallback
                 src={ENVIRONMENT_IMG}
                 alt="Children outdoor nature activity"
-                className="w-full h-auto object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
           </FadeIn>
