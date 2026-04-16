@@ -48,12 +48,11 @@ export function BursaryProgramme() {
 
           {/* Hero Image */}
           <FadeIn delay={0.2} className="h-full flex">
-  <div className="relative rounded-[40px] overflow-hidden bg-[#EBF3F5] w-full h-full">
-    
-    <ImageWithFallback 
-      src="/pillars/education/education-ceremony.webp" 
-      alt="Bursary Programme recipients" 
-      className="w-full h-full object-cover rounded-[40px]"
+  <div className="relative rounded-[40px] overflow-hidden bg-[#EBF3F5] w-full h-full min-h-[350px]">
+    <ImageWithFallback
+      src="/pillars/education/education-ceremony.webp"
+      alt="Bursary Programme recipients"
+      className="w-full h-full object-cover"
     />
 
   </div>

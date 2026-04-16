@@ -124,14 +124,14 @@ export function SkillsDevelopment() {
 
           {/* Right Images Stacked */}
           <FadeIn delay={0.3} className="lg:col-span-3 flex flex-col gap-6">
-            <div className="relative rounded-[40px] overflow-hidden flex-1 min-h-[160px]">
+            <div className="relative rounded-[40px] overflow-hidden flex-1 min-h-[180px]">
               <ImageWithFallback
                 src={WELDING_IMG}
                 alt="Welding sparks"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="relative rounded-[40px] overflow-hidden flex-1 min-h-[160px]">
+            <div className="relative rounded-[40px] overflow-hidden flex-1 min-h-[180px]">
               <ImageWithFallback
                 src={BOOTS_IMG}
                 alt="Safety boots on worksite"
