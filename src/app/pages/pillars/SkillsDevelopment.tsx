@@ -108,7 +108,7 @@ export function SkillsDevelopment() {
               <ImageWithFallback
                 src={VALVE_IMG}
                 alt="Industrial valve fitting"
-                className="w-full h-full object-cover aspect-[3/4]"
+                className="w-full h-full object-cover"
               />
             </div>
           </FadeIn>
