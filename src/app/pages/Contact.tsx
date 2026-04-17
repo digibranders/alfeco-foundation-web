@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import type { ContactFormData } from '../types/forms';
-import { MapPin, Phone, Mail, Facebook, Twitter, Youtube, Instagram, Send, MessageCircle, Clock, Sparkles, Heart, ArrowRight, Star } from 'lucide-react';
+import { MapPin, Phone, Mail, Linkedin, Instagram, Send, MessageCircle, Clock, Sparkles, Heart, ArrowRight, Star } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { motion } from 'motion/react';
@@ -41,10 +41,8 @@ const CONTACT_CARDS = [
 ];
 
 const SOCIALS = [
-  { icon: Facebook, href: '#', label: 'Facebook', bg: '#48B2A9' },
-  { icon: Twitter, href: '#', label: 'Twitter', bg: '#E8AB36' },
-  { icon: Youtube, href: '#', label: 'YouTube', bg: '#C1272D' },
-  { icon: Instagram, href: 'https://www.instagram.com', label: 'Instagram', bg: '#48B2A9' },
+  { icon: Instagram, href: 'https://www.instagram.com/thealfecofoundation', label: 'Instagram', bg: '#C1272D' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/alfeco-foundation/', label: 'LinkedIn', bg: '#48B2A9' },
 ];
 
 function FloatingShape({ className, color, delay = 0 }: { className: string; color: string; delay?: number }) {

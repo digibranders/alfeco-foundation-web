@@ -1,16 +1,12 @@
 import type { Metadata } from 'next'
-import { FoodSecurity } from '@/app/pages/pillars/FoodSecurity'
+import { Privacy } from '@/app/pages/Privacy'
 import { JsonLd } from '@/app/components/JsonLd'
-import {
-  breadcrumbSchema,
-  serviceSchema,
-  webPageSchema,
-} from '@/app/lib/schema'
+import { breadcrumbSchema, webPageSchema } from '@/app/lib/schema'
 
-const TITLE = 'Food Security'
+const TITLE = 'Privacy Policy'
 const DESCRIPTION =
-  "Alfeco Foundation's food security initiatives — sustainable agriculture, nutrition programmes, and school feeding schemes."
-const PATH = '/pillars/food-security'
+  'How the Alfeco Foundation collects, uses, and protects your personal information in accordance with POPIA.'
+const PATH = '/privacy'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -35,20 +31,13 @@ export default function Page() {
             description: DESCRIPTION,
             path: PATH,
           }),
-          serviceSchema({
-            name: TITLE,
-            description: DESCRIPTION,
-            path: PATH,
-            serviceType: 'Food Security Programme',
-          }),
           breadcrumbSchema([
             { name: 'Home', path: '/' },
-            { name: 'Our Pillars', path: '/pillars' },
-            { name: TITLE, path: PATH },
+            { name: 'Privacy Policy', path: PATH },
           ]),
         ]}
       />
-      <FoodSecurity />
+      <Privacy />
     </>
   )
 }

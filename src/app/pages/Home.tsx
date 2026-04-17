@@ -76,7 +76,12 @@ export function Home() {
                         >
                            <Image
                               src={img}
-                              alt={`Alfeco Foundation community impact ${idx + 1}`}
+                              alt={[
+                                 'Alfeco Foundation beneficiaries celebrating at a community programme in South Africa',
+                                 'Young learners supported by Alfeco Foundation education programmes',
+                                 'Alfeco Foundation volunteers delivering food security aid in a rural community',
+                                 'Conservation and wildlife protection efforts backed by Alfeco Foundation',
+                              ][idx] ?? 'Alfeco Foundation community impact across South Africa'}
                               fill
                               sizes="(max-width: 768px) 50vw, 25vw"
                               className="object-cover group-hover:scale-110 transition-transform duration-700"

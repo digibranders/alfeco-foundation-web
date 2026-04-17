@@ -153,7 +153,7 @@ export function News() {
                     <div className="relative rounded-[28px] overflow-hidden aspect-square playful-card shadow-playful">
                       <Image
                         src={img}
-                        alt={`Event ${idx + 1}`}
+                        alt={`Alfeco Foundation upcoming community event ${idx + 1}`}
                         fill
                         sizes="(max-width: 640px) 100vw, 50vw"
                         className="object-cover"
