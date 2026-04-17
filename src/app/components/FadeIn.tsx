@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, useReducedMotion } from 'motion/react';
 
 interface FadeInProps {
   children?: React.ReactNode;
@@ -12,79 +11,63 @@ interface FadeInProps {
   scale?: boolean;
 }
 
-export function FadeIn({ children, className = "", delay = 0, direction = 'up', fullWidth = true, scale = false }: FadeInProps) {
-  const shouldReduceMotion = useReducedMotion();
+export function FadeIn({
+  children,
+  className = '',
+  delay = 0,
+  direction = 'up',
+  fullWidth = true,
+  scale = false,
+}: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [forceVisible, setForceVisible] = useState(false);
+  const [revealed, setRevealed] = useState(false);
 
-  // iOS Safari can emit a stale "not intersecting" reading on the first
-  // IntersectionObserver callback before layout stabilises. With
-  // viewport={{ once: true }} that stale reading gets locked in and the
-  // element is stuck at opacity 0. If the element is already within the
-  // viewport on mount, flip it visible directly.
   useEffect(() => {
-    if (shouldReduceMotion) return;
     const el = ref.current;
     if (!el) return;
-    const reveal = () => setForceVisible(true);
-    const check = () => {
+
+    const inViewport = () => {
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight || document.documentElement.clientHeight;
-      if (rect.top < vh && rect.bottom > 0) reveal();
+      return rect.top < vh && rect.bottom > 0;
     };
-    check();
-    const t = window.setTimeout(check, 120);
-    return () => window.clearTimeout(t);
-  }, [shouldReduceMotion]);
+    if (inViewport()) {
+      setRevealed(true);
+      return;
+    }
 
-  if (shouldReduceMotion) {
-    return (
-      <div className={className} style={{ width: fullWidth ? "100%" : "auto" }}>
-        {children}
-      </div>
+    if (typeof IntersectionObserver === 'undefined') {
+      setRevealed(true);
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setRevealed(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.1 },
     );
-  }
-
-  const directions = {
-    up: { y: 50, x: 0 },
-    down: { y: -50, x: 0 },
-    left: { x: 50, y: 0 },
-    right: { x: -50, y: 0 },
-    none: { x: 0, y: 0 }
-  };
-
-  const initial: Record<string, number> = {
-    opacity: 0,
-    ...directions[direction],
-  };
-
-  if (scale) {
-    initial.scale = 0.95;
-  }
-
-  const animate: Record<string, number> = { opacity: 1, x: 0, y: 0 };
-  if (scale) {
-    animate.scale = 1;
-  }
-
-  const motionProps = forceVisible
-    ? { animate }
-    : { whileInView: animate, viewport: { once: true, amount: 0.1 } };
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={initial}
-      {...motionProps}
-      transition={{
-        duration: 0.8,
-        delay: delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      data-fadein=""
+      data-fadein-direction={direction}
+      data-fadein-scale={scale ? 'true' : undefined}
+      data-fadein-revealed={revealed ? 'true' : undefined}
       className={className}
-      style={{ width: fullWidth ? "100%" : "auto" }}
+      style={{
+        width: fullWidth ? '100%' : 'auto',
+        animationDelay: revealed && delay ? `${delay}s` : undefined,
+      }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
