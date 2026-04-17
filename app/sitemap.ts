@@ -25,6 +25,8 @@ const STATIC_ROUTES: StaticRoute[] = [
   { path: '/get-involved', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/volunteer', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/partnerships', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/privacy', changeFrequency: 'yearly', priority: 0.3 },
+  { path: '/terms', changeFrequency: 'yearly', priority: 0.3 },
 ]
 
 function parseDate(value: string): Date {
