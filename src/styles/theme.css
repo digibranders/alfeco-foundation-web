@@ -229,6 +229,26 @@
   100% { background-position: 200% 0; }
 }
 
+/* FadeIn reveal — SSR-safe: visible by default, animates only when
+   data-fadein-revealed is set by JS. If JS never runs, content stays visible. */
+@keyframes fade-in-up    { from { opacity: 0; transform: translateY(50px);  } to { opacity: 1; transform: none; } }
+@keyframes fade-in-down  { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: none; } }
+@keyframes fade-in-left  { from { opacity: 0; transform: translateX(50px);  } to { opacity: 1; transform: none; } }
+@keyframes fade-in-right { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: none; } }
+@keyframes fade-in-scale { from { opacity: 0; transform: scale(0.95);       } to { opacity: 1; transform: none; } }
+@keyframes fade-in-plain { from { opacity: 0; } to { opacity: 1; } }
+
+[data-fadein-revealed="true"][data-fadein-direction="up"]    { animation: fade-in-up    0.8s cubic-bezier(0.22,1,0.36,1) both; }
+[data-fadein-revealed="true"][data-fadein-direction="down"]  { animation: fade-in-down  0.8s cubic-bezier(0.22,1,0.36,1) both; }
+[data-fadein-revealed="true"][data-fadein-direction="left"]  { animation: fade-in-left  0.8s cubic-bezier(0.22,1,0.36,1) both; }
+[data-fadein-revealed="true"][data-fadein-direction="right"] { animation: fade-in-right 0.8s cubic-bezier(0.22,1,0.36,1) both; }
+[data-fadein-revealed="true"][data-fadein-direction="none"]  { animation: fade-in-plain 0.8s cubic-bezier(0.22,1,0.36,1) both; }
+[data-fadein-revealed="true"][data-fadein-scale="true"]      { animation: fade-in-scale 0.8s cubic-bezier(0.22,1,0.36,1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-fadein-revealed="true"] { animation: none !important; }
+}
+
 /* Premium utility classes */
 .glass {
   background: rgba(255, 255, 255, 0.7);
