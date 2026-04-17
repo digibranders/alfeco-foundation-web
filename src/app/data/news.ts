@@ -52,7 +52,7 @@ export const NEWS_ITEMS = [
     title: "Celebrating the Grand Opening of Alfeco House",
     category: "Events",
     date: "April 4, 2025",
-    img: "https://images.unsplash.com/photo-1770965718532-83cf887763d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidWlsZGluZyUyMGdyYW5kJTIwb3BlbmluZyUyMGNlbGVicmF0aW9ufGVufDF8fHx8MTc3MjA4MTc1Nnww&ixlib=rb-4.1.0&q=80",
+    img: "/assets/alfeco-house.webp",
     excerpt: "Celebrating the grand opening of the Alfeco House: A new chapter for Alfeco group."
   },
   {
@@ -60,7 +60,7 @@ export const NEWS_ITEMS = [
     title: "Mandela Day at Kleinmond Primary School",
     category: "Events",
     date: "April 4, 2025",
-    img: "https://images.unsplash.com/photo-1765717600276-d2d60a71885c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2b2x1bnRlZXJzJTIwb3V0ZG9vciUyMGNsZWFudXAlMjBTb3V0aCUyMEFmcmljYSUyMG1vdW50YWluc3xlbnwxfHx8fDE3NzIwODE3NjB8MA&ixlib=rb-4.1.0&q=80",
+    img: "/assets/mandela-day.webp",
     excerpt: "On July 18th, the Alfeco Foundation and the Department of Forestry, Fisheries, and Environment came together at Kleinmond Primary School in the Western Cape to celebrate Mandela Day."
   },
   {
@@ -68,7 +68,7 @@ export const NEWS_ITEMS = [
     title: "International Yoga Day at Wanderers Stadium",
     category: "Events",
     date: "April 4, 2025",
-    img: "https://images.unsplash.com/photo-1585059896947-f99dd6c80101?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b2dhJTIwZGF5JTIwb3V0ZG9vciUyMG1lZGl0YXRpb258ZW58MXx8fHwxNzcyMDgxNzU3fDA&ixlib=rb-4.1.0&q=80",
+    img: "/assets/yoga-day.webp",
     excerpt: "International Yoga Day 24 June was celebrated at the Wanderers Stadium in Johannesburg and it saw the Alfeco Foundation host kids from the nearby Alexander Township to participate and be exposed to a healthy life style."
   }
 ];
