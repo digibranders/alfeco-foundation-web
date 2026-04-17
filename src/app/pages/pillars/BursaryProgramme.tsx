@@ -28,7 +28,7 @@ export function BursaryProgramme() {
 
         {/* Page Title */}
         <FadeIn className="text-center mb-16">
-          <h1 className="text-6xl md:text-8xl font-semibold text-[#1A1A1A] mb-6">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-[#1A1A1A] mb-6">
             Bursary <span className="text-[#48B2A9]">Programme</span>
           </h1>
         </FadeIn>

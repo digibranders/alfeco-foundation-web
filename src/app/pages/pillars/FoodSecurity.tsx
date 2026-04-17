@@ -55,7 +55,7 @@ export function FoodSecurity() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         {/* ── Food Security Hero ── */}
-        <FadeIn className="text-center mb-12">
+        <FadeIn className="text-left lg:text-center mb-12">
 
           <h1 className="text-5xl md:text-7xl font-semibold text-white mb-2">
             Food Security
@@ -108,12 +108,12 @@ export function FoodSecurity() {
           </FadeIn>
         </div>
 
-        {/* ── Stat: No. of Meals Served ── */}
+        {/* ── Stat: Meals Served Daily ── */}
         <FadeIn className="mb-6">
           <div className="text-7xl md:text-8xl font-extrabold text-[#1A1A1A]">
-            <CountUp end={111} duration={2.5} enableScrollSpy scrollSpyOnce />
+            <CountUp end={10500} duration={2.5} separator="," enableScrollSpy scrollSpyOnce />
           </div>
-          <p className="text-lg font-extrabold text-[#1A1A1A] mt-1">No. of Meals Served</p>
+          <p className="text-lg font-extrabold text-[#1A1A1A] mt-1">Meals Served Daily</p>
         </FadeIn>
 
         <FadeIn className="mb-20">
@@ -233,32 +233,9 @@ export function FoodSecurity() {
           </FadeIn>
         </div>
 
-        {/* ── Bottom Stats ── */}
-        <FadeIn>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
-            <div className="bg-white rounded-[40px] px-10 py-6 text-center shadow-premium playful-card">
-              <div className="text-4xl md:text-5xl font-extrabold text-[#1A1A1A]">
-                <CountUp end={1191} separator="," duration={2.5} enableScrollSpy scrollSpyOnce />
-              </div>
-              <p className="text-xs font-extrabold text-[#1A1A1A] uppercase tracking-wider mt-1">
-                Meals Impacted to Date
-              </p>
-            </div>
-            {/* TODO: Verify — this stat shows the same number (1191) as "Meals Impacted to Date" above */}
-            <div className="bg-white rounded-[40px] px-10 py-6 text-center shadow-premium playful-card">
-              <div className="text-4xl md:text-5xl font-extrabold text-[#1A1A1A]">
-                <CountUp end={1191} separator="," duration={2.5} enableScrollSpy scrollSpyOnce />
-              </div>
-              <p className="text-xs font-extrabold text-[#1A1A1A] uppercase tracking-wider mt-1">
-                Meals Served to Kids Daily
-              </p>
-            </div>
-          </div>
-        </FadeIn>
-
         {/* ── Read More: Tamaho Primary School Launch ── */}
         <FadeIn>
-          <div className="bg-white rounded-[40px] p-8 md:p-12 mb-20 shadow-premium playful-card">
+          <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-premium playful-card">
             <h2 className="text-3xl md:text-4xl font-semibold text-[#1A1A1A] mb-6">
               Launch of the Breakfast Feeding Scheme
             </h2>
@@ -290,11 +267,6 @@ export function FoodSecurity() {
               </button>
             </div>
           </div>
-        </FadeIn>
-
-        {/* ── CTA ── */}
-        <FadeIn>
-
         </FadeIn>
 
       </div>

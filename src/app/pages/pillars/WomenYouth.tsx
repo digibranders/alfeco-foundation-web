@@ -22,7 +22,7 @@ export function WomenYouth() {
         </FadeIn>
 
         {/* ── Intro paragraphs ── */}
-        <FadeIn className="text-center mb-6 max-w-4xl mx-auto">
+        <FadeIn className="text-left mb-6 max-w-3xl mx-auto">
           <p className="leading-relaxed mb-6 text-[18px]">
             At the Alfeco Foundation, we believe that empowering women and youth is essential for building resilient, sustainable and equitable communities. Women, especially in South Africa, have historically faced multiple layers of oppression and continue to endure challenges such as gender-based violence, inequality and economic barriers. We recognize that true development can only be achieved when women and young people are given the opportunity, support and resources they need to thrive.
           </p>
@@ -49,7 +49,7 @@ export function WomenYouth() {
               <h3 className="text-xl font-semibold text-[#F5E6D0] mb-5">
                 EmpowHer Sanitation Programme
               </h3>
-              <p className="leading-relaxed text-[#F5E6D0]/90 text-[18px]">
+              <p className="leading-relaxed text-[#F5E6D0]/90 text-[18px] text-left">
                 The EmpowHer Sanitation Programme by the Alfeco Foundation empowers young girls by providing menstrual health education and essential sanitation products. Through informative school workshops, we teach girls about hygiene, self-care and menstruation, helping to break the stigma and boost confidence. To combat period poverty, we host regular pad drives to collect and distribute sanitary products to girls in need. By partnering with communities, schools and donors, we ensure that no girl misses school due to a lack of resources. Join us in making a difference—donate, volunteer, or spread awareness to help create a future where every girl has the dignity, support and education she deserves.
               </p>
             </div>
@@ -61,7 +61,7 @@ export function WomenYouth() {
               <h3 className="text-xl font-semibold text-[#F5E6D0] mb-5">
                 EmpowHer Career Guidance
               </h3>
-              <p className="leading-relaxed text-[#F5E6D0]/90 text-[18px]">
+              <p className="leading-relaxed text-[#F5E6D0]/90 text-[18px] text-left">
                 The EmpowHer Career Guidance Programme by the Alfeco Foundation supports Grade 11 and matric girls aspiring to pursue careers in Science, Technology, Engineering and Mathematics (STEM). This initiative provides job shadowing opportunities at Alfeco's plant sites, offering real-world industry exposure to inspire and equip young women with the confidence and knowledge to excel in STEM fields. Selected students will gain hands-on experience, mentorship and career insights to help them break barriers in traditionally male-dominated industries. Schools can nominate students and passionate applicants are encouraged to apply for this career-transforming opportunity. Join us in shaping the future of female leaders in STEM!
               </p>
             </div>
@@ -77,7 +77,7 @@ export function WomenYouth() {
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Left – image */}
           <FadeIn delay={0.1}>
             <div className="relative rounded-[32px] overflow-hidden shadow-premium playful-card aspect-square">
@@ -104,11 +104,6 @@ export function WomenYouth() {
             </div>
           </FadeIn>
         </div>
-
-        {/* ── CTA ── */}
-        <FadeIn>
-          
-        </FadeIn>
 
       </div>
     </div>

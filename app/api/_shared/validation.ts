@@ -35,6 +35,16 @@ export const PartnershipSchema = z.object({
   file: FileSchema.optional(),
 });
 
+export const DonationSchema = z.object({
+  fullName: z.string().min(1, 'Full name is required').max(200),
+  email: emailSchema,
+  phone: phoneSchema,
+  amount: z.number().int('Amount must be a whole number').min(10, 'Minimum donation is R10').max(10_000_000, 'Amount is too large'),
+  taxNumber: z.string().max(40).optional().default(''),
+  message: z.string().max(2000).optional().default(''),
+});
+
 export type ContactFormInput = z.infer<typeof ContactSchema>;
 export type VolunteerFormInput = z.infer<typeof VolunteerSchema>;
 export type PartnershipFormInput = z.infer<typeof PartnershipSchema>;
+export type DonationFormInput = z.infer<typeof DonationSchema>;

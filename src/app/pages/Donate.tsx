@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { FadeIn } from '../components/FadeIn';
 import { CheckCircle2, ArrowLeft, Heart, CreditCard, Building2, QrCode, Smartphone } from 'lucide-react';
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const SUGGESTED_AMOUNTS = [100, 500, 1000];
 
@@ -18,6 +18,7 @@ const PAYMENT_METHODS = [
 const inputClass = "w-full bg-[#EBF3F5] border-2 border-transparent rounded-2xl focus:ring-0 focus:border-[#C1272D] outline-none py-3.5 px-5 text-[#1A1A1A] placeholder:text-gray-400 transition-all text-[15px]";
 
 export function Donate() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const isSuccess = searchParams.get('success') === 'true';
 
@@ -69,20 +70,24 @@ export function Donate() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          ...formData,
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          taxNumber: formData.taxNumber,
+          message: formData.message,
           amount: selectedAmount,
         }),
       });
 
-      if (!res.ok) throw new Error('Failed to initiate payment');
-
-      const data = await res.json();
-      if (data.redirectUrl) {
-        window.location.href = data.redirectUrl;
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error ?? 'Failed to submit donation');
       }
+
+      router.push('/donate?success=true');
     } catch (err: unknown) {
       console.error('Donation form error:', err instanceof Error ? err.message : err);
-      setError('Something went wrong. Please try again or contact us directly.');
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again or contact us directly.');
     } finally {
       setSubmitting(false);
     }
@@ -97,12 +102,12 @@ export function Donate() {
               <div className="w-16 h-16 rounded-full bg-[#C1272D]/10 flex items-center justify-center mx-auto mb-6">
                 <CheckCircle2 className="w-8 h-8 text-[#C1272D]" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-semibold mb-4">Thank You for Your Donation!</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold mb-4">Thank You for Your Pledge!</h2>
               <p className="text-gray-500 mb-4">
-                Your generous contribution makes a real difference in the lives of those we serve. A confirmation email with your donation details has been sent.
+                A confirmation email has been sent. Our team will reach out to you shortly via email or phone to arrange your donation.
               </p>
               <p className="text-sm text-gray-400 mb-8">
-                A <strong className="text-[#1A1A1A]">Section 18A tax certificate</strong> will be issued and sent to your email address.
+                Once your donation is received, we&apos;ll issue your <strong className="text-[#1A1A1A]">Section 18A tax certificate</strong> to the email address you provided.
               </p>
               <Link href="/get-involved" className="playful-btn inline-flex items-center gap-2 bg-[#C1272D] text-white font-bold py-3.5 px-8 rounded-full uppercase tracking-widest text-sm hover:bg-[#1A1A1A]">
                 <ArrowLeft className="w-4 h-4" /> Back to Get Involved

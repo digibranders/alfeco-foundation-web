@@ -118,7 +118,7 @@ export function Conservation() {
         {/* ══════════════════════════════════════════════
             Environment Section – text left, image right
         ══════════════════════════════════════════════ */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           {/* Left – environment text */}
           <FadeIn delay={0.1}>
             <div className="group relative rounded-[32px] bg-white/60 backdrop-blur-sm p-8 cursor-pointer overflow-hidden transition-all duration-500">
@@ -160,11 +160,6 @@ export function Conservation() {
             </div>
           </FadeIn>
         </div>
-
-        {/* ── CTA ── */}
-        <FadeIn>
-          
-        </FadeIn>
 
       </div>
     </div>

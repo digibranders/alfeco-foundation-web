@@ -8,10 +8,10 @@ import CountUp from 'react-countup';
 import { FadeIn } from '../components/FadeIn';
 
 const HERO_IMAGES = [
-  '/assets/hero-1.webp',
-  '/assets/hero-2.webp',
-  '/assets/hero-3.webp',
-  '/assets/hero-4.webp',
+   '/assets/hero-1.webp',
+   '/assets/hero-2.webp',
+   '/assets/hero-3.webp',
+   '/assets/hero-4.webp',
 ];
 
 const ProgressBar = () => {
@@ -27,18 +27,18 @@ export function Home() {
          <ProgressBar />
 
          {/* HERO SECTION */}
-         <section className="relative min-h-[90vh] flex items-center px-6 md:px-12 py-12 bg-[#EBF3F5]">
+         <section className="relative min-h-[100svh] lg:min-h-[calc(100vh-6rem)] flex items-center px-6 md:px-12 py-8 lg:py-10 bg-[#EBF3F5]">
             {/* Decorative blobs */}
             <div className="absolute top-20 left-10 w-72 h-72 bg-[#48B2A9]/10 rounded-full blur-3xl pointer-events-none animate-float" />
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#E8AB36]/10 rounded-full blur-3xl pointer-events-none animate-float" style={{ animationDelay: '3s' }} />
 
-            <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center relative z-10">
 
-               <FadeIn direction="right" className="relative pt-12 pb-24">
+               <FadeIn direction="right" className="relative">
                   <div className="relative z-10">
 
 
-                     <h1 className="text-6xl md:text-[5.5rem] font-semibold tracking-tight leading-[0.95] mb-6 text-black">
+                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[0.95] mb-6 text-black">
                         Empowering <br />
                         Communities. <br />
                         <span className="gradient-text-teal">Inspiring Change.</span>
@@ -66,16 +66,23 @@ export function Home() {
                </FadeIn>
 
                <FadeIn direction="left" className="relative">
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 grid-rows-2 gap-4 lg:h-[calc(100svh-10rem)] lg:min-h-[420px] lg:max-h-[720px]">
                      {HERO_IMAGES.map((img, idx) => (
                         <motion.div
                            key={idx}
-                           className={`relative aspect-[4/5] rounded-[32px] overflow-hidden group playful-card ${idx === 1 ? 'mt-10' : idx === 2 ? '-mt-10' : ''
-                              }`}
+                           className="relative aspect-[3/4] lg:aspect-auto lg:h-full rounded-[32px] overflow-hidden group playful-card"
                            whileHover={{ rotate: idx % 2 === 0 ? 1 : -1 }}
                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         >
-                           <Image src={img} alt={`Alfeco Foundation community impact ${idx + 1}`} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover group-hover:scale-110 transition-transform duration-700" priority />
+                           <Image
+                              src={img}
+                              alt={`Alfeco Foundation community impact ${idx + 1}`}
+                              fill
+                              sizes="(max-width: 768px) 50vw, 25vw"
+                              className="object-cover group-hover:scale-110 transition-transform duration-700"
+                              priority={idx === 0}
+                              loading={idx === 0 ? undefined : 'lazy'}
+                           />
                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </motion.div>
                      ))}
@@ -94,9 +101,9 @@ export function Home() {
                <FadeIn>
                   <div className="mb-12">
 
-                     <h2 className="text-4xl md:text-6xl font-semibold text-[#1A1A1A] mb-6 leading-tight">
+                     {/* <h2 className="text-4xl md:text-6xl font-semibold text-[#1A1A1A] mb-6 leading-tight">
                         Empowering Communities. <span className="gradient-text-teal">Inspiring Change.</span>
-                     </h2>
+                     </h2> */}
                      <h3 className="text-xl md:text-2xl font-serif font-medium italic text-gray-500 border-l-4 border-[#E8AB36] pl-6">
                         Born from Purpose, Nurtured by Family, Driven by Passion.
                      </h3>
@@ -142,9 +149,6 @@ export function Home() {
                            </p>
                            <p>
                               We honour and salute every man and woman who walks this journey with us. Their resilience, courage and creativity shape uniquely South African solutions to South African challenges. Together, we are crafting a tapestry of hope, one thread, one life, one community at a time.
-                           </p>
-                           <p>
-                              At the Alfeco Foundation, we believe that we can be the architects of a better future - hand in hand, heart to heart.
                            </p>
                         </div>
                         <p className="font-bold text-[#1A1A1A] text-xl italic border-l-4 border-[#C1272D] pl-6">
@@ -275,7 +279,7 @@ export function Home() {
                         <h2 className="text-4xl md:text-5xl font-semibold text-[#1A1A1A] mb-6 leading-tight">Growth Through Development</h2>
                         <div className="space-y-4 text-gray-500">
                            <p>
-                              At the Alfeco Foundation, our vision — Growth Through Development — is rooted in passion, partnership and people. We believe true growth is not measured only in numbers, but in lives strengthened, leaders nurtured and communities uplifted.
+                              Our vision — Growth Through Development — is rooted in passion, partnership and people. We believe true growth is not measured only in numbers, but in lives strengthened, leaders nurtured and communities uplifted.
                            </p>
                            <p>
                               Through education, empowerment and environmental stewardship, we create pathways where individuals are supported to grow with confidence, dignity and purpose.
@@ -322,7 +326,7 @@ export function Home() {
                      { icon: User, color: "#E8AB36", string: "COUNTLESS", label: "Lives Impacted" },
                   ].map((stat) => {
                      const Icon = stat.icon;
-                     
+
                      let num = 0;
                      let suffix = "";
                      if (stat.number) {
