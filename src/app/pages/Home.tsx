@@ -378,15 +378,9 @@ export function Home() {
             <div className="absolute top-1/2 right-10 w-48 h-48 border-2 border-white/5 rounded-full pointer-events-none" />
 
             <FadeIn direction="up" className="max-w-3xl mx-auto relative z-10">
-               <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                  className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-8"
-               >
+               <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-8">
                   <Heart className="w-10 h-10 text-white" />
-               </motion.div>
+               </div>
                <h2 className="text-4xl md:text-6xl font-semibold mb-6">Ready to make a difference?</h2>
                <p className="text-white/80 text-lg mb-12 max-w-xl mx-auto">
                   Join us in building brighter futures. Every contribution, big or small, creates lasting change.

@@ -2,17 +2,12 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'motion/react';
+import { FadeIn } from '../components/FadeIn';
 
 export function NotFound() {
     return (
         <div className="min-h-[70vh] flex items-center justify-center px-6">
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, type: 'spring', stiffness: 200, damping: 24 }}
-                className="text-center"
-            >
+            <FadeIn className="text-center">
                 <p className="text-[120px] md:text-[160px] font-bold leading-none text-[#C1272D]/10 select-none">
                     404
                 </p>
@@ -20,7 +15,7 @@ export function NotFound() {
                     Page Not Found
                 </h1>
                 <p className="text-[#7E8083] text-lg mb-10 max-w-sm mx-auto">
-                    The page you're looking for doesn't exist or has been moved.
+                    The page you&apos;re looking for doesn&apos;t exist or has been moved.
                 </p>
                 <Link
                     href="/"
@@ -28,7 +23,7 @@ export function NotFound() {
                 >
                     Back to Home
                 </Link>
-            </motion.div>
+            </FadeIn>
         </div>
     );
 }
