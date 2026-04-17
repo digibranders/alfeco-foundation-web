@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 
 interface FadeInProps {
@@ -14,6 +14,28 @@ interface FadeInProps {
 
 export function FadeIn({ children, className = "", delay = 0, direction = 'up', fullWidth = true, scale = false }: FadeInProps) {
   const shouldReduceMotion = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const [forceVisible, setForceVisible] = useState(false);
+
+  // iOS Safari can emit a stale "not intersecting" reading on the first
+  // IntersectionObserver callback before layout stabilises. With
+  // viewport={{ once: true }} that stale reading gets locked in and the
+  // element is stuck at opacity 0. If the element is already within the
+  // viewport on mount, flip it visible directly.
+  useEffect(() => {
+    if (shouldReduceMotion) return;
+    const el = ref.current;
+    if (!el) return;
+    const reveal = () => setForceVisible(true);
+    const check = () => {
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < vh && rect.bottom > 0) reveal();
+    };
+    check();
+    const t = window.setTimeout(check, 120);
+    return () => window.clearTimeout(t);
+  }, [shouldReduceMotion]);
 
   if (shouldReduceMotion) {
     return (
@@ -45,11 +67,15 @@ export function FadeIn({ children, className = "", delay = 0, direction = 'up', 
     animate.scale = 1;
   }
 
+  const motionProps = forceVisible
+    ? { animate }
+    : { whileInView: animate, viewport: { once: true, amount: 0.1 } };
+
   return (
     <motion.div
+      ref={ref}
       initial={initial}
-      whileInView={animate}
-      viewport={{ once: true, margin: "-60px" }}
+      {...motionProps}
       transition={{
         duration: 0.8,
         delay: delay,
