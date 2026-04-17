@@ -99,10 +99,6 @@ export function News() {
                          </div>
                       </div>
                       <div className="p-8 flex flex-col flex-grow">
-                         <div className="flex items-center gap-2 text-[#C1272D] font-bold text-sm mb-3">
-                            <Calendar className="w-4 h-4" />
-                            <span>{item.date}</span>
-                         </div>
                          <h3 className="text-2xl font-semibold text-[#1A1A1A] mb-3 leading-tight group-hover:text-[#48B2A9] transition-colors">
                             {item.title}
                          </h3>
