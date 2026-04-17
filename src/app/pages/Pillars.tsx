@@ -19,7 +19,7 @@ export function Pillars() {
       {/* PILLARS GRID */}
       <section className="py-24 px-6 md:px-12 bg-[#EBF3F5] relative" id="pillars">
          <div className="max-w-7xl mx-auto relative">
-            <FadeIn direction="up" className="flex flex-col md:flex-row justify-between items-end mb-16 relative z-10">
+            <FadeIn direction="up" className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 relative z-10">
                <div className="relative">
                   
                   <h2 className="text-5xl md:text-7xl font-semibold text-[#1A1A1A] relative z-10 leading-none">

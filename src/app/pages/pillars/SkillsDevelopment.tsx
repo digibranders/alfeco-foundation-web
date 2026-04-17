@@ -100,7 +100,7 @@ export function SkillsDevelopment() {
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
           {/* Left Image */}
           <FadeIn delay={0.1} className="lg:col-span-3 flex">
@@ -140,11 +140,6 @@ export function SkillsDevelopment() {
             </div>
           </FadeIn>
         </div>
-
-        {/* CTA */}
-        <FadeIn>
-
-        </FadeIn>
 
       </div>
     </div>

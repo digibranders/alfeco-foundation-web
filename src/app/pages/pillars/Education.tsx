@@ -49,7 +49,7 @@ export function Education() {
               <Sparkles className="w-4 h-4 text-[#C1272D]" />
               <span className="text-xs font-bold uppercase tracking-widest text-[#1A1A1A]/60">Our Pillars</span>
             </div>
-            <h1 className="text-6xl md:text-8xl font-semibold text-[#1A1A1A] mb-6 leading-[0.95]">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-[#1A1A1A] mb-6 leading-[0.95]">
               Education & <span className="gradient-text-teal">Development</span>
             </h1>
             <p className="text-xl text-gray-500 font-medium mb-8">
@@ -86,7 +86,7 @@ export function Education() {
                 {[
                   "Access to quality education",
                   "Financial support through bursaries",
-                  "Vocational and skills training",
+                  "Skills training",
                   "Mentorship and career guidance",
                   "Holistic personal development",
                   "Community-based learning centres"
