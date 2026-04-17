@@ -1,10 +1,29 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import { Donate } from '@/app/pages/Donate'
+import { JsonLd } from '@/app/components/JsonLd'
+import {
+  breadcrumbSchema,
+  donateActionSchema,
+  webPageSchema,
+} from '@/app/lib/schema'
+
+const TITLE = 'Donate'
+const DESCRIPTION =
+  'Make a donation to the Alfeco Foundation. Your contribution helps deliver impactful programmes and build a better future for communities across South Africa.'
+const PATH = '/donate'
 
 export const metadata: Metadata = {
-  title: 'Donate',
-  description: 'Make a donation to the Alfeco Foundation. Your contribution helps deliver impactful programmes and build a better future for communities across South Africa.',
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: PATH,
+    type: 'website',
+  },
+  twitter: { title: TITLE, description: DESCRIPTION },
 }
 
 function DonateLoading() {
@@ -17,8 +36,24 @@ function DonateLoading() {
 
 export default function Page() {
   return (
-    <Suspense fallback={<DonateLoading />}>
-      <Donate />
-    </Suspense>
+    <>
+      <JsonLd
+        data={[
+          webPageSchema({
+            name: TITLE,
+            description: DESCRIPTION,
+            path: PATH,
+          }),
+          donateActionSchema(),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Donate', path: PATH },
+          ]),
+        ]}
+      />
+      <Suspense fallback={<DonateLoading />}>
+        <Donate />
+      </Suspense>
+    </>
   )
 }
