@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { News } from '@/app/pages/News'
 import { NEWS_ITEMS } from '@/app/data/news'
 import { JsonLd } from '@/app/components/JsonLd'
-import { articleSchema, breadcrumbSchema } from '@/app/lib/schema'
+import { breadcrumbSchema } from '@/app/lib/schema'
 
 type Params = Promise<{ id: string }>
 
@@ -73,7 +73,6 @@ export default async function Page({ params }: { params: Params }) {
       {item ? (
         <JsonLd
           data={[
-            articleSchema(item),
             breadcrumbSchema([
               { name: 'Home', path: '/' },
               { name: 'News & Events', path: '/news' },

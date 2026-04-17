@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Heart } from 'lucide-react';
+import { Menu, X, Instagram, Linkedin, Mail, Phone, MapPin, Heart } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import clsx from 'clsx';
 
@@ -339,14 +339,14 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                 </p>
                 <div className="flex gap-3">
                   {[
-                    { icon: Facebook, label: 'Facebook', hover: '#48B2A9' },
-                    { icon: Twitter, label: 'Twitter', hover: '#E8AB36' },
-                    { icon: Instagram, label: 'Instagram', hover: '#C1272D' },
-                    { icon: Linkedin, label: 'LinkedIn', hover: '#48B2A9' },
-                  ].map(({ icon: Icon, label, hover }) => (
+                    { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/thealfecofoundation', hover: '#C1272D' },
+                    { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/company/alfeco-foundation/', hover: '#48B2A9' },
+                  ].map(({ icon: Icon, label, href, hover }) => (
                     <a
                       key={label}
-                      href="#"
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg"
                       onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = hover)}
                       onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '')}

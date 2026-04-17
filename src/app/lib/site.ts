@@ -40,8 +40,8 @@ export const ORG = {
     addressCountry: 'ZA',
   },
   sameAs: [
-    'https://www.instagram.com',
-    'https://www.linkedin.com',
+    'https://www.instagram.com/thealfecofoundation',
+    'https://www.linkedin.com/company/alfeco-foundation/',
   ],
 } as const
 

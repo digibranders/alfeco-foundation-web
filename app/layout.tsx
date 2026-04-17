@@ -81,13 +81,6 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: ['/twitter-image'],
   },
-  icons: {
-    icon: [
-      { url: '/icon', type: 'image/png', sizes: '32x32' },
-    ],
-    apple: [{ url: '/apple-icon', sizes: '180x180', type: 'image/png' }],
-    shortcut: ['/icon'],
-  },
 }
 
 export const viewport: Viewport = {
