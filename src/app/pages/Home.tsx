@@ -8,10 +8,10 @@ import CountUp from 'react-countup';
 import { FadeIn } from '../components/FadeIn';
 
 const HERO_IMAGES = [
-  '/assets/hero-1.webp',
-  '/assets/hero-2.webp',
-  '/assets/hero-3.webp',
-  '/assets/hero-4.webp',
+   '/assets/hero-1.webp',
+   '/assets/hero-2.webp',
+   '/assets/hero-3.webp',
+   '/assets/hero-4.webp',
 ];
 
 const ProgressBar = () => {
@@ -94,9 +94,9 @@ export function Home() {
                <FadeIn>
                   <div className="mb-12">
 
-                     <h2 className="text-4xl md:text-6xl font-semibold text-[#1A1A1A] mb-6 leading-tight">
+                     {/* <h2 className="text-4xl md:text-6xl font-semibold text-[#1A1A1A] mb-6 leading-tight">
                         Empowering Communities. <span className="gradient-text-teal">Inspiring Change.</span>
-                     </h2>
+                     </h2> */}
                      <h3 className="text-xl md:text-2xl font-serif font-medium italic text-gray-500 border-l-4 border-[#E8AB36] pl-6">
                         Born from Purpose, Nurtured by Family, Driven by Passion.
                      </h3>
@@ -275,7 +275,7 @@ export function Home() {
                         <h2 className="text-4xl md:text-5xl font-semibold text-[#1A1A1A] mb-6 leading-tight">Growth Through Development</h2>
                         <div className="space-y-4 text-gray-500">
                            <p>
-                              At the Alfeco Foundation, our vision — Growth Through Development — is rooted in passion, partnership and people. We believe true growth is not measured only in numbers, but in lives strengthened, leaders nurtured and communities uplifted.
+                              Our vision — Growth Through Development — is rooted in passion, partnership and people. We believe true growth is not measured only in numbers, but in lives strengthened, leaders nurtured and communities uplifted.
                            </p>
                            <p>
                               Through education, empowerment and environmental stewardship, we create pathways where individuals are supported to grow with confidence, dignity and purpose.
@@ -322,7 +322,7 @@ export function Home() {
                      { icon: User, color: "#E8AB36", string: "COUNTLESS", label: "Lives Impacted" },
                   ].map((stat) => {
                      const Icon = stat.icon;
-                     
+
                      let num = 0;
                      let suffix = "";
                      if (stat.number) {
