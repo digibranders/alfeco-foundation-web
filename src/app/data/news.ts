@@ -24,14 +24,6 @@ export const NEWS_ITEMS = [
     excerpt: "Education and Training: Alfeco aims to create 4000 training and placement opportunities during the 2023/24/25 financial year, specially targeting young people from surrounding communities."
   },
   {
-    id: 4,
-    title: "Mahatma Gandhi's Tolstoy Farm in South Africa sound to house vulnerable women in a purpose-built shelter in collaboration with the Indian Consulate in SA. Plans are on the way and will be communicated soon once finalised.",
-    category: "News",
-    date: "April 4, 2025",
-    img: "https://images.unsplash.com/photo-1640531785495-53a579eb507b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxUb2xzdG95JTIwRmFybSUyMFNvdXRoJTIwQWZyaWNhJTIwZ3JlZW4lMjBmaWVsZHxlbnwxfHx8fDE3NzIwODEzODh8MA&ixlib=rb-4.1.0&q=80",
-    excerpt: "Mahatma Gandhi's Tolstoy Farm in South Africa sound to house vulnerable women in a purpose-built shelter in collaboration with the Indian Consulate in SA. Plans are on the way and will be communicated soon once finalised."
-  },
-  {
     id: 5,
     title: "Breakfast Feeding Scheme for Vulnerable School Children",
     category: "Events",
