@@ -66,5 +66,14 @@
     "@types/react-slick": "^0.23.13",
     "tailwindcss": "4.1.12",
     "typescript": "^5.0.0"
-  }
+  },
+  "browserslist": [
+    ">0.3%",
+    "not dead",
+    "iOS >= 14",
+    "Android >= 8",
+    "Chrome >= 88",
+    "Safari >= 14",
+    "Firefox >= 90"
+  ]
 }

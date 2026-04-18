@@ -53,14 +53,14 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       <header className={clsx(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "bg-white/80 backdrop-blur-xl shadow-[0_1px_20px_rgba(0,0,0,0.06)]"
-          : "bg-[#EBF3F5]/80 backdrop-blur-sm"
+          ? "bg-[rgba(255,255,255,0.8)] backdrop-blur-xl shadow-[0_1px_20px_rgba(0,0,0,0.06)]"
+          : "bg-[rgba(235,243,245,0.8)] backdrop-blur-sm"
       )}>
         <div className="container mx-auto px-6 md:px-12">
           <div className={clsx(
             "flex items-center justify-between transition-all duration-500",
             scrolled ? "h-20" : "h-24",
-            !scrolled && "border-b border-[#1A1A1A]/5"
+            !scrolled && "border-b border-[rgba(26,26,26,0.05)]"
           )}>
             {/* Logo */}
             <Link href="/" onClick={(e) => handleScrollToTop(e, '/')} className="flex items-center gap-3 group">
@@ -163,10 +163,10 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="md:hidden fixed inset-0 z-[100] bg-[#EBF3F5] flex flex-col h-[100dvh] overflow-hidden"
+            className="md:hidden fixed inset-0 z-[100] bg-[#EBF3F5] flex flex-col h-screen h-[100dvh] overflow-hidden"
           >
             {/* Menu Header */}
-            <div className="flex items-center justify-between px-6 h-24 border-b border-[#1A1A1A]/5">
+            <div className="flex items-center justify-between px-6 h-24 border-b border-[rgba(26,26,26,0.05)]">
               <Link href="/" onClick={(e) => { setIsMenuOpen(false); handleScrollToTop(e, '/'); }}>
                 <Image src={logoImg} alt="Alfeco Foundation" width={128} height={40} className="h-10 w-auto object-contain" style={{ width: 'auto' }} />
               </Link>

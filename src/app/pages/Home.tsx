@@ -27,7 +27,7 @@ export function Home() {
          <ProgressBar />
 
          {/* HERO SECTION */}
-         <section className="relative min-h-[100svh] lg:min-h-[calc(100vh-6rem)] flex items-center px-6 md:px-12 py-8 lg:py-10 bg-[#EBF3F5]">
+         <section className="relative min-h-screen min-h-[100svh] lg:min-h-[calc(100vh-6rem)] flex items-center px-6 md:px-12 py-8 lg:py-10 bg-[#EBF3F5]">
             {/* Decorative blobs */}
             <div className="absolute top-20 left-10 w-72 h-72 bg-[#48B2A9]/10 rounded-full blur-3xl pointer-events-none animate-float" />
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#E8AB36]/10 rounded-full blur-3xl pointer-events-none animate-float" style={{ animationDelay: '3s' }} />
@@ -66,11 +66,11 @@ export function Home() {
                </FadeIn>
 
                <FadeIn direction="left" className="relative">
-                  <div className="grid grid-cols-2 grid-rows-2 gap-4 lg:h-[calc(100svh-10rem)] lg:min-h-[420px] lg:max-h-[720px]">
+                  <div className="grid grid-cols-2 grid-rows-2 gap-4 lg:h-[calc(100vh-10rem)] lg:h-[calc(100svh-10rem)] lg:min-h-[420px] lg:max-h-[720px]">
                      {HERO_IMAGES.map((img, idx) => (
                         <motion.div
                            key={idx}
-                           className="relative aspect-[3/4] lg:aspect-auto lg:h-full rounded-[32px] overflow-hidden group playful-card"
+                           className="relative aspect-[3/4] lg:aspect-auto lg:h-full min-h-[180px] lg:min-h-0 rounded-[32px] overflow-hidden group playful-card"
                            whileHover={{ rotate: idx % 2 === 0 ? 1 : -1 }}
                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         >
