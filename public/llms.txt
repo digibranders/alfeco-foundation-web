@@ -1,0 +1,33 @@
+# Alfeco Foundation
+
+> Alfeco Foundation is a South African nonprofit organisation based in Sandton, Gauteng, empowering communities through four pillars: Education & Development, Food Security, Women & Youth, and Conservation & Environment. Born from purpose, nurtured by family, driven by passion.
+
+## Core
+
+- [Home](https://www.alfecofoundation.com/): Mission, pillars overview, and latest impact stories.
+- [About Us](https://www.alfecofoundation.com/about): Our mission, values, and commitment to empowering communities across South Africa.
+- [Contact Us](https://www.alfecofoundation.com/contact): Visit us in Sandton, call +27-11-908-9440, or send a message to info@alfecofoundation.com.
+- [News & Events](https://www.alfecofoundation.com/news): Latest news, events, and impact stories from the Foundation.
+
+## Pillars
+
+- [Our Pillars](https://www.alfecofoundation.com/pillars): Overview of the four programme areas driving Alfeco Foundation's work.
+- [Education & Development](https://www.alfecofoundation.com/pillars/education): Bursaries, skills development, and school infrastructure programmes.
+- [Bursary Programme](https://www.alfecofoundation.com/pillars/education/bursary): Financial support for students across various fields of study.
+- [Revive & Thrive Programme](https://www.alfecofoundation.com/pillars/education/revive): Restoring and upgrading school infrastructure for better learning environments.
+- [Skills Development Programme](https://www.alfecofoundation.com/pillars/education/skills): Practical trade skills for employment and entrepreneurship.
+- [Food Security](https://www.alfecofoundation.com/pillars/food-security): Sustainable agriculture, nutrition programmes, and school feeding schemes.
+- [Women & Youth](https://www.alfecofoundation.com/pillars/women-youth): Entrepreneurship, leadership development, and financial inclusion for women and young people.
+- [Conservation & Environment](https://www.alfecofoundation.com/pillars/conservation): Protecting biodiversity, supporting wildlife sanctuaries, and promoting environmental sustainability.
+
+## Get Involved
+
+- [Get Involved](https://www.alfecofoundation.com/get-involved): Ways to support the Foundation — volunteer, donate, or partner with us.
+- [Donate](https://www.alfecofoundation.com/donate): Make a contribution that helps deliver programmes and build a better future for South African communities.
+- [Volunteer](https://www.alfecofoundation.com/volunteer): Lend your time, skills, and passion to community programmes.
+- [Corporate Partnerships](https://www.alfecofoundation.com/partnerships): Partner with us to create measurable social impact aligned with your ESG and CSI objectives.
+
+## Optional
+
+- [Privacy Policy](https://www.alfecofoundation.com/privacy): How the Foundation collects, uses, and protects personal information.
+- [Terms of Use](https://www.alfecofoundation.com/terms): Terms governing use of alfecofoundation.com.
