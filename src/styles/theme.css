@@ -134,10 +134,6 @@
 
   /* Premium playful animations */
   --animate-float: float 6s ease-in-out infinite;
-  --animate-wiggle: wiggle 1s ease-in-out infinite;
-  --animate-bounce-soft: bounce-soft 2s ease-in-out infinite;
-  --animate-shimmer: shimmer 2s linear infinite;
-  --animate-spin-slow: spin 12s linear infinite;
 }
 
 @layer base {
@@ -214,21 +210,6 @@
   50% { transform: translateY(-12px) rotate(2deg); }
 }
 
-@keyframes wiggle {
-  0%, 100% { transform: rotate(-3deg); }
-  50% { transform: rotate(3deg); }
-}
-
-@keyframes bounce-soft {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
 /* FadeIn reveal — SSR-safe: visible by default, animates only when
    data-fadein-revealed is set by JS. If JS never runs, content stays visible.
    Baseline opacity:1 + animation-fill-mode:forwards ensures content stays
@@ -252,7 +233,25 @@
 
 @media (prefers-reduced-motion: reduce) {
   [data-fadein-revealed="true"] { animation: none !important; }
+
+  .animate-float { animation: none !important; }
+
+  .playful-btn,
+  .playful-card { transition: none !important; }
+  .playful-btn:hover,
+  .playful-btn:active,
+  .playful-card:hover { transform: none !important; }
+  .group:hover .group-hover\:scale-110 { transform: none !important; }
+  .hero-tile:hover { transform: none !important; }
 }
+
+/* Stop the blurred, infinitely-animating decorative blobs on small screens
+   where `filter: blur(60px)` + transform repaints cost the most. Blobs remain
+   visible, just static. */
+@media (max-width: 640px) {
+  .animate-float { animation: none; }
+}
+
 
 /* Premium utility classes */
 .glass {
@@ -307,10 +306,6 @@
               box-shadow 0.4s ease;
 }
 
-.playful-card:hover {
-  transform: translateY(-6px) scale(1.01);
-}
-
 .playful-btn {
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
               box-shadow 0.3s ease,
@@ -318,12 +313,19 @@
               color 0.3s ease;
 }
 
-.playful-btn:hover {
-  transform: translateY(-2px) scale(1.03);
-}
-
 .playful-btn:active {
   transform: translateY(0) scale(0.98);
+}
+
+/* Hover transforms are gated on true-hover devices. iOS Safari fires a phantom
+   hover on first tap — gating prevents that tile-lift flash and keeps tap
+   latency low on Android. */
+@media (hover: hover) {
+  .playful-card:hover { transform: translateY(-6px) scale(1.01); }
+  .playful-btn:hover  { transform: translateY(-2px) scale(1.03); }
+
+  .hero-tile:hover                   { transform: translateY(-6px) scale(1.01) rotate(1deg); }
+  .hero-tile:nth-child(even):hover   { transform: translateY(-6px) scale(1.01) rotate(-1deg); }
 }
 
 /* Noise texture overlay */
