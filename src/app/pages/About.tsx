@@ -22,7 +22,7 @@ export function About() {
                 <div className="bg-white rounded-[48px] p-8 md:p-16 text-center">
                     <FadeIn>
                         <h2 className="text-3xl md:text-5xl font-semibold text-[#1A1A1A] mb-8 leading-tight">
-                            About The Alfeco Foundation
+                            The Alfeco Foundation
                         </h2>
                     </FadeIn>
 

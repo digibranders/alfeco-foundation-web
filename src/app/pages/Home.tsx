@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, useScroll, useSpring } from 'motion/react';
+import { motion, useScroll, useSpring, useReducedMotion } from 'motion/react';
 import { ArrowRight, CheckCircle2, Heart, User, GraduationCap, CookingPot } from 'lucide-react';
 import CountUp from 'react-countup';
 import { FadeIn } from '../components/FadeIn';
@@ -15,8 +15,10 @@ const HERO_IMAGES = [
 ];
 
 const ProgressBar = () => {
+   const shouldReduceMotion = useReducedMotion();
    const { scrollYProgress } = useScroll();
    const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+   if (shouldReduceMotion) return null;
    return <motion.div className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#C1272D] via-[#E8AB36] to-[#48B2A9] z-[60] origin-left" style={{ scaleX }} />;
 };
 
@@ -68,11 +70,9 @@ export function Home() {
                <FadeIn direction="left" className="relative">
                   <div className="grid grid-cols-2 grid-rows-2 gap-4 lg:h-[calc(100vh-10rem)] lg:h-[calc(100svh-10rem)] lg:min-h-[420px] lg:max-h-[720px]">
                      {HERO_IMAGES.map((img, idx) => (
-                        <motion.div
+                        <div
                            key={idx}
-                           className="relative aspect-[3/4] lg:aspect-auto lg:h-full min-h-[180px] lg:min-h-0 rounded-[32px] overflow-hidden group playful-card"
-                           whileHover={{ rotate: idx % 2 === 0 ? 1 : -1 }}
-                           transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                           className="hero-tile relative aspect-[3/4] lg:aspect-auto lg:h-full min-h-[180px] lg:min-h-0 rounded-[32px] overflow-hidden group playful-card"
                         >
                            <Image
                               src={img}
@@ -89,7 +89,7 @@ export function Home() {
                               loading={idx === 0 ? undefined : 'lazy'}
                            />
                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        </motion.div>
+                        </div>
                      ))}
                   </div>
                </FadeIn>
